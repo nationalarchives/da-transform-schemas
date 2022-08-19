@@ -1,0 +1,29 @@
+{
+    "version": "ABCDEFGHI",
+    "timestamp": "ABCDEFGHIJKLMNOPQRSTUVWXYZABC",
+    "UUIDs": [
+      {
+        "TDR-UUID": "ABCDEF"
+      },
+      {
+        "TRE-UUID": "ABCDEFG"
+      }
+    ],
+    "producer": {
+      "name": "ABCDEFGHIJKLMNOP",
+      "process": "ABCDEFGHIJKLM",
+      "type": "ABCDE",
+      "environment": "ABCDEFGHIJKLMNOPQR"
+    },
+    "parameters": {
+      "TRE": {
+        "number-of-retries": "ABCDEFGHIJKLM",
+        "reference": "ABCDEF",
+        "errors": [
+          {
+            "error": "ABCDE"
+          }
+        ]
+      }
+    }
+  }

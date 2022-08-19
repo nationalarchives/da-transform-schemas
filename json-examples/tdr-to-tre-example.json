@@ -1,0 +1,32 @@
+{
+    "version": "ABCD",
+    "timestamp": "ABCDEFGHIJKLMNOPQ",
+    "UUIDs": [
+      {
+        "TDR-UUID": "ABCDEFGH"
+      }
+    ],
+    "producer": {
+      "name": "ABCDEFGHIJKLMNOP",
+      "process": "ABCDEFGHIJKLMNOPQRSTUVWXYZABC",
+      "type": "ABCDEFGHIJKLMNOPQRST",
+      "environment": "ABCDEFGHIJKLMNOPQRSTUV"
+    },
+    "parameters": {
+      "TDR": {
+        "resource": {
+          "resource-type": "ABCDEFGHIJKLMNOPQRS",
+          "access-type": "ABCDEFGHIJKLMNO",
+          "value": "ABCDEFGHIJKLMNOPQRSTUVWXYZABC"
+        },
+        "resource-validation": {
+          "resource-type": "ABCDEFGHIJKLM",
+          "access-type": "ABCDEFGHIJKLMNOPQRSTUVWXYZABC",
+          "validation-method": "ABCDEFGHIJ",
+          "value": "ABCDEFGHIJKLMNOPQRSTUVWXYZAB"
+        },
+        "number-of-retries": "ABCDEFGHIJKLMNOPQRSTUVWXYZAB",
+        "reference": "ABCDEFGHIJKLMNOP"
+      }
+    }
+  }

@@ -1,0 +1,147 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+      "version": {
+        "type": "string"
+      },
+      "timestamp": {
+        "type": "string"
+      },
+      "UUIDs": {
+        "type": "array",
+        "items": [
+          {
+            "type": "object",
+            "properties": {
+              "TDR-UUID": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "TDR-UUID"
+            ]
+          },
+          {
+            "type": "object",
+            "properties": {
+              "TRE-UUID": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "TRE-UUID"
+            ]
+          },
+          {
+            "type": "object",
+            "properties": {
+              "TDR-UUID": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "TDR-UUID"
+            ]
+          }
+        ]
+      },
+      "producer": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "process": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "environment": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "process",
+          "type",
+          "environment"
+        ]
+      },
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "TDR": {
+            "type": "object",
+            "properties": {
+              "resource": {
+                "type": "object",
+                "properties": {
+                  "resource-type": {
+                    "type": "string"
+                  },
+                  "access-type": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "resource-type",
+                  "access-type",
+                  "value"
+                ]
+              },
+              "resource-validation": {
+                "type": "object",
+                "properties": {
+                  "resource-type": {
+                    "type": "string"
+                  },
+                  "access-type": {
+                    "type": "string"
+                  },
+                  "validation-method": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "resource-type",
+                  "access-type",
+                  "validation-method",
+                  "value"
+                ]
+              },
+              "number-of-retries": {
+                "type": "string"
+              },
+              "reference": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "resource",
+              "resource-validation",
+              "number-of-retries",
+              "reference"
+            ]
+          }
+        },
+        "required": [
+          "TDR"
+        ]
+      }
+    },
+    "required": [
+      "version",
+      "timestamp",
+      "UUIDs",
+      "producer",
+      "parameters"
+    ]
+  }

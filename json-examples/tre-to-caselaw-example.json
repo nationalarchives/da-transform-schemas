@@ -1,0 +1,100 @@
+{
+    "version": "ABCDEFGHIJK",
+    "timestamp": "ABCDEFGH",
+    "UUIDs": [
+      {
+        "TDR-UUID": "ABCDEFG"
+      },
+      {
+        "TRE-UUID": "ABCDEFGHIJKLMNOPQRST"
+      },
+      {
+        "TDR-UUID": "ABCDEFGHIJKLMNOPQR"
+      },
+      {
+        "TRE-UUID": "ABCDEFGHIJKLM"
+      }
+    ],
+    "producer": {
+      "name": "ABCDEFGHIJKLMNOPQRSTU",
+      "event-name": "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+      "type": "ABCDEFGH",
+      "environment": "ABCDEF"
+    },
+    "parameters": {
+      "caselaw-export": {
+        "TRE": {
+          "reference": "ABCDEFGHIJKLMNOPQRSTUVWXYZAB",
+          "s3-folder-url": "ABCDEFGHIJKLMNOPQRSTUVWXYZA",
+          "s3-sha256-url": "ABCDEFGHIJKLMNOPQRST",
+          "consignment-type": "ABCDEFGHIJKL",
+          "number-of-retries": 920,
+          "tar-gz": {
+            "bucket": "ABCDEFGHIJKL",
+            "key": "ABCDEFGHIJKLMNOP",
+            "items": [
+              {
+                "name": "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+                "size": 517
+              }
+            ]
+          },
+          "prod-tre-version": "ABCDEFGHIJKL",
+          "payload": {
+            "filename": "ABCDEFGHIJKLMNOPQ",
+            "xml": "ABCDEFGHIJKLMNOPQRS",
+            "metadata": "ABCDEFGHIJKLMNOPQRSTUVWX",
+            "images": [
+              "ABCDEFGHIJ"
+            ],
+            "log": "ABCD"
+          },
+          "lambda-functions-version": [
+            {
+              "prod-tre-bagit-checksum-validation": "ABCDEFGHIJKLMNOPQRSTUV"
+            },
+            {
+              "prod-tre-files-checksum-validation": "ABCDEFGH"
+            },
+            {
+              "prod-tre-prepare-parser-input": "ABCDEFGHIJKLMNOPQRSTUV"
+            },
+            {
+              "prod-tre-editorial-integration": "ABCDEFGHIJKLMNOPQRS"
+            },
+            {
+              "prod-tre-run-judgment-parser": "ABCDEFGHIJ"
+            }
+          ]
+        },
+        "PARSER": {
+          "uri": "ABCDEF",
+          "court": "ABCDEFGHIJKLMNOPQRSTUVW",
+          "cite": "ABCDEFGHIJKLMNOPQRSTUVWXYZABC",
+          "date": "ABCDEFGHIJKLM",
+          "name": "ABCDEFGHI",
+          "attachments": [],
+          "error-messages": []
+        },
+        "TDR": {
+          "Consignment-Type": "ABCDEFGHIJKLMN",
+          "Bag-Creator": "ABCDEFGHIJKL",
+          "Consignment-Start-Datetime": "ABCDEFGHIJKLMNOPQRSTU",
+          "Consignment-Series": "ABCDEFGHI",
+          "Source-Organization": "ABCDEFGHIJKLMNO",
+          "Contact-Name": "ABCDEFGHI",
+          "Internal-Sender-Identifier": "ABCDEFGHIJKLMNOPQRST",
+          "Consignment-Completed-Datetime": "ABCD",
+          "Consignment-Export-Datetime": "ABCDEFGHIJKLMNOPQRSTUVWXYZAB",
+          "Contact-Email": "ABCDEFGHIJKLMNOPQRSTUVWXYZAB",
+          "Payload-Oxum": "ABCDEFGHI",
+          "Bagging-Date": "ABCDEFGHIJKLMNOPQ"
+        }
+      }
+    },
+    "errors": {
+      "TRE": {},
+      "PARSER": {},
+      "TDR": {}
+    }
+  }

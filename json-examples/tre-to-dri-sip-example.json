@@ -1,0 +1,32 @@
+{
+    "version": "ABCDEFGHIJKLMNOPQRST",
+    "timestamp": "ABCDEFGHIJKLMNOPQRS",
+    "UUIDs": [
+      {
+        "TDR-UUID": "ABCDEFGH"
+      },
+      {
+        "TRE-UUID": "ABCDEFGHIJKLMNOPQRSTU"
+      },
+      {
+        "TDR-UUID": "ABCDEFGHIJKLMN"
+      },
+      {
+        "TRE-UUID": "ABCDEF"
+      }
+    ],
+    "producer": {
+      "name": "ABCDEFGHIJKLMNOPQRSTUVWXYZA",
+      "event-name": "ABCDEFGHIJKLMNOPQRSTUVW",
+      "type": "ABCDEFGHIJ",
+      "environment": "ABCDEFGHIJKLMNOPQRSTUVWXYZA"
+    },
+    "parameters": {
+      "parser-judgment": {
+        "reference": "ABCDEF",
+        "s3-folder-url": "ABCDEFGHIJKLMNOPQRST",
+        "s3-sha256-url": "ABCDEFGHIJKLMNOP",
+        "number-of-retries": 475
+      }
+    }
+  }

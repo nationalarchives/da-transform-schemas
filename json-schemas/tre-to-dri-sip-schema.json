@@ -1,0 +1,122 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+      "version": {
+        "type": "string"
+      },
+      "timestamp": {
+        "type": "string"
+      },
+      "UUIDs": {
+        "type": "array",
+        "items": [
+          {
+            "type": "object",
+            "properties": {
+              "TDR-UUID": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "TDR-UUID"
+            ]
+          },
+          {
+            "type": "object",
+            "properties": {
+              "TRE-UUID": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "TRE-UUID"
+            ]
+          },
+          {
+            "type": "object",
+            "properties": {
+              "TDR-UUID": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "TDR-UUID"
+            ]
+          },
+          {
+            "type": "object",
+            "properties": {
+              "TRE-UUID": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "TRE-UUID"
+            ]
+          }
+        ]
+      },
+      "producer": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "event-name": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "environment": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "event-name",
+          "type",
+          "environment"
+        ]
+      },
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "parser-judgment": {
+            "type": "object",
+            "properties": {
+              "reference": {
+                "type": "string"
+              },
+              "s3-folder-url": {
+                "type": "string"
+              },
+              "s3-sha256-url": {
+                "type": "string"
+              },
+              "number-of-retries": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "reference",
+              "s3-folder-url",
+              "s3-sha256-url",
+              "number-of-retries"
+            ]
+          }
+        },
+        "required": [
+          "parser-judgment"
+        ]
+      }
+    },
+    "required": [
+      "version",
+      "timestamp",
+      "UUIDs",
+      "producer",
+      "parameters"
+    ]
+  }

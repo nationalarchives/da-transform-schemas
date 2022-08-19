@@ -1,0 +1,472 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+      "version": {
+        "type": "string"
+      },
+      "timestamp": {
+        "type": "string"
+      },
+      "UUIDs": {
+        "type": "array",
+        "items": [
+          {
+            "type": "object",
+            "properties": {
+              "TDR-UUID": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "TDR-UUID"
+            ]
+          },
+          {
+            "type": "object",
+            "properties": {
+              "TRE-UUID": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "TRE-UUID"
+            ]
+          },
+          {
+            "type": "object",
+            "properties": {
+              "TDR-UUID": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "TDR-UUID"
+            ]
+          },
+          {
+            "type": "object",
+            "properties": {
+              "TRE-UUID": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "TRE-UUID"
+            ]
+          }
+        ]
+      },
+      "producer": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "event-name": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "environment": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "event-name",
+          "type",
+          "environment"
+        ]
+      },
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "caselaw-export": {
+            "type": "object",
+            "properties": {
+              "TRE": {
+                "type": "object",
+                "properties": {
+                  "reference": {
+                    "type": "string"
+                  },
+                  "s3-folder-url": {
+                    "type": "string"
+                  },
+                  "s3-sha256-url": {
+                    "type": "string"
+                  },
+                  "consignment-type": {
+                    "type": "string"
+                  },
+                  "number-of-retries": {
+                    "type": "integer"
+                  },
+                  "tar-gz": {
+                    "type": "object",
+                    "properties": {
+                      "bucket": {
+                        "type": "string"
+                      },
+                      "key": {
+                        "type": "string"
+                      },
+                      "items": {
+                        "type": "array",
+                        "items": [
+                          {
+                            "type": "object",
+                            "properties": {
+                              "name": {
+                                "type": "string"
+                              },
+                              "size": {
+                                "type": "integer"
+                              }
+                            },
+                            "required": [
+                              "name",
+                              "size"
+                            ]
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "name": {
+                                "type": "string"
+                              },
+                              "size": {
+                                "type": "integer"
+                              }
+                            },
+                            "required": [
+                              "name",
+                              "size"
+                            ]
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "name": {
+                                "type": "string"
+                              },
+                              "size": {
+                                "type": "integer"
+                              }
+                            },
+                            "required": [
+                              "name",
+                              "size"
+                            ]
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "name": {
+                                "type": "string"
+                              },
+                              "size": {
+                                "type": "integer"
+                              }
+                            },
+                            "required": [
+                              "name",
+                              "size"
+                            ]
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "name": {
+                                "type": "string"
+                              },
+                              "size": {
+                                "type": "integer"
+                              }
+                            },
+                            "required": [
+                              "name",
+                              "size"
+                            ]
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "name": {
+                                "type": "string"
+                              },
+                              "size": {
+                                "type": "integer"
+                              }
+                            },
+                            "required": [
+                              "name",
+                              "size"
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    "required": [
+                      "bucket",
+                      "key",
+                      "items"
+                    ]
+                  },
+                  "prod-tre-version": {
+                    "type": "string"
+                  },
+                  "payload": {
+                    "type": "object",
+                    "properties": {
+                      "filename": {
+                        "type": "string"
+                      },
+                      "xml": {
+                        "type": "string"
+                      },
+                      "metadata": {
+                        "type": "string"
+                      },
+                      "images": {
+                        "type": "array",
+                        "items": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "string"
+                          }
+                        ]
+                      },
+                      "log": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "filename",
+                      "xml",
+                      "metadata",
+                      "images",
+                      "log"
+                    ]
+                  },
+                  "lambda-functions-version": {
+                    "type": "array",
+                    "items": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "prod-tre-bagit-checksum-validation": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "prod-tre-bagit-checksum-validation"
+                        ]
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "prod-tre-files-checksum-validation": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "prod-tre-files-checksum-validation"
+                        ]
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "prod-tre-prepare-parser-input": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "prod-tre-prepare-parser-input"
+                        ]
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "prod-tre-editorial-integration": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "prod-tre-editorial-integration"
+                        ]
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "prod-tre-run-judgment-parser": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "prod-tre-run-judgment-parser"
+                        ]
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "prod-tre-slack-alerts": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "prod-tre-slack-alerts"
+                        ]
+                      }
+                    ]
+                  }
+                },
+                "required": [
+                  "reference",
+                  "s3-folder-url",
+                  "s3-sha256-url",
+                  "consignment-type",
+                  "number-of-retries",
+                  "tar-gz",
+                  "prod-tre-version",
+                  "payload",
+                  "lambda-functions-version"
+                ]
+              },
+              "PARSER": {
+                "type": "object",
+                "properties": {
+                  "uri": {
+                    "type": "string"
+                  },
+                  "court": {
+                    "type": "string"
+                  },
+                  "cite": {
+                    "type": "string"
+                  },
+                  "date": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "attachments": {
+                    "type": "array",
+                    "items": {}
+                  },
+                  "error-messages": {
+                    "type": "array",
+                    "items": {}
+                  }
+                },
+                "required": [
+                  "uri",
+                  "court",
+                  "cite",
+                  "date",
+                  "name",
+                  "attachments",
+                  "error-messages"
+                ]
+              },
+              "TDR": {
+                "type": "object",
+                "properties": {
+                  "Consignment-Type": {
+                    "type": "string"
+                  },
+                  "Bag-Creator": {
+                    "type": "string"
+                  },
+                  "Consignment-Start-Datetime": {
+                    "type": "string"
+                  },
+                  "Consignment-Series": {
+                    "type": "string"
+                  },
+                  "Source-Organization": {
+                    "type": "string"
+                  },
+                  "Contact-Name": {
+                    "type": "string"
+                  },
+                  "Internal-Sender-Identifier": {
+                    "type": "string"
+                  },
+                  "Consignment-Completed-Datetime": {
+                    "type": "string"
+                  },
+                  "Consignment-Export-Datetime": {
+                    "type": "string"
+                  },
+                  "Contact-Email": {
+                    "type": "string"
+                  },
+                  "Payload-Oxum": {
+                    "type": "string"
+                  },
+                  "Bagging-Date": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "Consignment-Type",
+                  "Bag-Creator",
+                  "Consignment-Start-Datetime",
+                  "Consignment-Series",
+                  "Source-Organization",
+                  "Contact-Name",
+                  "Internal-Sender-Identifier",
+                  "Consignment-Completed-Datetime",
+                  "Consignment-Export-Datetime",
+                  "Contact-Email",
+                  "Payload-Oxum",
+                  "Bagging-Date"
+                ]
+              }
+            },
+            "required": [
+              "TRE",
+              "PARSER",
+              "TDR"
+            ]
+          }
+        },
+        "required": [
+          "caselaw-export"
+        ]
+      },
+      "errors": {
+        "type": "object",
+        "properties": {
+          "TRE": {
+            "type": "object"
+          },
+          "PARSER": {
+            "type": "object"
+          },
+          "TDR": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "TRE",
+          "PARSER",
+          "TDR"
+        ]
+      }
+    },
+    "required": [
+      "version",
+      "timestamp",
+      "UUIDs",
+      "producer",
+      "parameters",
+      "errors"
+    ]
+  }

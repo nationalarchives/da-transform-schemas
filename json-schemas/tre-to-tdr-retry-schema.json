@@ -1,0 +1,120 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+      "version": {
+        "type": "string"
+      },
+      "timestamp": {
+        "type": "string"
+      },
+      "UUIDs": {
+        "type": "array",
+        "items": [
+          {
+            "type": "object",
+            "properties": {
+              "TDR-UUID": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "TDR-UUID"
+            ]
+          },
+          {
+            "type": "object",
+            "properties": {
+              "TRE-UUID": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "TRE-UUID"
+            ]
+          }
+        ]
+      },
+      "producer": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "process": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "environment": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "process",
+          "type",
+          "environment"
+        ]
+      },
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "TRE": {
+            "type": "object",
+            "properties": {
+              "number-of-retries": {
+                "type": "string"
+              },
+              "reference": {
+                "type": "string"
+              },
+              "errors": {
+                "type": "array",
+                "items": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "error": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "error"
+                    ]
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "error": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "error"
+                    ]
+                  }
+                ]
+              }
+            },
+            "required": [
+              "number-of-retries",
+              "reference",
+              "errors"
+            ]
+          }
+        },
+        "required": [
+          "TRE"
+        ]
+      }
+    },
+    "required": [
+      "version",
+      "timestamp",
+      "UUIDs",
+      "producer",
+      "parameters"
+    ]
+  }
