@@ -1,0 +1,46 @@
+{
+  "version": "0.0.2",
+  "timestamp": 1661155079974733000,
+  "UUIDs": [
+    {
+      "TDR-UUID": "45be6508-b693-441d-a0d6-defb3f41c1fb"
+    },
+    {
+      "TRE-UUID": "13b5e0a5-4944-46b1-abd2-f01f5c6f9abb"
+    },
+    {
+      "TRE-UUID": "03ef1432-16de-4f6b-8fbc-3afd341736eb"
+    }
+  ],
+  "producer": {
+    "environment": "dev",
+    "name": "TRE",
+    "process": "dev-tre-validate-bagit",
+    "event-name": "bagit-validated",
+    "type": "judgment"
+  },
+  "parameters": {
+    "bagit-validated": {
+      "reference": "TDR-1234-ABCD",
+      "s3-bucket": "dev-tre-common-data",
+      "s3-bagit-name": "consignments/judgment/TDR-1234-ABCD/0/TDR-1234-ABCD.tar.gz",
+      "number-of-retries": 0,
+      "errors": [],
+      "s3-object-root": "consignments/judgment/TDR-1234-ABCD/0/TDR-1234-ABCD",
+      "validated-files": {
+        "path": "consignments/judgment/TDR-1234-ABCD/0/TDR-1234-ABCD",
+        "root": [
+          "consignments/judgment/TDR-1234-ABCD/0/TDR-1234-ABCD/bag-info.txt",
+          "consignments/judgment/TDR-1234-ABCD/0/TDR-1234-ABCD/manifest-sha256.txt",
+          "consignments/judgment/TDR-1234-ABCD/0/TDR-1234-ABCD/bagit.txt",
+          "consignments/judgment/TDR-1234-ABCD/0/TDR-1234-ABCD/file-ffid.csv",
+          "consignments/judgment/TDR-1234-ABCD/0/TDR-1234-ABCD/file-metadata.csv",
+          "consignments/judgment/TDR-1234-ABCD/0/TDR-1234-ABCD/file-av.csv"
+        ],
+        "data": [
+          "consignments/judgment/TDR-1234-ABCD/0/TDR-1234-ABCD/data/test.docx"
+        ]
+      }
+    }
+  }
+}
