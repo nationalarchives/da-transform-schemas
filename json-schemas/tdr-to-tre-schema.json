@@ -1,0 +1,138 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "tdr-to-tre-schema",
+    "description": "A message from TDR to inform TRE that a new bagit package is available",
+    "type": "object",
+    "properties": {
+      "version": {
+        "type": "string"
+      },
+      "timestamp": {
+        "type": "integer"
+      },
+      "UUIDs": {
+        "type": "array",
+        "items": [
+          {
+            "type": "object",
+            "properties": {
+              "TDR-UUID": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "TDR-UUID"
+            ]
+          }
+        ]
+      },
+      "producer": {
+        "type": "object",
+        "properties": {
+          "environment": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "process": {
+            "type": "string"
+          },
+          "event-name": {
+            "type": "string",
+            "enum": [
+              "new-bagit"
+            ]
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "judgment",
+              "standard",
+              null
+            ] 
+          }
+        },
+        "required": [
+          "environment",
+          "name",
+          "process",
+          "event-name",
+          "type"
+        ],
+        "additionalProperties": false
+      },
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "new-bagit": {
+            "type": "object",
+            "properties": {
+              "resource": {
+                "type": "object",
+                "properties": {
+                  "resource-type": {
+                    "type": "string"
+                  },
+                  "access-type": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "resource-type",
+                  "access-type",
+                  "value"
+                ]
+              },
+              "resource-validation": {
+                "type": "object",
+                "properties": {
+                  "resource-type": {
+                    "type": "string"
+                  },
+                  "access-type": {
+                    "type": "string"
+                  },
+                  "validation-method": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "resource-type",
+                  "access-type",
+                  "validation-method",
+                  "value"
+                ]
+              },
+              "reference": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "resource",
+              "resource-validation",
+              "reference"
+            ]
+          }
+        },
+        "required": [
+          "new-bagit"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "version",
+      "timestamp",
+      "UUIDs",
+      "producer",
+      "parameters"
+    ],
+    "additionalProperties": false
+}
