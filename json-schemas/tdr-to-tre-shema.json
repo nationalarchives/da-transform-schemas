@@ -1,125 +1,137 @@
 {
-    "$schema": "http://json-schema.org/draft-04/schema#",
-    "type": "object",
-    "properties": {
-      "version": {
-        "type": "string"
-      },
-      "timestamp": {
-        "type": "string"
-      },
-      "UUIDs": {
-        "type": "array",
-        "items": [
-          {
-            "type": "object",
-            "properties": {
-              "TDR-UUID": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "TDR-UUID"
-            ]
-          }
-        ]
-      },
-      "producer": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string"
-          },
-          "process": {
-            "type": "string"
-          },
-          "type": {
-            "type": "string"
-          },
-          "environment": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "name",
-          "process",
-          "type",
-          "environment"
-        ]
-      },
-      "parameters": {
-        "type": "object",
-        "properties": {
-          "TDR": {
-            "type": "object",
-            "properties": {
-              "resource": {
-                "type": "object",
-                "properties": {
-                  "resource-type": {
-                    "type": "string"
-                  },
-                  "access-type": {
-                    "type": "string"
-                  },
-                  "value": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "resource-type",
-                  "access-type",
-                  "value"
-                ]
-              },
-              "resource-validation": {
-                "type": "object",
-                "properties": {
-                  "resource-type": {
-                    "type": "string"
-                  },
-                  "access-type": {
-                    "type": "string"
-                  },
-                  "validation-method": {
-                    "type": "string"
-                  },
-                  "value": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "resource-type",
-                  "access-type",
-                  "validation-method",
-                  "value"
-                ]
-              },
-              "number-of-retries": {
-                "type": "string"
-              },
-              "reference": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "resource",
-              "resource-validation",
-              "number-of-retries",
-              "reference"
-            ]
-          }
-        },
-        "required": [
-          "TDR"
-        ]
-      }
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "version": {
+      "type": "string"
     },
-    "required": [
-      "version",
-      "timestamp",
-      "UUIDs",
-      "producer",
-      "parameters"
-    ]
-  }
+    "timestamp": {
+      "type": "integer"
+    },
+    "UUIDs": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "TDR-UUID": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "TDR-UUID"
+          ]
+        }
+      ]
+    },
+    "producer": {
+      "type": "object",
+      "properties": {
+        "environment": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "process": {
+          "type": "string"
+        },
+        "event-name": {
+          "type": "string",
+          "enum": [
+            "new-bagit"
+          ]
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "judgment",
+            "standard",
+            null
+          ] 
+        }
+      },
+      "required": [
+        "environment",
+        "name",
+        "process",
+        "event-name",
+        "type"
+      ],
+      "additionalProperties": false
+    },
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "new-bagit": {
+          "type": "object",
+          "properties": {
+            "resource": {
+              "type": "object",
+              "properties": {
+                "resource-type": {
+                  "type": "string"
+                },
+                "access-type": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "resource-type",
+                "access-type",
+                "value"
+              ]
+            },
+            "resource-validation": {
+              "type": "object",
+              "properties": {
+                "resource-type": {
+                  "type": "string"
+                },
+                "access-type": {
+                  "type": "string"
+                },
+                "validation-method": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "resource-type",
+                "access-type",
+                "validation-method",
+                "value"
+              ]
+            },
+            "reference": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "resource",
+            "resource-validation",
+            "number-of-retries",
+            "reference"
+          ]
+        }
+      },
+      "required": [
+        "new-bagit"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "version",
+    "timestamp",
+    "UUIDs",
+    "producer",
+    "parameters"
+  ],
+  "additionalProperties": false
+}
