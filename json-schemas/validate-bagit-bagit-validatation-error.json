@@ -87,7 +87,7 @@
       },
       "additionalProperties": false,
       "required": [
-        "bagit-validated"
+        "bagit-validation-error"
       ]
     }
   },
@@ -95,6 +95,7 @@
     "version",
     "timestamp",
     "UUIDs",
+    "producer",
     "parameters"
   ],
   "additionalProperties": false

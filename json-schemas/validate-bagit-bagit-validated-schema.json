@@ -132,6 +132,7 @@
     "version",
     "timestamp",
     "UUIDs",
+    "producer",
     "parameters"
   ],
   "additionalProperties": false
