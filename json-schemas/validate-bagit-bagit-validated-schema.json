@@ -49,7 +49,7 @@
         "event-name": {
           "type": "string",
           "enum": [
-            "bagit-validation-error"
+            "bagit-validated"
           ]
         },
         "version": {
@@ -68,20 +68,57 @@
     "parameters": {
       "type": "object",
       "properties": {
-        "bagit-validation-error": {
+        "bagit-validated": {
           "type": "object",
           "properties": {
             "reference": {
               "type": "string"
             },
-            "errors": {
-              "type": "array",
-              "items": {}
+            "s3-bucket": {
+              "type": "string"
+            },
+            "s3-bagit-name": {
+              "type": "string"
+            },
+            "s3-object-root": {
+              "type": "string"
+            },
+            "validated-files": {
+              "type": "object",
+              "properties": {
+                "path": {
+                  "type": "string"
+                },
+                "root": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "path",
+                "root",
+                "data"
+              ]
             }
           },
+          "additionalProperties": false,
           "required": [
             "reference",
-            "errors"
+            "s3-bucket",
+            "s3-bagit-name",
+            "number-of-retries",
+            "errors",
+            "s3-object-root",
+            "validated-files"
           ]
         }
       },
