@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nationalarchives.gov.uk/da-transform/tre/schemas/bagit-validated",
+  "$ref": "https://nationalarchives.gov.uk/da-transform/tre/schemas/tre-event",
+  "type": "object",
+  "properties": {
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "bagit-validated": {
+          "type": "object",
+          "properties": {
+            "reference": {
+              "type": "string"
+            },
+            "s3-bucket": {
+              "type": "string"
+            },
+            "s3-bagit-name": {
+              "type": "string"
+            },
+            "s3-object-root": {
+              "type": "string"
+            },
+            "validated-files": {
+              "type": "object",
+              "properties": {
+                "path": {
+                  "type": "string"
+                },
+                "root": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "path",
+                  "root",
+                  "data"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "reference",
+            "s3-bucket",
+            "s3-bagit-name",
+            "s3-object-root",
+            "validated-files"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    "required": [
+      "parameters"
+    ],
+    "additionalProperties": false
+  }
+}

@@ -1,2 +1,8 @@
 /.idea
 /*.iml
+__init__.py
+__pycache__/
+/.venv/
+/venv/
+/.vscode/
+/.devcontainer/
