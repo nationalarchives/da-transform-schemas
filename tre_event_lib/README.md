@@ -1,7 +1,8 @@
 To run unit tests:
 
 ```bash
-python3 -m unittest discover ./tre_event_lib/tests -p 'test_*.py'
+cd tre_event_lib
+python3 -m unittest discover ./tests -p 'test_*.py'
 ```
 
 Note:

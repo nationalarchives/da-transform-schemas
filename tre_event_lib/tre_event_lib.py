@@ -48,17 +48,18 @@ SCHEMA_SUFFIX = '.json'
 KEY_SCHEMA_ID = '$id'
 MANIFEST = 'manifest.json'
 ABOUT = 'about.json'
-
+KEY_ABOUT_VERSION = 'version'
+PACKAGE_NAME='tre_event_lib'
 
 # Get version info from about.json (created at build time with git tag version)
 about = json.loads(
     pkgutil.get_data(
-        package=__name__,
+        package=PACKAGE_NAME,
         resource=ABOUT
     ).decode()
 )
 
-EVENT_VERSION = about['version']
+EVENT_VERSION = about[KEY_ABOUT_VERSION]
 
 
 def get_event_list() -> list:
@@ -67,7 +68,7 @@ def get_event_list() -> list:
     """
     event_list = json.loads(
         pkgutil.get_data(
-            package=__name__,
+            package=PACKAGE_NAME,
             resource=MANIFEST
         ).decode()
     )
