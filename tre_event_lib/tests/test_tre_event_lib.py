@@ -70,7 +70,9 @@ class TestEventLibCreateEvent(unittest.TestCase):
         self.assertTrue(isinstance(e, dict))
         self.assertTrue('version' in e)
         self.assertTrue('timestamp' in e)
-        self.assertTrue(int(e['timestamp']) > start_ns)
+        self.assertTrue(isinstance(e['timestamp'], int))
+        self.assertTrue(
+            int(e['timestamp']) >= start_ns, f'{e["timestamp"]} / {start_ns}')
         self.assertTrue('UUIDs' in e)
         self.assertTrue(len(e['UUIDs']) == 1)
         self.assertTrue('producer' in e)
