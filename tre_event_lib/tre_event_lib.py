@@ -87,7 +87,7 @@ def get_event_schema(event_name: str = ROOT_EVENT) -> str:
     logger.info(f'Loading schema "{schema_resource}" for event "{event_name}"')
     schema = json.loads(
         pkgutil.get_data(
-            package=__name__,
+            package=PACKAGE_NAME,
             resource=schema_resource
         ).decode()
     )
@@ -114,10 +114,19 @@ def get_schema_store() -> dict:
 
 
 def validate_event(
-    event: dict
+    event: dict,
+    event_name: str = None
 ):
-    logger.info(f'Validating event={event}')
-    event_name = event[KEY_PRODUCER][KEY_EVENT_NAME]
+    """
+    Validate `event` against JSON schema `event.producer.event-name` unless a
+    specific `event_name` is passed to identify the JSON schema to use.
+    """
+    logger.info(f'Validating event={event} event_name={event_name}')
+
+    # If no event name specified, use 
+    if not event_name:
+        event_name = event[KEY_PRODUCER][KEY_EVENT_NAME]
+        
     logger.info(f'event_name={event_name}')
     event_schema = get_event_schema(event_name=event_name)
     logger.info(f'event_schema={event_schema}')
