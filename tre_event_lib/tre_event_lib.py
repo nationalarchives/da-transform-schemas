@@ -30,8 +30,6 @@ def setup_logging(
         logging.basicConfig(level=default_level, format=format_str)
 
 
-# TODO: lookup MESSAGE_VERSION from package?
-MESSAGE_VERSION = '2.0.0'
 KEY_VERSION = 'version'
 KEY_TIMESTAMP = 'timestamp'
 KEY_UUIDS = 'UUIDs'
@@ -49,6 +47,18 @@ SCHEMA_PATH = 'tre_schemas/'
 SCHEMA_SUFFIX = '.json'
 KEY_SCHEMA_ID = '$id'
 MANIFEST = 'manifest.json'
+ABOUT = 'about.json'
+
+
+# Get version info from about.json (created at build time with git tag version)
+about = json.loads(
+    pkgutil.get_data(
+        package=__name__,
+        resource=ABOUT
+    ).decode()
+)
+
+EVENT_VERSION = about['version']
 
 
 def get_event_list() -> list:
@@ -161,7 +171,7 @@ def create_event(
     }
 
     event = {
-        KEY_VERSION: MESSAGE_VERSION,
+        KEY_VERSION: EVENT_VERSION,
         KEY_TIMESTAMP: timestamp_ns_utc,
         KEY_UUIDS: event_uuids,
         KEY_PRODUCER: event_producer,
