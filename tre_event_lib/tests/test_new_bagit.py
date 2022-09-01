@@ -6,6 +6,8 @@ import os
 import unittest
 import tre_event_lib
 import json
+import test_utils
+import jsonschema
 
 logger = logging.getLogger(__name__)
 
@@ -28,45 +30,29 @@ def setup_logging(
         logging.basicConfig(level=default_level, format=format_str)
 
 
-EVENT_NEW_BAGIT = 'new-bagit'
-ENVIRONMENT = 'unittest'
+event_valid = test_utils.load_test_event(
+    event_file_name='new-bagit.json'
+)
+
+event_invalid_event_name = test_utils.load_test_event(
+    event_file_name='new-bagit-invalid-event-name.json'
+)
+
+EVENT_NAME = 'new-bagit'
 
 
-event_valid_new_bagit_1 = {
-    'version': '1.0.0',
-    'timestamp': 42,
-    'UUIDs': [
-        {'foo-UUID': '8d02ec4d-550c-4af7-849b-c5cef5f8e820'}
-    ],
-    'producer': {
-        'name': 'foo',
-        'environment': 'foo',
-        'process': 'foo',
-        'event-name': EVENT_NEW_BAGIT,
-        'type': None
-    },
-    'parameters': {
-        EVENT_NEW_BAGIT: {
-            'resource': {
-                'resource-type': '',
-                'access-type': '',
-                'value': ''
-            },
-            'resource-validation': {
-                'resource-type': '',
-                'access-type': '',
-                'validation-method': '',
-                'value': '',
-            },
-            'reference' : ''
-        }
-    }
-}
+class TestNewBagitSchema(unittest.TestCase):
+    def test_event_valid(self):
+        tre_event_lib.validate_event(event=event_valid)
 
-
-class TestEventLibValidateNewBagitEvent(unittest.TestCase):
-    def test_validate_event(self):
-        tre_event_lib.validate_event(event=event_valid_new_bagit_1)
+    def test_event_invalid_event_name(self):
+        try:
+            tre_event_lib.validate_event(
+                event=event_invalid_event_name,
+                event_name=EVENT_NAME)
+        except jsonschema.exceptions.ValidationError as e:
+            expected = "'oops' is not one of ['new-bagit']"
+            self.assertTrue(expected in str(e))
 
 
 setup_logging(default_level=logging.WARN)
