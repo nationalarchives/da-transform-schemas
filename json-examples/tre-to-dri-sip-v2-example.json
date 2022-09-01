@@ -1,0 +1,33 @@
+{
+  "version": "ABCDEFGHIJKLMNOPQRSTUVWXYZA",
+  "timestamp": "ABCDE",
+  "UUIDs": [
+    {
+      "TDR-UUID": "ABCD"
+    },
+    {
+      "TRE-UUID": "ABCDEFGHIJ"
+    },
+    {
+      "TDR-UUID": "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    },
+    {
+      "TRE-UUID": "ABCDEFGHIJK"
+    }
+  ],
+  "producer": {
+    "name": "ABCDEFGHI",
+    "process-name": "ABCDEFGHIJKLMNOPQR",
+    "type": "ABCDEFGHIJKLMNOPQRSTUVW",
+    "environment": []
+  },
+  "parameters": {
+    "dre-export": {
+      "reference": "ABCDEFGHIJKLMNOPQR",
+      "s3-folder-url": "ABCDEFGHIJKLMNO",
+      "s3-sha256-url": "ABCDEFGHIJKLMNOPQRS",
+      "number-of-retries": 630,
+      "file-type": "ABCDEFGH"
+    }
+  }
+}
