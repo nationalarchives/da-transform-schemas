@@ -87,7 +87,7 @@
       "parameters": {
         "type": "object",
         "properties": {
-          "dre-export": {
+          "dri-export": {
             "type": "object",
             "properties": {
               "reference": {
@@ -115,7 +115,7 @@
           }
         },
         "required": [
-          "dre-export"
+          "dri-export"
         ]
       }
     },

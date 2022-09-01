@@ -22,7 +22,7 @@
     "environment": []
   },
   "parameters": {
-    "dre-export": {
+    "dri-export": {
       "reference": "ABCDEFGHIJKLMNOPQR",
       "s3-folder-url": "ABCDEFGHIJKLMNO",
       "s3-sha256-url": "ABCDEFGHIJKLMNOPQRS",
