@@ -50,6 +50,8 @@ class TestNewBagitSchema(unittest.TestCase):
             tre_event_lib.validate_event(
                 event=event_invalid_event_name,
                 event_name=EVENT_NAME)
+            
+            self.fail('Did not get expected exception')
         except jsonschema.exceptions.ValidationError as e:
             expected = "'oops' is not one of ['new-bagit']"
             self.assertTrue(expected in str(e))

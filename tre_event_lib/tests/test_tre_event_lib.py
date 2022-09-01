@@ -7,6 +7,7 @@ import unittest
 import tre_event_lib
 import json
 import time
+import jsonschema
 
 logger = logging.getLogger(__name__)
 
@@ -88,9 +89,29 @@ class TestEventLibCreateEvent(unittest.TestCase):
                 event_name='no-such-event-as-this-exists',
                 parameters=event_new_bagit_parameters
             )
+
+            self.fail('Did not get expected exception')
         except FileNotFoundError as e:
             self.assertTrue('No such file or directory' in str(e))
             self.assertTrue('no-such-event-as-this-exists.json' in str(e))
+
+
+    def test_create_event_fails_with_missing_uuids(self):
+        try:
+            e = tre_event_lib.create_event(
+                environment=ENVIRONMENT,
+                producer='alpha',
+                process='bravo',
+                event_name=EVENT_NEW_BAGIT,
+                parameters=event_new_bagit_parameters
+            )
+
+            del e['UUIDs']
+            tre_event_lib.validate_event(event=e)
+
+            self.fail('Did not get expected exception')
+        except jsonschema.exceptions.ValidationError as e:
+            self.assertTrue("'UUIDs' is a required property" in str(e))
 
 
 class TestEventLibHelperMethods(unittest.TestCase):
