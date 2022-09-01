@@ -4,6 +4,17 @@
   "$ref": "https://nationalarchives.gov.uk/da-transform/tre/schemas/tre-event",
   "type": "object",
   "properties": {
+    "producer": {
+      "type": "object",
+      "properties": {
+        "event-name": {
+          "type": "string",
+          "enum": [
+            "bagit-validated"
+          ]
+        }
+      }
+    },
     "parameters": {
       "type": "object",
       "properties": {
@@ -39,14 +50,14 @@
                   "items": {
                     "type": "string"
                   }
-                },
-                "required": [
-                  "path",
-                  "root",
-                  "data"
-                ],
-                "additionalProperties": false
-              }
+                }
+              },
+              "required": [
+                "path",
+                "root",
+                "data"
+              ],
+              "additionalProperties": false
             }
           },
           "required": [

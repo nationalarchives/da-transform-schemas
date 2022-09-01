@@ -1,0 +1,22 @@
+{
+    "version": "2.0.0",
+    "timestamp": 42,
+    "UUIDs": [
+        {
+            "foo-UUID": "8d02ec4d-550c-4af7-849b-c5cef5f8e820"
+        }
+    ],
+    "producer": {
+        "name": "foo",
+        "environment": "foo",
+        "process": "foo",
+        "event-name": "bagit-validation-error",
+        "type": null
+    },
+    "parameters": {
+        "bagit-validation-error": {
+            "reference": "",
+            "errors": []
+        }
+    }
+}

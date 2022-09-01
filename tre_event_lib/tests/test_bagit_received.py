@@ -1,33 +1,10 @@
 """
-Tests for new-bagit event.
+Tests for bagit-received event.
 """
-import logging
-import os
 import unittest
 import tre_event_lib
-import json
 import test_utils
 import jsonschema
-
-logger = logging.getLogger(__name__)
-
-
-def setup_logging(
-    default_config_file='logging.json',
-    default_level=logging.INFO,
-    log_config_env_key='LOG_CONFIG_JSON'
-):
-    """
-    Setup module logging.
-    """
-    env_key_path = os.getenv(log_config_env_key, None)
-    config_file = env_key_path if env_key_path else default_config_file
-    if os.path.exists(config_file):
-        with open(config_file, 'rt', encoding='utf-8') as f:
-            logging.config.dictConfig(json.load(f.read()))
-    else:
-        format_str = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
-        logging.basicConfig(level=default_level, format=format_str)
 
 
 event_valid = test_utils.load_test_event(
@@ -64,6 +41,3 @@ class TestBagItReceivedSchema(unittest.TestCase):
         except jsonschema.exceptions.ValidationError as e:
             expected = "'new-bagit' is not one of ['bagit-received']"
             self.assertTrue(expected in str(e))
-
-
-setup_logging(default_level=logging.WARN)

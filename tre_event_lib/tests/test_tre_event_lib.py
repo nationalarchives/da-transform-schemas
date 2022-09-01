@@ -1,34 +1,11 @@
 """
 Tests for tre_event_lib module.
 """
-import logging
-import os
 import unittest
 import tre_event_lib
-import json
 import time
 import jsonschema
-
-logger = logging.getLogger(__name__)
-
-
-def setup_logging(
-    default_config_file='logging.json',
-    default_level=logging.INFO,
-    log_config_env_key='LOG_CONFIG_JSON'
-):
-    """
-    Setup module logging.
-    """
-    env_key_path = os.getenv(log_config_env_key, None)
-    config_file = env_key_path if env_key_path else default_config_file
-    if os.path.exists(config_file):
-        with open(config_file, 'rt', encoding='utf-8') as f:
-            logging.config.dictConfig(json.load(f.read()))
-    else:
-        format_str = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
-        logging.basicConfig(level=default_level, format=format_str)
-
+import test_utils
 
 EVENT_NEW_BAGIT = 'new-bagit'
 ENVIRONMENT = 'unittest'
@@ -36,22 +13,12 @@ TRE_EVENT = 'tre-event'
 TRE_EVENT_ID_KEY = '$id'
 TRE_EVENT_ID = 'https://nationalarchives.gov.uk/da-transform/tre/schemas/tre-event'
 
-event_new_bagit_parameters = {
-    EVENT_NEW_BAGIT: {
-        'resource': {
-            'resource-type': '',
-            'access-type': '',
-            'value': ''
-        },
-        'resource-validation': {
-            'resource-type': '',
-            'access-type': '',
-            'validation-method': '',
-            'value': '',
-        },
-        'reference' : ''
-    }
-}
+# Load example event and extract parameters section for test
+event_new_bagit = test_utils.load_test_event(
+    event_file_name='new-bagit.json'
+)
+
+event_new_bagit_parameters = event_new_bagit['parameters']
 
 
 class TestEventLibCreateEvent(unittest.TestCase):
@@ -66,8 +33,6 @@ class TestEventLibCreateEvent(unittest.TestCase):
             parameters=event_new_bagit_parameters
         )
 
-        logger.info(f'test_create_event_with_no_prior_event e={e}')
-
         self.assertTrue(isinstance(e, dict))
         self.assertTrue('version' in e)
         self.assertTrue('timestamp' in e)
@@ -78,7 +43,53 @@ class TestEventLibCreateEvent(unittest.TestCase):
         self.assertTrue(len(e['UUIDs']) == 1)
         self.assertTrue('producer' in e)
         self.assertTrue('parameters' in e)
-        
+
+
+    def test_event_chaining(self):
+        e1 = tre_event_lib.create_event(
+            environment=ENVIRONMENT,
+            producer='alpha',
+            process='foo',
+            event_name=EVENT_NEW_BAGIT,
+            parameters=event_new_bagit_parameters
+        )
+
+        e2 = tre_event_lib.create_event(
+            environment=ENVIRONMENT,
+            producer='bravo',
+            process='bar',
+            event_name=EVENT_NEW_BAGIT,
+            parameters=event_new_bagit_parameters,
+            prior_message=e1
+        )
+
+        e3 = tre_event_lib.create_event(
+            environment=ENVIRONMENT,
+            producer='charlie',
+            process='baz',
+            event_name=EVENT_NEW_BAGIT,
+            parameters=event_new_bagit_parameters,
+            prior_message=e2
+        )
+
+        print(e1)
+        print(e2)
+        print(e3)
+        key_uuids = tre_event_lib.KEY_UUIDS
+        self.assertTrue(isinstance(e3[key_uuids], list))
+        self.assertTrue(len(e1[key_uuids]) == 1)
+        self.assertTrue(len(e2[key_uuids]) == 2)
+        self.assertTrue(len(e3[key_uuids]) == 3)
+        self.assertTrue('alpha-UUID' == list(e3[key_uuids][0])[0])
+        self.assertTrue('bravo-UUID' == list(e3[key_uuids][1])[0])
+        self.assertTrue('charlie-UUID' == list(e3[key_uuids][2])[0])
+        self.assertTrue('alpha' == e1['producer']['name'])
+        self.assertTrue('bravo' == e2['producer']['name'])
+        self.assertTrue('charlie' == e3['producer']['name'])
+        self.assertTrue('foo' == e1['producer']['process'])
+        self.assertTrue('bar' == e2['producer']['process'])
+        self.assertTrue('baz' == e3['producer']['process'])
+
 
     def test_create_event_fails_with_invalid_event_name(self):
         try:
@@ -130,6 +141,3 @@ class TestEventLibHelperMethods(unittest.TestCase):
         self.assertTrue(isinstance(ssd, dict))
         self.assertTrue(TRE_EVENT_ID in ssd)
         self.assertTrue(TRE_EVENT_ID_KEY in ssd[TRE_EVENT_ID])
-
-
-setup_logging(default_level=logging.WARN)

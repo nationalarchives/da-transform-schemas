@@ -1,3 +1,6 @@
+"""
+Helper code for event testing.
+"""
 import os
 import sys
 import json
