@@ -1,0 +1,33 @@
+{
+  "version": "2.0.0",
+  "timestamp": 1661340417609575000,
+  "UUIDs": [
+    {
+      "TDR-UUID": "ABCDEFGHIJK"
+    },
+    {
+      "TRE-UUID": "ABCDEFGHIJKLMNOPQRSTUVWXYZABC"
+    },
+    {
+      "TDR-UUID": "ABCDEFGHIJKLMNOPQRS"
+    },
+    {
+      "TRE-UUID": "ABCDEFGHIJKLMNOPQRSTUVWXYZA"
+    }
+  ],
+  "producer": {
+    "name": "ABCDEF",
+    "event-name": "dri-preingest-sip-accessible",
+    "type": "ABCDEFGHIJKLM",
+    "environment": []
+  },
+  "parameters": {
+    "dri-preingest-sip-accessible": {
+      "reference": "ABCDEFGHIJKLMNOPQRSTUVWXY",
+      "s3-folder-url": "ABCDEFGHIJKLMNOPQRSTUV",
+      "s3-sha256-url": "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+      "number-of-retries": 493,
+      "file-type": "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    }
+  }
+}
