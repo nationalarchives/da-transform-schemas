@@ -10,4 +10,4 @@ __pycache__/
 /tre_event_lib/dist/
 /tre_event_lib/tre_event_lib.egg-info/
 # about.json is created by /tre_event_lib/build.sh with git tag version
-#/tre_event_lib/tre_event_lib/about.json
+/tre_event_lib/tre_event_lib/about.json
