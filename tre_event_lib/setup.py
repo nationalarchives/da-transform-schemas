@@ -10,17 +10,10 @@ setuptools.setup(
     name='tre_event_lib',
     version=build_version,
     description='TRE Python JSON schema event library',
-    # py_modules=['tre_event_api'],
-    # packages=['tre_schemas', ''],
-    packages=['tre_schemas', 'tre_event_api'],
-    package_dir={
-        'tre_schemas': 'tre_schemas',
-        'tre_event_api': '.'
-    },
+    packages=['tre_event_lib.tre_schemas', 'tre_event_lib'],
     package_data={
-        'tre_schemas': ['*.json'],
-        'tre_event_api': [
-            'manifest.json',
+        'tre_event_lib.tre_schemas': ['*.json'],
+        'tre_event_lib': [
             'about.json'
         ]
     },

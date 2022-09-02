@@ -2,9 +2,9 @@
 Tests for bagit-received event.
 """
 import unittest
-import tre_event_api
-import test_utils
 import jsonschema
+import test_utils
+from tre_event_lib import tre_event_api
 
 
 event_valid = test_utils.load_test_event(
@@ -20,24 +20,31 @@ EVENT_NAME = 'bagit-received'
 
 
 class TestBagItReceivedSchema(unittest.TestCase):
+    """Test bagit_received schema"""
     def test_event_valid(self):
+        """Test valid event scenario"""
         tre_event_api.validate_event(event=event_valid)
 
     def test_event_invalid_parameters(self):
+        """Verify invalid parameter values fail"""
         try:
             tre_event_api.validate_event(event=event_invalid_params)
             self.fail('Did not get expected exception')
-        except jsonschema.exceptions.ValidationError as e:
-            expected = "Failed validating 'required' in schema['properties']['parameters']['properties']['bagit-received']"
-            self.assertTrue(expected in str(e))
+        except jsonschema.exceptions.ValidationError as v_err:
+            expected = (
+                "Failed validating 'required' in schema['properties']"
+                "['parameters']['properties']['bagit-received']"
+            )
+            self.assertTrue(expected in str(v_err))
 
     def test_invalid_parameter_event_name(self):
+        """Verify invalid event-name fails"""
         try:
             tre_event_api.validate_event(
                 event=event_invalid_event_name,
                 event_name=EVENT_NAME)
-            
+
             self.fail('Did not get expected exception')
-        except jsonschema.exceptions.ValidationError as e:
+        except jsonschema.exceptions.ValidationError as v_err:
             expected = "'new-bagit' is not one of ['bagit-received']"
-            self.assertTrue(expected in str(e))
+            self.assertTrue(expected in str(v_err))

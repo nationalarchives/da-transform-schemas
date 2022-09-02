@@ -1,16 +1,17 @@
 """
-Code to support using TRE event JSON schemas.
+Module to support TRE event handling with JSON schema validation.
 """
 import logging
+import logging.config
 import os
 import pkgutil
 import json
 import time
 import uuid
 import jsonschema
+import pkg_resources
 
 logger = logging.getLogger(__name__)
-
 
 def setup_logging(
     default_config_file='logging.json',
@@ -23,12 +24,13 @@ def setup_logging(
     env_key_path = os.getenv(log_config_env_key, None)
     config_file = env_key_path if env_key_path else default_config_file
     if os.path.exists(config_file):
-        with open(config_file, 'rt', encoding='utf-8') as f:
-            logging.config.dictConfig(json.load(f.read()))
+        with open(config_file, 'rt', encoding='utf-8') as file_ptr:
+            logging.config.dictConfig(json.load(file_ptr))
     else:
         format_str = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
         logging.basicConfig(level=default_level, format=format_str)
 
+setup_logging(default_level=logging.INFO)
 
 KEY_VERSION = 'version'
 KEY_TIMESTAMP = 'timestamp'
@@ -43,38 +45,45 @@ KEY_ENVIRONMENT = 'environment'
 KEY_PARAMETERS = 'parameters'
 
 ROOT_EVENT = 'tre-event'
-SCHEMA_PATH = 'tre_schemas/'
 SCHEMA_SUFFIX = '.json'
 KEY_SCHEMA_ID = '$id'
 MANIFEST = 'manifest.json'
 ABOUT = 'about.json'
 KEY_ABOUT_VERSION = 'version'
-PACKAGE_NAME='tre_event_api'
+PACKAGE_NAME='tre_event_lib'
+MODULE_NAME='tre_event_api'
+SCHEMA_DIR = 'tre_schemas'
 
 # Get version info from about.json (created at build time with git tag version)
-about = json.loads(
-    pkgutil.get_data(
-        package=PACKAGE_NAME,
-        resource=ABOUT
-    ).decode()
-)
+about = {
+    KEY_ABOUT_VERSION: None
+}
+
+if __name__ =='__main__':
+    # Handle case of running locally, not as whl import
+    about_file = os.path.join(os.path.dirname(__file__), ABOUT)
+    with open(about_file, 'rt', encoding='utf-8') as fp:
+        about = json.load(fp=fp)
+else:
+    about = json.loads(
+        pkgutil.get_data(
+            package=__name__,
+            resource=ABOUT
+        ).decode()
+    )
 
 EVENT_VERSION = about[KEY_ABOUT_VERSION]
 
 
 def get_event_list() -> list:
     """
-    Lists event names in module's manifest file.
+    Lists available event names from package's tre_schemas dir.
     """
-    event_list = json.loads(
-        pkgutil.get_data(
-            package=PACKAGE_NAME,
-            resource=MANIFEST
-        ).decode()
-    )
+    event_list = []
 
-    if not isinstance(event_list, list):
-        raise ValueError(f'Event list is type "{type(event_list)}", not list')
+    # Consider migrating to importlib.resources.files
+    for name in pkg_resources.resource_listdir(PACKAGE_NAME, SCHEMA_DIR):
+        event_list.append(name[:-5])  # strip '.json'
 
     return event_list
 
@@ -83,11 +92,11 @@ def get_event_schema(event_name: str = ROOT_EVENT) -> str:
     """
     Returns the JSON schema for a given event name.
     """
-    schema_resource = SCHEMA_PATH + event_name + SCHEMA_SUFFIX
+    schema_resource = os.path.join(SCHEMA_DIR, event_name + SCHEMA_SUFFIX)
     logger.info('Loading schema "%s" for event "%s"', schema_resource, event_name)
     schema = json.loads(
         pkgutil.get_data(
-            package=PACKAGE_NAME,
+            package=__name__,
             resource=schema_resource
         ).decode()
     )
@@ -121,8 +130,8 @@ def validate_event(
     event_name: str = None
 ):
     """
-    Validate `event` against JSON schema `event.producer.event-name` unless a
-    specific `event_name` is passed to identify the JSON schema to use.
+    Validate `event` against JSON schema for `event.producer.event-name`
+    unless specific `event_name` passed to specify the JSON schema to use.
     """
     logger.info('Validating event=%s event_name=%s', event, event_name)
 
@@ -152,24 +161,25 @@ def create_event(
     event_name: str,
     parameters: dict,
     consignment_type: str = None,  # consignment_type as "type" shadows Python
-    prior_message: dict = None
+    prior_event: dict = None
 ) -> dict:
     """
     Create a TRE event from the given arguments. The event has a new UUID
     appended to its UUID list and it is assigned a current timestamp value.
-    
-    If `prior_message` is given:
+
+    If `prior_event` is given:
+    * It is validated against its schema (from its `producer.event-name` field)
     * The prior message's UUID list is prepended to the new event's UUID list
     * If the `consignment_type` argument is not given, the prior message's
-      consignment type is used for the new event 
+      consignment type is used for the new event
     """
     timestamp_ns_utc = time.time_ns()
 
     event_uuids = []
-    if prior_message:
-        validate_event(event=prior_message)
+    if prior_event:
+        validate_event(event=prior_event)
         # Use [:] to copy (not reference) prior UUIDs
-        event_uuids = prior_message[KEY_UUIDS][:]
+        event_uuids = prior_event[KEY_UUIDS][:]
 
     # Create new UUID and corresponding key name (with producer name)
     key_uuid = f'{producer}{UUID_KEY_SUFFIX}'
@@ -182,8 +192,8 @@ def create_event(
     event_type = None
     if consignment_type:
         event_type = consignment_type
-    elif prior_message and (KEY_TYPE in prior_message):
-        event_type = prior_message[KEY_TYPE]
+    elif prior_event and (KEY_TYPE in prior_event):
+        event_type = prior_event[KEY_TYPE]
 
     event_producer = {
         KEY_ENVIRONMENT: environment,
@@ -203,7 +213,3 @@ def create_event(
 
     validate_event(event=event)
     return event
-
-
-if __name__ == "__main__":
-    setup_logging(default_level=logging.INFO)

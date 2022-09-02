@@ -2,23 +2,25 @@ To run unit tests:
 
 ```bash
 cd tre_event_lib
-python3 -m unittest discover ./tests -p 'test_*.py'
+
+# All tests:
+python3 -m unittest discover ./tre_event_lib/tests -p 'test_*.py'
+
+# An individual test:
+python3 -m unittest discover ./tre_event_lib/tests -p 'test_bagit_received.py'
 ```
 
-Note:
-
-The `tre_schemas` directory is currently linked into the `tre_event_lib`
-directory with the following:
+To build Python `whl` package with API and schemas:
 
 ```bash
-# From project root:
-ln -s ../tre_schemas tre_event_lib/tre_schemas
+cd tre_event_lib
+./build.sh
 ```
 
 Docker Testing Notes:
 
 ```bash
-# Run from project root to map /host to repo's files
+# Run this from project root to map /host to all the repo's files
 docker run \
   --tty \
   --interactive \
@@ -26,19 +28,29 @@ docker run \
   --mount "type=bind,source=${PWD},target=/host,readonly" \
   --entrypoint bash \
   python:3.8.13-buster
+
+# 3.9
+docker run \
+  --tty \
+  --interactive \
+  --rm \
+  --mount "type=bind,source=${PWD},target=/host,readonly" \
+  --entrypoint bash \
+  python:3.9.13-bullseye
 ```
 
 ```bash
-# Install libraries
-pip3 install "$(find /host/tre_event_lib/dist -name '*.whl')" \
-  && pip3 install jsonschema
+# To install libraries from container's CLI:
+pip3 install jsonschema \
+&& pip3 install "$(find /host/tre_event_lib/dist -name '*.whl')"
 ```
 
 ```bash
 # Python examples
-python3 -c 'import tre_event_lib; print(tre_event_lib.EVENT_VERSION)'
-python3 -c 'import tre_event_lib; print(tre_event_lib.get_schema_store())'
+python3 -c 'from tre_event_lib import tre_event_api; print(tre_event_api.EVENT_VERSION)'
+python3 -c 'from tre_event_lib import tre_event_api; print(tre_event_api.get_event_list())'
+python3 -c 'from tre_event_lib import tre_event_api; print(tre_event_api.get_schema_store())'
 
-# Or run Python shell
+# Or just run a Python shell...
 python3
 ```

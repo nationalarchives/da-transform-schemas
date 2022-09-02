@@ -1,6 +1,5 @@
 /.idea
 /*.iml
-__init__.py
 __pycache__/
 /.venv/
 /venv/
@@ -10,5 +9,5 @@ __pycache__/
 /tre_event_lib/build/
 /tre_event_lib/dist/
 /tre_event_lib/tre_event_lib.egg-info/
-# about.json is created at build time with git tag version
-/tre_event_lib/about.json
+# about.json is created by /tre_event_lib/build.sh with git tag version
+#/tre_event_lib/tre_event_lib/about.json

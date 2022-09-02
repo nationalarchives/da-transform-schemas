@@ -13,6 +13,8 @@
 set -e
 
 function build() {
+  local pkg_name='tre_event_lib'
+
   printf 'Attempting to get latest git tag from branch commit\n'
   local latest_tag_branch_commit
   if latest_tag_branch_commit="$(git describe --exact-match --abbrev=0)"; then
@@ -33,25 +35,21 @@ function build() {
   printf 'BUILD_VERSION=%s\n' "${BUILD_VERSION:?}"
 
   # Remove local build files to ensure clean environment
-  local api_name='tre_event_lib'
-  printf 'Removing local build files\n'
-  rm -rfv build/
-  rm -rfv dist/
-  rm -rfv "${api_name}.egg-info/"
+  ./clean.sh
 
   # Create build specific content (e.g. version from git tag)
-  printf '{\n  "version": "%s"\n}\n' "${BUILD_VERSION}" > about.json
+  printf '{\n  "version": "%s"\n}\n' "${BUILD_VERSION}" > "${pkg_name}/about.json"
 
   # Check tests pass
   printf 'Running Python tests\n'
   export BUILD_VERSION
-  python3 -m unittest discover ./tests -p 'test_*.py'
+  python3 -m unittest discover "${pkg_name}/tests" -p 'test_*.py'
 
   # Build package .whl file in ./dist/
   printf 'Building\n'
   python3 setup.py bdist_wheel
 
-  printf -- '--- output -------------------------------------------------\n'
+  printf -- '--- ./dist -------------------------------------------------\n'
   find ./dist -name '*.whl'
   printf -- '------------------------------------------------------------\n'
   unzip -l "$(find ./dist -name '*.whl')"
