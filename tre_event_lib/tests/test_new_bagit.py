@@ -2,7 +2,7 @@
 Tests for new-bagit event.
 """
 import unittest
-import tre_event_lib
+import tre_event_api
 import test_utils
 import jsonschema
 
@@ -20,11 +20,11 @@ EVENT_NAME = 'new-bagit'
 
 class TestNewBagitSchema(unittest.TestCase):
     def test_event_valid(self):
-        tre_event_lib.validate_event(event=event_valid)
+        tre_event_api.validate_event(event=event_valid)
 
     def test_event_invalid_event_name(self):
         try:
-            tre_event_lib.validate_event(
+            tre_event_api.validate_event(
                 event=event_invalid_event_name,
                 event_name=EVENT_NAME)
             

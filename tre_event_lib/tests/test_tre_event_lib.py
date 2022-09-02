@@ -1,8 +1,8 @@
 """
-Tests for tre_event_lib module.
+Tests for tre_event_api module.
 """
 import unittest
-import tre_event_lib
+import tre_event_api
 import time
 import jsonschema
 import test_utils
@@ -25,7 +25,7 @@ class TestEventLibCreateEvent(unittest.TestCase):
     def test_create_event_with_no_prior_event(self):
         start_ns = time.time_ns()
 
-        e = tre_event_lib.create_event(
+        e = tre_event_api.create_event(
             environment=ENVIRONMENT,
             producer='alpha',
             process='bravo',
@@ -46,7 +46,7 @@ class TestEventLibCreateEvent(unittest.TestCase):
 
 
     def test_event_chaining(self):
-        e1 = tre_event_lib.create_event(
+        e1 = tre_event_api.create_event(
             environment=ENVIRONMENT,
             producer='alpha',
             process='foo',
@@ -54,7 +54,7 @@ class TestEventLibCreateEvent(unittest.TestCase):
             parameters=event_new_bagit_parameters
         )
 
-        e2 = tre_event_lib.create_event(
+        e2 = tre_event_api.create_event(
             environment=ENVIRONMENT,
             producer='bravo',
             process='bar',
@@ -63,7 +63,7 @@ class TestEventLibCreateEvent(unittest.TestCase):
             prior_message=e1
         )
 
-        e3 = tre_event_lib.create_event(
+        e3 = tre_event_api.create_event(
             environment=ENVIRONMENT,
             producer='charlie',
             process='baz',
@@ -75,7 +75,7 @@ class TestEventLibCreateEvent(unittest.TestCase):
         print(e1)
         print(e2)
         print(e3)
-        key_uuids = tre_event_lib.KEY_UUIDS
+        key_uuids = tre_event_api.KEY_UUIDS
         self.assertTrue(isinstance(e3[key_uuids], list))
         self.assertTrue(len(e1[key_uuids]) == 1)
         self.assertTrue(len(e2[key_uuids]) == 2)
@@ -93,7 +93,7 @@ class TestEventLibCreateEvent(unittest.TestCase):
 
     def test_create_event_fails_with_invalid_event_name(self):
         try:
-            tre_event_lib.create_event(
+            tre_event_api.create_event(
                 environment=ENVIRONMENT,
                 producer='alpha',
                 process='bravo',
@@ -109,7 +109,7 @@ class TestEventLibCreateEvent(unittest.TestCase):
 
     def test_create_event_fails_with_missing_uuids(self):
         try:
-            e = tre_event_lib.create_event(
+            e = tre_event_api.create_event(
                 environment=ENVIRONMENT,
                 producer='alpha',
                 process='bravo',
@@ -118,7 +118,7 @@ class TestEventLibCreateEvent(unittest.TestCase):
             )
 
             del e['UUIDs']
-            tre_event_lib.validate_event(event=e)
+            tre_event_api.validate_event(event=e)
 
             self.fail('Did not get expected exception')
         except jsonschema.exceptions.ValidationError as e:
@@ -127,17 +127,17 @@ class TestEventLibCreateEvent(unittest.TestCase):
 
 class TestEventLibHelperMethods(unittest.TestCase):
     def test_schema_list(self):
-        schema_list = tre_event_lib.get_event_list()
+        schema_list = tre_event_api.get_event_list()
         self.assertTrue(isinstance(schema_list, list))
         self.assertTrue(TRE_EVENT in schema_list)
         self.assertTrue(EVENT_NEW_BAGIT in schema_list)
 
     def test_get_schema(self):
-        schema = tre_event_lib.get_event_schema(event_name=TRE_EVENT)
+        schema = tre_event_api.get_event_schema(event_name=TRE_EVENT)
         self.assertEqual(schema[TRE_EVENT_ID_KEY], TRE_EVENT_ID)
 
     def test_get_schema_store(self):
-        ssd = tre_event_lib.get_schema_store()
+        ssd = tre_event_api.get_schema_store()
         self.assertTrue(isinstance(ssd, dict))
         self.assertTrue(TRE_EVENT_ID in ssd)
         self.assertTrue(TRE_EVENT_ID_KEY in ssd[TRE_EVENT_ID])
