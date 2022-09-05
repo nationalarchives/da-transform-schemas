@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://nationalarchives.gov.uk/da-transform/tre/schemas/new-bagit",
+  "$id": "https://nationalarchives.gov.uk/da-transform/tre/schemas/bagit-available",
   "$ref": "https://nationalarchives.gov.uk/da-transform/tre/schemas/tre-event",
   "type": "object",
   "properties": {
@@ -10,7 +10,7 @@
         "event-name": {
           "type": "string",
           "enum": [
-            "new-bagit"
+            "bagit-available"
           ]
         }
       }
@@ -18,7 +18,7 @@
     "parameters": {
       "type": "object",
       "properties": {
-        "new-bagit": {
+        "bagit-available": {
           "type": "object",
           "properties": {
             "resource": {
@@ -75,7 +75,7 @@
         }
       },
       "required": [
-        "new-bagit"
+        "bagit-available"
       ],
       "additionalProperties": false
     },

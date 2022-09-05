@@ -7,18 +7,18 @@ import jsonschema
 import test_utils
 from tre_event_lib import tre_event_api
 
-EVENT_NEW_BAGIT = 'new-bagit'
+EVENT_BAGIT_AVAILABLE = 'bagit-available'
 ENVIRONMENT = 'unittest'
 TRE_EVENT = 'tre-event'
 TRE_EVENT_ID_KEY = '$id'
 TRE_EVENT_ID = 'https://nationalarchives.gov.uk/da-transform/tre/schemas/tre-event'
 
 # Load example event and extract parameters section for test
-event_new_bagit = test_utils.load_test_event(
-    event_file_name='new-bagit.json'
+event_bagit_available = test_utils.load_test_event(
+    event_file_name='bagit-available.json'
 )
 
-event_new_bagit_parameters = event_new_bagit['parameters']
+event_bagit_available_parameters = event_bagit_available['parameters']
 
 
 class TestEventLibCreateEvent(unittest.TestCase):
@@ -31,8 +31,8 @@ class TestEventLibCreateEvent(unittest.TestCase):
             environment=ENVIRONMENT,
             producer='alpha',
             process='bravo',
-            event_name=EVENT_NEW_BAGIT,
-            parameters=event_new_bagit_parameters
+            event_name=EVENT_BAGIT_AVAILABLE,
+            parameters=event_bagit_available_parameters
         )
 
         self.assertTrue(isinstance(event_1, dict))
@@ -54,16 +54,16 @@ class TestEventLibCreateEvent(unittest.TestCase):
             environment=ENVIRONMENT,
             producer='alpha',
             process='foo',
-            event_name=EVENT_NEW_BAGIT,
-            parameters=event_new_bagit_parameters
+            event_name=EVENT_BAGIT_AVAILABLE,
+            parameters=event_bagit_available_parameters
         )
 
         event_2 = tre_event_api.create_event(
             environment=ENVIRONMENT,
             producer='bravo',
             process='bar',
-            event_name=EVENT_NEW_BAGIT,
-            parameters=event_new_bagit_parameters,
+            event_name=EVENT_BAGIT_AVAILABLE,
+            parameters=event_bagit_available_parameters,
             prior_event=event_1
         )
 
@@ -71,8 +71,8 @@ class TestEventLibCreateEvent(unittest.TestCase):
             environment=ENVIRONMENT,
             producer='charlie',
             process='baz',
-            event_name=EVENT_NEW_BAGIT,
-            parameters=event_new_bagit_parameters,
+            event_name=EVENT_BAGIT_AVAILABLE,
+            parameters=event_bagit_available_parameters,
             prior_event=event_2
         )
 
@@ -99,7 +99,7 @@ class TestEventLibCreateEvent(unittest.TestCase):
                 producer='alpha',
                 process='bravo',
                 event_name='no-such-event-as-this-exists',
-                parameters=event_new_bagit_parameters
+                parameters=event_bagit_available_parameters
             )
 
             self.fail('Did not get expected exception')
@@ -116,8 +116,8 @@ class TestEventLibValidateEvent(unittest.TestCase):
                 environment=ENVIRONMENT,
                 producer='alpha',
                 process='bravo',
-                event_name=EVENT_NEW_BAGIT,
-                parameters=event_new_bagit_parameters
+                event_name=EVENT_BAGIT_AVAILABLE,
+                parameters=event_bagit_available_parameters
             )
 
             del event_1['UUIDs']
@@ -135,7 +135,7 @@ class TestEventLibHelperMethods(unittest.TestCase):
         schema_list = tre_event_api.get_event_list()
         self.assertTrue(isinstance(schema_list, list))
         self.assertTrue(TRE_EVENT in schema_list)
-        self.assertTrue(EVENT_NEW_BAGIT in schema_list)
+        self.assertTrue(EVENT_BAGIT_AVAILABLE in schema_list)
 
     def test_get_schema(self):
         """Confirm get_event_schema works."""
