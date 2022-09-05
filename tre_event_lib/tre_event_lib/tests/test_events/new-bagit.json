@@ -1,0 +1,30 @@
+{
+    "version": "1.0.0",
+    "timestamp": 42,
+    "UUIDs": [
+        {"foo-UUID": "8d02ec4d-550c-4af7-849b-c5cef5f8e820"}
+    ],
+    "producer": {
+        "name": "foo",
+        "environment": "foo",
+        "process": "foo",
+        "event-name": "new-bagit",
+        "type": null
+    },
+    "parameters": {
+        "new-bagit": {
+            "resource": {
+                "resource-type": "",
+                "access-type": "",
+                "value": ""
+            },
+            "resource-validation": {
+                "resource-type": "",
+                "access-type": "",
+                "validation-method": "",
+                "value": ""
+            },
+            "reference" : ""
+        }
+    }
+}

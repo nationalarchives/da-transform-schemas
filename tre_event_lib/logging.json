@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "disable_existing_loggers": false,
+  "formatters": {
+    "default-formatter": {
+      "class": "logging.Formatter",
+      "format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+    }
+  },
+  "handlers": {
+    "console-stdout": {
+      "class": "logging.StreamHandler",
+      "formatter": "default-formatter",
+      "stream": "ext://sys.stdout"
+    }
+  },
+  "loggers": {
+    "root": {
+      "handlers": ["console-stdout"],
+      "level": "WARN"
+    },
+    "tre_event_lib.tre_event_api": {
+      "handlers": ["console-stdout"],
+      "level": "WARN",
+      "propagate": false
+    }
+  }
+}

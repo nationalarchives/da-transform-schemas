@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nationalarchives.gov.uk/da-transform/tre/schemas/bagit-received",
+  "$ref": "https://nationalarchives.gov.uk/da-transform/tre/schemas/tre-event",
+  "type": "object",
+  "properties": {
+    "producer": {
+      "type": "object",
+      "properties": {
+        "event-name": {
+          "type": "string",
+          "enum": [
+            "bagit-received"
+          ]
+        }
+      }
+    },
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "bagit-received": {
+          "type": "object",
+          "properties": {
+            "reference": {
+              "type": "string"
+            },
+            "s3-bucket": {
+              "type": "string"
+            },
+            "s3-bagit-name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "reference",
+            "s3-bucket",
+            "s3-bagit-name"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    "required": [
+      "parameters"
+    ],
+    "additionalProperties": false
+  }
+}

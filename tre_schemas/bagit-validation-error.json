@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nationalarchives.gov.uk/da-transform/tre/schemas/bagit-validation-error",
+  "$ref": "https://nationalarchives.gov.uk/da-transform/tre/schemas/tre-event",
+  "type": "object",
+  "properties": {
+    "producer": {
+      "type": "object",
+      "properties": {
+        "event-name": {
+          "type": "string",
+          "enum": [
+            "bagit-validation-error"
+          ]
+        }
+      }
+    },
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "bagit-validation-error": {
+          "type": "object",
+          "properties": {
+            "reference": {
+              "type": "string"
+            },
+            "errors": {
+              "type": "array",
+              "items": {}
+            }
+          },
+          "required": [
+            "reference",
+            "errors"
+          ]
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "bagit-validation-error"
+      ]
+    }
+  }
+}

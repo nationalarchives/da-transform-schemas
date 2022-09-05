@@ -1,69 +1,19 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nationalarchives.gov.uk/da-transform/tre/schemas/bagit-validated",
+  "$ref": "https://nationalarchives.gov.uk/da-transform/tre/schemas/tre-event",
   "type": "object",
   "properties": {
-    "version": {
-      "type": "string"
-    },
-    "timestamp": {
-      "type": "integer"
-    },
-    "UUIDs": {
-      "type": "array",
-      "minItems": 1,
-      "items": {
-        "type": "object",
-        "patternProperties": {
-          "^[a-zA-Z0-9_-]+-UUID$": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
-          }
-        },
-        "additionalProperties": false
-      },
-      "additionalProperties": false
-    },
     "producer": {
       "type": "object",
       "properties": {
-        "name": {
-          "type": "string"
-        },
-        "process": {
-          "type": "string"
-        },
-        "type": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "enum": [
-            "judgment",
-            "standard",
-            null
-          ]
-        },
-        "environment": {
-          "type": "string"
-        },
         "event-name": {
           "type": "string",
           "enum": [
             "bagit-validated"
           ]
-        },
-        "version": {
-          "type": ["string", "object"]
         }
-      },
-      "required": [
-        "name",
-        "process",
-        "type",
-        "environment",
-        "event-name"
-      ],
-      "additionalProperties": false
+      }
     },
     "parameters": {
       "type": "object",
@@ -102,38 +52,28 @@
                   }
                 }
               },
-              "additionalProperties": false,
               "required": [
                 "path",
                 "root",
                 "data"
-              ]
+              ],
+              "additionalProperties": false
             }
           },
-          "additionalProperties": false,
           "required": [
             "reference",
             "s3-bucket",
             "s3-bagit-name",
-            "number-of-retries",
-            "errors",
             "s3-object-root",
             "validated-files"
-          ]
+          ],
+          "additionalProperties": false
         }
-      },
-      "additionalProperties": false,
-      "required": [
-        "bagit-validated"
-      ]
-    }
-  },
-  "required": [
-    "version",
-    "timestamp",
-    "UUIDs",
-    "producer",
-    "parameters"
-  ],
-  "additionalProperties": false
+      }
+    },
+    "required": [
+      "parameters"
+    ],
+    "additionalProperties": false
+  }
 }

@@ -1,2 +1,13 @@
 /.idea
 /*.iml
+__pycache__/
+/.vscode/
+/.devcontainer/
+/tmp/
+/tre_event_lib/build/
+/tre_event_lib/dist/
+/tre_event_lib/tre_event_lib.egg-info/
+# about.json is created by /tre_event_lib/build.sh with git tag version
+/tre_event_lib/tre_event_lib/about.json
+venv*/
+.venv*/
