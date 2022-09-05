@@ -10,7 +10,7 @@
         "name": "foo",
         "environment": "foo",
         "process": "foo",
-        "event-name": "new-bagit",
+        "event-name": "nosuch",
         "type": null
     },
     "parameters": {

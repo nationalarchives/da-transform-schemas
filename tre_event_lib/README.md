@@ -80,8 +80,8 @@ To build Python `whl` package with API and schemas:
 pip3 install jsonschema
 cd tre_event_lib
 
-# Pass a version to not use latest git tag version
-./build.sh ${version_if_not_latest_git_tag}
+# To not use the latest git tag version, pass the optional version argument
+./build.sh ${version_instead_of_latest_git_tag}
 ```
 
 ## Testing In Docker
