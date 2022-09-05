@@ -1,4 +1,44 @@
-To run unit tests:
+# About
+
+A Python package that contains:
+
+* JSON schemas for TRE events
+* A Python API to:
+  * Create (optionally chained) TRE events
+  * Validate TRE events against their respective JSON schemas
+
+# Example Use
+
+```python
+from tre_event_lib import tre_event_api
+
+# To validate event using schema derived from event's provider.event-name field:
+tre_event_api.validate_event(event=some_event)
+
+# To validate event against a specific schema (e.g. root tre-event.json schema)
+tre_event_api.validate_event(event=some_event, schema_name='tre-event')
+
+# Creating (and therefore validating) an event from a prior (incoming) event
+new_event_params = { 'bagit-validated': { ... }}
+bagit_valdiated_event = tre_event_api.create_event(
+    environment=ENVIRONMENT,
+    producer='bravo',
+    process='bar',
+    event_name='bagit-validated',
+    parameters=new_event_params,
+    prior_event=prior_event_dict  # e.g. sourced from Lambda handler input
+)
+
+# To list available event names that have a corresponding schema
+tre_event_api.get_event_list()
+
+# To view a JSON schema
+tre_event_api.get_event_schema(event_name='tre-event')
+```
+
+# Development
+
+## Running Unit Tests
 
 ```bash
 # Ensure jsonschema package is installed in the current environment
@@ -22,7 +62,7 @@ cd tre_event_lib
 ./build.sh
 ```
 
-Docker Testing Notes:
+## Testing In Docker
 
 ```bash
 # Run this from project root to map /host to all the repo's files
