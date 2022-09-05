@@ -2,24 +2,41 @@
 
 A Python package that contains:
 
-* JSON schemas for TRE events
-* A Python API to:
-  * Create (optionally chained) TRE events
+* TRE event [JSON schemas](../tre_schemas/)
+* A [Python API](tre_event_lib/tre_event_api.py) to:
+  * Create (optionally chained) TRE event payloads
   * Validate TRE events against their respective JSON schemas
 
 # Example Use
+
+> To build the project's `whl` file, see the [Package Build Process](#package-build-process)
+  section
+
+```bash
+pip3 install jsonschema
+pip3 install "$(find /host/tre_event_lib/dist -name '*.whl')"
+python3
+```
 
 ```python
 from tre_event_lib import tre_event_api
 
 # To validate event using schema derived from event's provider.event-name field:
-tre_event_api.validate_event(event=some_event)
+tre_event_api.validate_event(
+    event=some_event_dict  # e.g. sourced from Lambda handler input
+)
 
 # To validate event against a specific schema (e.g. root tre-event.json schema)
-tre_event_api.validate_event(event=some_event, schema_name='tre-event')
+tre_event_api.validate_event(
+    event=some_event_dict,  # e.g. sourced from Lambda handler input
+    schema_name='tre-event'
+)
 
 # Creating (and therefore validating) an event from a prior (incoming) event
-new_event_params = { 'bagit-validated': { ... }}
+new_event_params = {
+    'bagit-validated': {}  # example event parameter value; not complete
+}
+
 bagit_valdiated_event = tre_event_api.create_event(
     environment=ENVIRONMENT,
     producer='bravo',
@@ -55,9 +72,12 @@ python3 -m unittest discover ./tre_event_lib/tests -p 'test_*.py'
 python3 -m unittest discover ./tre_event_lib/tests -p 'test_bagit_received.py'
 ```
 
+## Package Build Process
+
 To build Python `whl` package with API and schemas:
 
 ```bash
+pip3 install jsonschema
 cd tre_event_lib
 ./build.sh
 ```
