@@ -18,7 +18,7 @@ event_invalid_event_name = test_utils.load_test_event(
 EVENT_NAME = 'dri-preingest-sip-accessible'
 
 
-class TestDirPreingestSipAcessibleSchema(unittest.TestCase):
+class TestDirPreingestSipAccessibleSchema(unittest.TestCase):
     def test_event_valid(self):
         tre_event_lib.validate_event(event=event_valid)
 
@@ -30,5 +30,5 @@ class TestDirPreingestSipAcessibleSchema(unittest.TestCase):
             
             self.fail('Did not get expected exception')
         except jsonschema.exceptions.ValidationError as e:
-            expected = "'oops' is not one of ['new-bagit']"
+            expected = "'oops' is not one of ['preingest_sip_accessible']"
             self.assertTrue(expected in str(e))
