@@ -127,29 +127,30 @@ def get_schema_store() -> dict:
 
 def validate_event(
     event: dict,
-    event_name: str = None
+    schema_name: str = None
 ):
     """
-    Validate `event` against JSON schema for `event.producer.event-name`
-    unless specific `event_name` passed to specify the JSON schema to use.
+    Validate `event` against the JSON schema that matches the event name in
+    field `event.producer.event-name`, unless a specific `schema_name` is
+    passed, in which case validate with that JSON schema instead.
     """
-    logger.info('Validating event=%s event_name=%s', event, event_name)
+    logger.info('Validating event=%s schema_name=%s', event, schema_name)
 
     # If no event name specified, use event's event-name field
-    if not event_name:
-        event_name = event[KEY_PRODUCER][KEY_EVENT_NAME]
+    if not schema_name:
+        schema_name = event[KEY_PRODUCER][KEY_EVENT_NAME]
 
-    logger.info('event_name=%s', event_name)
-    event_schema = get_event_schema(event_name=event_name)
-    logger.info('event_schema=%s', event_schema)
+    logger.info('schema_name=%s', schema_name)
+    schema = get_event_schema(event_name=schema_name)
+    logger.info('schema=%s', schema)
 
     resolver = jsonschema.RefResolver.from_schema(
-        schema=event_schema,
+        schema=schema,
         store=get_schema_store()
     )
 
     jsonschema.Draft202012Validator(
-        schema=event_schema,
+        schema=schema,
         resolver=resolver
     ).validate(event)
 
@@ -161,23 +162,29 @@ def create_event(
     event_name: str,
     parameters: dict,
     consignment_type: str = None,  # consignment_type as "type" shadows Python
-    prior_event: dict = None
+    prior_event: dict = None,
+    event_schema_name: str = None,
+    prior_event_schema_name: str = None
 ) -> dict:
     """
     Create a TRE event from the given arguments. The event has a new UUID
     appended to its UUID list and it is assigned a current timestamp value.
 
     If `prior_event` is given:
-    * It is validated against its schema (from its `producer.event-name` field)
+    * It is validated against its schema (which is determined by its
+      `producer.event-name` field, unless prior_event_schema_name given)
     * The prior message's UUID list is prepended to the new event's UUID list
     * If the `consignment_type` argument is not given, the prior message's
       consignment type is used for the new event
+
+    The final event is validated against its schema (which is determined by its
+    `producer.event-name` field, unless prior_event_schema_name given)
     """
     timestamp_ns_utc = time.time_ns()
 
     event_uuids = []
     if prior_event:
-        validate_event(event=prior_event)
+        validate_event(event=prior_event, schema_name=prior_event_schema_name)
         # Use [:] to copy (not reference) prior UUIDs
         event_uuids = prior_event[KEY_UUIDS][:]
 
@@ -211,5 +218,5 @@ def create_event(
         KEY_PARAMETERS: parameters
     }
 
-    validate_event(event=event)
+    validate_event(event=event, schema_name=event_schema_name)
     return event

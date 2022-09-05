@@ -27,7 +27,7 @@ class TestBagItValidatedSchema(unittest.TestCase):
         try:
             tre_event_api.validate_event(
                 event=event_invalid_event_name,
-                event_name=EVENT_NAME)
+                schema_name=EVENT_NAME)  # intended schema (as name invalid)
             
             self.fail('Did not get expected exception')
         except jsonschema.exceptions.ValidationError as validation_error:

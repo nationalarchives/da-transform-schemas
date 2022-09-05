@@ -1,6 +1,11 @@
 To run unit tests:
 
 ```bash
+# Ensure jsonschema package is installed in the current environment
+pip3 install jsonschema
+```
+
+```bash
 cd tre_event_lib
 
 # All tests:
