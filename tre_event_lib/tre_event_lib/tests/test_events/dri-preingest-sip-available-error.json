@@ -14,9 +14,9 @@
     "type": "judgment"
   },
   "parameters": {
-    "dri-preingest-sip-obtained": {
+    "dri-preingest-sip-available": {
       "reference": "",
-      "s3-folder-url": "",
+      "s3-folder-url": 34234132423,
       "s3-sha256-url": "",
       "number-of-retries": 1,
       "file-type": ""

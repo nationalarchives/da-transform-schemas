@@ -17,12 +17,12 @@
   ],
   "producer": {
     "name": "ABCDEF",
-    "event-name": "dri-preingest-sip-accessible",
+    "event-name": "dri-preingest-sip-available",
     "type": "ABCDEFGHIJKLM",
     "environment": []
   },
   "parameters": {
-    "dri-preingest-sip-accessible": {
+    "dri-preingest-sip-available": {
       "reference": "ABCDEFGHIJKLMNOPQRSTUVWXY",
       "s3-folder-url": "ABCDEFGHIJKLMNOPQRSTUV",
       "s3-sha256-url": "ABCDEFGHIJKLMNOPQRSTUVWXYZ",

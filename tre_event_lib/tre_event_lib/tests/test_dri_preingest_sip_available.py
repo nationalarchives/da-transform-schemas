@@ -13,7 +13,7 @@ event_valid = test_utils.load_test_event(
 event_invalid_parameter_name = test_utils.load_test_event(
     event_file_name='dri-preingest-sip-available-error.json')
 
-EVENT_NAME = 'dri-preingest-sip-obtained'
+EVENT_NAME = 'dri-preingest-sip-available'
 
 
 class TestDriPreingestSipAvailableSchema(unittest.TestCase):
@@ -32,5 +32,6 @@ class TestDriPreingestSipAvailableSchema(unittest.TestCase):
 
             self.fail('Did not get expected exception')
         except jsonschema.exceptions.ValidationError as validation_error:
-            expected = "'dri-preingest-sip-obtained' is not one of ['dri-preingest-sip-available']"
+            expected = "34234132423 is not of type 'string'"
             self.assertTrue(expected in str(validation_error))
+

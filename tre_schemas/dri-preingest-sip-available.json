@@ -52,10 +52,7 @@
                         "number-of-retries"
                     ]
                 }
-            },
-            "required": [
-                "dri-preingest-sip-available"
-            ]
+            }
         }
     }
 }
