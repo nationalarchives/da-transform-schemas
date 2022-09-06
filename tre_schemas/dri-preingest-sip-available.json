@@ -1,0 +1,52 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "$id":"https://nationalarchives.gov.uk/da-transform/tre/schemas/dri-preingest-sip-available",
+    "$ref":"https://nationalarchives.gov.uk/da-transform/tre/schemas/tre-event",
+    "type": "object",
+    "properties": {
+        "producer": {
+            "properties": {
+                "event-name": {
+                    "type": "string",
+                    "enum": ["dri-preingest-sip-available"]
+                }
+            }
+        },
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "dri-preingest-sip-available": {
+                    "type": "object",
+                    "properties": {
+                        "reference": {
+                            "type": "string",
+                            "description": "reference for the attached object"
+                        },
+                        "s3-folder-url": {
+                            "type": "string",
+                            "description": "url to directory containing bagit object in AWS s3"
+                        },
+                        "s3-sha256-url": {
+                            "type": "string",
+                            "description": "url to the bagit object itself in AWS s3"
+                        },
+                        "file-type": {
+                            "type": "string",
+                            "description": "the format of the file or archive i.e. PDF, JPEG, ZIP, TAR"
+                        },
+                        "number-of-retries": {
+                            "type": "integer",
+                            "description": "The amount of times this message has been resent to DRI from TRE"
+                        }
+                    },
+                    "required": [
+                        "reference",
+                        "s3-folder-url",
+                        "s3-sha256-url",
+                        "number-of-retries"
+                    ]
+                }
+            }
+        }
+    }
+}

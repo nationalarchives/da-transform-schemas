@@ -1,0 +1,25 @@
+{
+  "version": "2.0.0",
+  "timestamp": 42,
+  "UUIDs": [
+    {
+      "Foo-UUID": "8d02ec4d-550c-4af7-849b-c5cef5f8e820"
+    }
+  ],
+  "producer": {
+    "name": "foo",
+    "environment": "DEV",
+    "process": "foo",
+    "event-name": "dri-preingest-sip-available",
+    "type": "judgment"
+  },
+  "parameters": {
+    "dri-preingest-sip-available": {
+      "reference": "",
+      "s3-folder-url": 34234132423,
+      "s3-sha256-url": "",
+      "number-of-retries": 1,
+      "file-type": ""
+    }
+  }
+}
