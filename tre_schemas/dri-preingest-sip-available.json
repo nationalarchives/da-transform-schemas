@@ -8,15 +8,9 @@
             "properties": {
                 "event-name": {
                     "type": "string",
-                    "description": "The name of the event sending this payload, for now this will always be dri-preingest-sip-available"
+                    "enum": ["dri-preingest-sip-available"]
                 }
-            },
-            "required": [
-                "name",
-                "event-name",
-                "type",
-                "environment"
-            ]
+            }
         },
         "parameters": {
             "type": "object",

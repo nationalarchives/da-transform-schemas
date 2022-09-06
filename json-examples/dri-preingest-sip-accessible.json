@@ -18,6 +18,7 @@
   "producer": {
     "name": "ABCDEF",
     "event-name": "dri-preingest-sip-available",
+    "process":"ABCDEFGHIJKLM",
     "type": "ABCDEFGHIJKLM",
     "environment": "DEV"
   },
