@@ -12,7 +12,7 @@
         "type": null
     },
     "parameters": {
-        "new-bagit": {
+        "bagit-available": {
             "resource": {
                 "resource-type": "",
                 "access-type": "",

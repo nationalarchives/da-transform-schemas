@@ -8,11 +8,11 @@
         "name": "foo",
         "environment": "foo",
         "process": "foo",
-        "event-name": "new-bagit",
+        "event-name": "bagit-available",
         "type": null
     },
     "parameters": {
-        "new-bagit": {
+        "bagit-available": {
             "resource": {
                 "resource-type": "",
                 "access-type": "",

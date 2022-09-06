@@ -79,7 +79,9 @@ To build Python `whl` package with API and schemas:
 ```bash
 pip3 install jsonschema
 cd tre_event_lib
-./build.sh
+
+# To not use the latest git tag version, pass the optional version argument
+./build.sh ${version_instead_of_latest_git_tag}
 ```
 
 ## Testing In Docker
