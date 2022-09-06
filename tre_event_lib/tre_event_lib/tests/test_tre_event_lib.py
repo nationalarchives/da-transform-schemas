@@ -50,10 +50,12 @@ class TestEventLibCreateEvent(unittest.TestCase):
 
     def test_event_chaining(self):
         """Test event chaining works."""
+        CONSIGNMENT_TYPE = 'judgment'
         event_1 = tre_event_api.create_event(
             environment=ENVIRONMENT,
             producer='alpha',
             process='foo',
+            consignment_type=CONSIGNMENT_TYPE,
             event_name=EVENT_BAGIT_AVAILABLE,
             parameters=event_bagit_available_parameters
         )
@@ -90,6 +92,9 @@ class TestEventLibCreateEvent(unittest.TestCase):
         self.assertTrue('foo' == event_1['producer']['process'])
         self.assertTrue('bar' == event_2['producer']['process'])
         self.assertTrue('baz' == event_3['producer']['process'])
+        self.assertTrue(CONSIGNMENT_TYPE == event_1['producer']['type'])
+        self.assertTrue(CONSIGNMENT_TYPE == event_2['producer']['type'])
+        self.assertTrue(CONSIGNMENT_TYPE == event_3['producer']['type'])
 
     def test_create_event_fails_with_invalid_event_name(self):
         """Confirm an invalid event-name fails (it will have no schema)."""
