@@ -184,9 +184,13 @@ def create_event(
 
     event_uuids = []
     if prior_event:
+        logger.info('prior_event found')
         validate_event(event=prior_event, schema_name=prior_event_schema_name)
+        logger.info('copying prior_event UUIDs')
         # Use [:] to copy (not reference) prior UUIDs
-        event_uuids = prior_event[KEY_UUIDS][:]
+        event_uuids = prior_event[KEY_UUIDS][:]        
+    else:
+        logger.info('no prior_event found')
 
     # Create new UUID and corresponding key name (with producer name)
     key_uuid = f'{producer}{UUID_KEY_SUFFIX}'
@@ -198,9 +202,17 @@ def create_event(
     # message type
     event_type = None
     if consignment_type:
+        logger.info('event_type set explicitly')
         event_type = consignment_type
-    elif prior_event and (KEY_TYPE in prior_event):
-        event_type = prior_event[KEY_TYPE]
+    elif (
+        prior_event
+        and (KEY_PRODUCER in prior_event)
+        and (KEY_TYPE in prior_event[KEY_PRODUCER])
+    ):
+        logger.info('event_type set from prior_event')
+        event_type = prior_event[KEY_PRODUCER][KEY_TYPE]
+    else:
+        logger.info('event_type not set')
 
     event_producer = {
         KEY_ENVIRONMENT: environment,
