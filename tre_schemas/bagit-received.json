@@ -11,7 +11,8 @@
           "type": "string",
           "enum": [
             "bagit-received"
-          ]
+          ],
+          "description": "The name of the event being propagated for this event it should always be bagit-received"
         }
       }
     },
@@ -25,10 +26,12 @@
               "type": "string"
             },
             "s3-bucket": {
-              "type": "string"
+              "type": "string",
+              "description": "The TRE S3 bucket used to extract and verify the BagIt"
             },
             "s3-bagit-name": {
-              "type": "string"
+              "type": "string",
+              "description": "The TRE S3 path of the saved input BagIt file"
             }
           },
           "required": [

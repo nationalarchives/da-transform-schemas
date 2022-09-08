@@ -11,7 +11,8 @@
           "type": "string",
           "enum": [
             "bagit-validated"
-          ]
+          ],
+          "description": "The name of the event being propagated for this event it should always be bagit-validated"
         }
       }
     },
@@ -22,33 +23,40 @@
           "type": "object",
           "properties": {
             "reference": {
-              "type": "string"
+              "type": "string",
+              "description": "From input message parameters.new-bagit.reference"
             },
             "s3-bucket": {
-              "type": "string"
+              "type": "string",
+              "description": "The TRE S3 bucket used to extract and verify the BagIt"
             },
             "s3-bagit-name": {
-              "type": "string"
+              "type": "string",
+              "description": "The TRE S3 path of the saved input BagIt file"
             },
             "s3-object-root": {
-              "type": "string"
+              "type": "string",
+              "description": "The TRE S3 folder where the input BagIt file is extracted"
             },
             "validated-files": {
               "type": "object",
               "properties": {
                 "path": {
-                  "type": "string"
+                  "type": "string",
+                  "description":"A dictionary with lists of validated files"
                 },
                 "root": {
                   "type": "array",
                   "items": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The TRE S3 folder where the input BagIt file is extracted"
                   }
                 },
                 "data": {
                   "type": "array",
                   "items": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "a list of the files contained within the consignment, including the full filepath"
                   }
                 }
               },

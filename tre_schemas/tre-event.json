@@ -4,10 +4,12 @@
     "type": "object",
     "properties": {
         "version": {
-            "type": "string"
+            "type": "string",
+            "description": "Version of the message being sent"
         },
         "timestamp": {
-            "type": "integer"
+            "type": "integer",
+            "description": "Creation time in nanoseconds UTC"
         },
         "UUIDs": {
             "type": "array",
@@ -17,7 +19,8 @@
                 "patternProperties": {
                     "^[a-zA-Z0-9_-]+-UUID$": {
                         "type": "string",
-                        "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+                        "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+                        "description": "A universally unique identifier, the suffix must match the producer field, i.e. TRE-UUID"
                     }
                 },
                 "additionalProperties": false
@@ -26,12 +29,15 @@
         },
         "producer": {
             "type": "object",
+            "description": "Dictionary specifying the event-name being sent and details about the producer",
             "properties": {
                 "name": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The message producer (e.g. TRE, TDR, etc)"
                 },
                 "process": {
-                    "type": ["string", "null"]
+                    "type": ["string", "null"],
+                    "description": "The name of the process that creates the message (e.g. validate-bagit)"
                 },
                 "type": {
                     "type": [
@@ -42,14 +48,17 @@
                         "judgment",
                         "standard",
                         null
-                    ]
+                    ],
+                    "description": "The name of the consignment type being passed; standard, judgment or null"
                 },
                 "environment": {
-                    "type": ["string", "null"]
+                    "type": ["string", "null"],
+                    "description": "The name of the environment that creates the message (e.g. test, production, etc)"
                 },
                 "event-name": {
                     "type": "string",
-                    "pattern": "^[.a-zA-Z0-9_-]+$"
+                    "pattern": "^[.a-zA-Z0-9_-]+$",
+                    "description": "The name of the event being propagated (e.g. new-bagit, bagit-validated, etc)"
                 },
                 "version": {
                     "type": ["string", "object"]
