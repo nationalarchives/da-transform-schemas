@@ -1,5 +1,5 @@
 {
-    "$schema": "http://json-schema.org/draft-04/schema#",
+    "$schema": "http://json-schema.org/draft-04/schema",
     "$id":"https://nationalarchives.gov.uk/da-transform/tre/schemas/dri-preingest-sip-available",
     "$ref":"https://nationalarchives.gov.uk/da-transform/tre/schemas/tre-event",
     "type": "object",
@@ -8,7 +8,8 @@
             "properties": {
                 "event-name": {
                     "type": "string",
-                    "enum": ["dri-preingest-sip-available"]
+                    "enum": ["dri-preingest-sip-available"],
+                    "description": "The name of the event being propagated for this event it should always be dri-preingest-sip-available"
                 }
             }
         },

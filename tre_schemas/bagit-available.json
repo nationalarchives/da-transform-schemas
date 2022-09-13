@@ -11,7 +11,8 @@
           "type": "string",
           "enum": [
             "bagit-available"
-          ]
+          ],
+          "description": "The name of the event being propagated for this event it should always be bagit-available"
         }
       }
     },
@@ -25,13 +26,16 @@
               "type": "object",
               "properties": {
                 "resource-type": {
-                  "type": "string"
+                  "type": "string",
+                  "description": "What form the resource takes i.e. Object"
                 },
                 "access-type": {
-                  "type": "string"
+                  "type": "string",
+                  "description": "The medium in which the resource is accessed, i.e. url, ftp"
                 },
                 "value": {
-                  "type": "string"
+                  "type": "string",
+                  "description": "a uri that describes the logical or physical resource location i.e. A url"
                 }
               },
               "required": [
@@ -44,16 +48,20 @@
               "type": "object",
               "properties": {
                 "resource-type": {
-                  "type": "string"
+                  "type": "string",
+                  "description": "What form the resource takes i.e. Object"
                 },
                 "access-type": {
-                  "type": "string"
+                  "type": "string",
+                  "description": "The medium in which the resource is accessed, i.e. url, ftp"
                 },
                 "validation-method": {
-                  "type": "string"
+                  "type": "string",
+                  "description": "The process used to determine the integrity of the object i.e. SHA256"
                 },
                 "value": {
-                  "type": "string"
+                  "type": "string",
+                  "description": "BagIt archive file pre-signed URL"
                 }
               },
               "required": [
@@ -64,7 +72,8 @@
               ]
             },
             "reference": {
-              "type": "string"
+              "type": "string",
+              "description": "The Urn of the object to which the consignment refers, i.e. a filename"
             }
           },
           "required": [

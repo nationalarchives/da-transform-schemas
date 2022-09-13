@@ -11,7 +11,8 @@
           "type": "string",
           "enum": [
             "bagit-validation-error"
-          ]
+          ],
+          "description": "The name of the event being propagated for this event it should always be bagit-validation-error"
         }
       }
     },
@@ -22,11 +23,13 @@
           "type": "object",
           "properties": {
             "reference": {
-              "type": "string"
+              "type": "string",
+              "description": "From input message parameters.new-bagit.reference"
             },
             "errors": {
               "type": "array",
-              "items": {}
+              "items": {},
+              "description": "A list of errors from the validate-bagit process"
             }
           },
           "required": [
