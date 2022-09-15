@@ -34,17 +34,12 @@
                         "file-type": {
                             "type": "string",
                             "description": "the format of the file or archive i.e. PDF, JPEG, ZIP, TAR"
-                        },
-                        "number-of-retries": {
-                            "type": "integer",
-                            "description": "The amount of times this message has been resent to DRI from TRE"
                         }
                     },
                     "required": [
                         "reference",
                         "s3-folder-url",
-                        "s3-sha256-url",
-                        "number-of-retries"
+                        "s3-sha256-url"
                     ]
                 }
             }
