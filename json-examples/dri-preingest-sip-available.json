@@ -1,0 +1,33 @@
+{
+  "version": "0.0.7-alpha",
+  "timestamp": 1663666690368414700,
+  "UUIDs": [
+    {
+      "test-producer-UUID": "9c6d25c1-c8c9-495a-be0b-91e7af7b2083"
+    },
+    {
+      "TRE-UUID": "e62f13af-2b48-4917-974c-b94955d76c87"
+    },
+    {
+      "TRE-UUID": "3248d12c-aed4-49a5-9514-80ece1d41e36"
+    },
+    {
+      "TRE-UUID": "e7667156-02f5-48b0-8a4b-a4ded7aa3c71"
+    }
+  ],
+  "producer": {
+    "environment": "dev",
+    "name": "TRE",
+    "process": "dev-tre-dri-preingest-sip-generation",
+    "event-name": "dri-preingest-sip-available",
+    "type": "standard"
+  },
+  "parameters": {
+    "dri-preingest-sip-available": {
+      "reference": "TDR-2022-NQ3",
+      "s3-folder-url": "https://dev-tre-dpsg-out.s3.amazonaws.com/consignments/standard/TDR-2022-NQ3/9c6d25c1-c8c9-495a-be0b-91e7af7b2083/TDR-2022-NQ3/sip/MOCKA101Y22TBNQ3.tar.gz?X-Amz-Algorithm=AWS4-HMAC-...",
+      "s3-sha256-url": "https://dev-tre-dpsg-out.s3.amazonaws.com/consignments/standard/TDR-2022-NQ3/9c6d25c1-c8c9-495a-be0b-91e7af7b2083/TDR-2022-NQ3/sip/MOCKA101Y22TBNQ3.tar.gz.sha256?X-Amz-Algorithm=AWS4-HMAC-...",
+      "file-type": "TAR"
+    }
+  }
+}
