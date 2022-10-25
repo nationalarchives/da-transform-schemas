@@ -1,32 +1,32 @@
 {
-    "version": "1.0.0",
-    "timestamp": 1661155064747274000,
-    "UUIDs": [
-      {
-        "TDR-UUID": "45be6508-b693-441d-a0d6-defb3f41c1fb"
-      }
-    ],
-    "producer": {
-      "environment": "dev",
-      "name": "TDR",
-      "process": "tdr-export-process",
-      "event-name": "new-bagit",
-      "type": "judgment"
-    },
-    "parameters": {
-      "new-bagit": {
-        "resource": {
-          "resource-type": "Object",
-          "access-type": "url",
-          "value": "https://dev-te-testdata.s3.amazonaws.com/consignments/judgment/TDR-1234-ABCD.tar.gz?X-Amz-..."
-        },
-        "resource-validation": {
-          "resource-type": "Object",
-          "access-type": "url",
-          "validation-method": "SHA256",
-          "value": "https://dev-te-testdata.s3.amazonaws.com/consignments/judgment/TDR-1234-ABCD.tar.gz.sha256?X-Amz-..."
-        },
-        "reference": "TDR-1234-ABCD"
-      }
+  "version": "0.0.7-alpha",
+  "timestamp": 1661155064747274000,
+  "UUIDs": [
+    {
+      "TDR-UUID": "45be6508-b693-441d-a0d6-defb3f41c1fb"
     }
+  ],
+  "producer": {
+    "environment": "dev",
+    "name": "TDR",
+    "process": "tdr-export-process",
+    "event-name": "bagit-available",
+    "type": "standard"
+  },
+  "parameters": {
+    "bagit-available": {
+      "resource": {
+        "resource-type": "Object",
+        "access-type": "url",
+        "value": "https://dev-te-testdata.s3.amazonaws.com/consignments/judgment/TDR-1234-ABCD.tar.gz?X-Amz-..."
+      },
+      "resource-validation": {
+        "resource-type": "Object",
+        "access-type": "url",
+        "validation-method": "sha256",
+        "value": "https://dev-te-testdata.s3.amazonaws.com/consignments/judgment/TDR-1234-ABCD.tar.gz.sha256?X-Amz-..."
+      },
+      "reference": "TDR-1234-ABCD"
+    }
+  }
 }
