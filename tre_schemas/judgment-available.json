@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nationalarchives.gov.uk/da-transform/tre/schemas/judgment-available",
+  "$ref": "https://nationalarchives.gov.uk/da-transform/tre/schemas/tre-event",
+  "type": "object",
+  "properties": {
+    "producer": {
+      "type": "object",
+      "properties": {
+        "event-name": {
+          "type": "string",
+          "enum": [
+            "judgment-available"
+          ],
+          "description": "The name of the event"
+        }
+      }
+    },
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "document": {
+          "$ref": "#/$defs/s3-object",
+          "description": "S3 location of document for parses"
+        },
+        "attachments": {
+          "description": "S3 locations of attachments for parser",
+          "type": "array",
+          "minItems": 0,
+          "items": {
+            "$ref": "#/$defs/s3-object",
+            "description": "S3 location of an attachment"
+          }
+        },
+        "reference": {
+          "description": "The consignment reference of the document to be parsed",
+          "type": "string",
+          "minLength": 0
+        },
+        "required": [
+          "document",
+          "attachments",
+          "reference"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "parameters"
+    ],
+    "additionalProperties": false
+  },
+  "$defs": {
+    "s3-object": {
+      "type": "object",
+      "description": "S3 object location",
+      "properties": {
+        "s3-bucket": {
+          "description": "S3 object bucket",
+          "type": "string",
+          "minLength": 1
+        },
+        "s3-key": {
+          "description": "S3 object key",
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "s3-bucket",
+        "s3-key"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

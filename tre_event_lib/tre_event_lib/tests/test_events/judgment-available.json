@@ -1,0 +1,31 @@
+{
+    "version": "1.0.0",
+    "timestamp": 42,
+    "UUIDs": [
+        {"foo-UUID": "8d02ec4d-550c-4af7-849b-c5cef5f8e820"}
+    ],
+    "producer": {
+        "name": "foo",
+        "environment": "foo",
+        "process": "foo",
+        "event-name": "judgment-available",
+        "type": null
+    },
+    "parameters": {
+        "document": {
+            "s3-bucket": "alpha",
+            "s3-key": "bravo"
+        },
+        "attachments": [
+            {
+                "s3-bucket": "alpha",
+                "s3-key": "charlie/delta"
+            },
+            {
+                "s3-bucket": "alpha",
+                "s3-key": "echo"
+            }
+        ],
+        "reference" : ""
+    }
+}
