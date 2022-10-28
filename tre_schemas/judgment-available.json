@@ -21,7 +21,7 @@
       "properties": {
         "document": {
           "$ref": "#/$defs/s3-object",
-          "description": "S3 location of document for parses"
+          "description": "S3 location of document for parser"
         },
         "attachments": {
           "description": "S3 locations of attachments for parser",
