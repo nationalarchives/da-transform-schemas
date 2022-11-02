@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nationalarchives.gov.uk/da-transform/tre/schemas/tre-parser-output",
+  "type": "object",
+  "description": "Parser output fields",
+  "additionalProperties": false,
+  "properties": {
+    "uri": {
+      "description": "The judgment's URI",
+      "type": "string",
+      "minLength": 0
+    },
+    "court": {
+      "description": "The judgment's court",
+      "type": "string",
+      "minLength": 0
+    },
+    "cite": {
+      "description": "The judgment's citation",
+      "type": "string",
+      "minLength": 0
+    },
+    "date": {
+      "description": "The judgment's date",
+      "type": "string",
+      "minLength": 0
+    },
+    "name": {
+      "description": "The judgment's name",
+      "type": "string",
+      "minLength": 0
+    },
+    "images": {
+      "description": "List of judgment image files",
+      "type": "array",
+      "minItems": 0,
+      "items": {
+        "$ref": "https://nationalarchives.gov.uk/da-transform/tre/schemas/tre-s3-location",
+        "description": "Parser output image S3 location"
+      }
+    },
+    "required": [
+      "uri",
+      "court"
+    ],
+    "additionalProperties": false
+  }
+}

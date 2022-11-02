@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nationalarchives.gov.uk/da-transform/tre/schemas/tre-error",
+  "type": "object",
+  "description": "TRE error event details",
+  "additionalProperties": false,
+  "properties": {
+    "additionalProperties": false,
+    "reference": {
+      "type": "string",
+      "minLength": 0,
+      "description": "Consignment reference"
+    },
+    "errors": {
+      "type": "array",
+      "minItems": 1,
+      "items": {},
+      "description": "A list of errors"
+    },
+    "required": [
+      "reference",
+      "errors"
+    ]
+  }
+}

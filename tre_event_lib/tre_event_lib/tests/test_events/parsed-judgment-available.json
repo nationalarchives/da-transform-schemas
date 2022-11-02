@@ -1,0 +1,40 @@
+{
+    "version": "1.0.0",
+    "timestamp": 42,
+    "UUIDs": [
+        {"foo-UUID": "8d02ec4d-550c-4af7-849b-c5cef5f8e820"}
+    ],
+    "producer": {
+        "name": "foo",
+        "environment": "foo",
+        "process": "foo",
+        "event-name": "parsed-judgment-available",
+        "type": null
+    },
+    "parameters": {
+        "s3-location": {
+            "s3-bucket": "alpha",
+            "s3-key": "bravo/charlie"
+        },
+        "reference" : "CR-2022-A2C",
+        "parser": {
+            "uri": "https://caselaw.nationalarchives.gov.uk/id/ewhc/qb/2022/123",
+            "court": "EWHC-QBD",
+            "cite": "[2022] EWHC 123 (QB)",
+            "date": "2022-04-10",
+            "name": "foo v bar",
+            "images": [
+                {
+                    "s3-bucket": "alpha",
+                    "s3-key": "bravo/charlie/delta/example-image-1.png"
+                }
+            ]
+        },
+        "attachments": [
+            {
+                "s3-bucket": "foxtrot",
+                "s3-key": "golf/hotel/attachment.ext"
+            }
+        ]
+    }
+}

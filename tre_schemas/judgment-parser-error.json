@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nationalarchives.gov.uk/da-transform/tre/schemas/judgment-parser-error",
+  "$ref": "https://nationalarchives.gov.uk/da-transform/tre/schemas/tre-event",
+  "type": "object",
+  "properties": {
+    "producer": {
+      "type": "object",
+      "properties": {
+        "event-name": {
+          "type": "string",
+          "enum": [
+            "judgment-parser-error"
+          ],
+          "description": "The name of the event"
+        }
+      }
+    },
+    "parameters": {
+      "type": "object",
+      "description": "The event's parameters",
+      "$ref": "https://nationalarchives.gov.uk/da-transform/tre/schemas/tre-error"
+    },
+    "required": [
+      "parameters"
+    ],
+    "additionalProperties": false
+  }
+}
