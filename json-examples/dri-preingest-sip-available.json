@@ -18,7 +18,7 @@
   "producer": {
     "environment": "dev",
     "name": "TRE",
-    "process": "dev-tre-dri-preingest-sip-generation",
+    "process": "dev-tre-bagit-to-dri-sip",
     "event-name": "dri-preingest-sip-available",
     "type": "standard"
   },

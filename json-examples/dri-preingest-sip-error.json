@@ -1,0 +1,33 @@
+{
+  "version": "0.0.7-alpha",
+  "timestamp": 1663666690368414700,
+  "UUIDs": [
+    {
+      "test-producer-UUID": "9c6d25c1-c8c9-495a-be0b-91e7af7b2083"
+    },
+    {
+      "TRE-UUID": "e62f13af-2b48-4917-974c-b94955d76c87"
+    },
+    {
+      "TRE-UUID": "3248d12c-aed4-49a5-9514-80ece1d41e36"
+    },
+    {
+      "TRE-UUID": "e7667156-02f5-48b0-8a4b-a4ded7aa3c71"
+    }
+  ],
+  "producer": {
+    "environment": "dev",
+    "name": "TRE",
+    "process": "dev-tre-bagit-to-dri-sip",
+    "event-name": "dri-preingest-sip-error",
+    "type": "standard"
+  },
+  "parameters": {
+    "dri-preingest-sip-error": {
+      "reference": "ABC-1234-DEF",
+      "errors": [
+        "Calculated checksum \"foo\" does not match expected checksum \"bar\" for object \"consignments/standard/ABC-1234-DEF/c73e5ca7-cf87-442a-8248-e05f81361ae0/ABC-1234-DEF/ABC-1234-DEF/file-metadata.csv\" in bucket \"baz\""
+      ]
+    }
+  }
+}

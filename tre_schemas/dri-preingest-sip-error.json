@@ -1,0 +1,46 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema",
+    "$id":"https://nationalarchives.gov.uk/da-transform/tre/schemas/dri-preingest-sip-available",
+    "$ref":"https://nationalarchives.gov.uk/da-transform/tre/schemas/tre-event",
+    "type": "object",
+    "properties": {
+        "producer": {
+            "properties": {
+                "event-name": {
+                    "type": "string",
+                    "enum": [
+                        "dri-preingest-sip-error"
+                    ],
+                    "description": "The name of the event being propagated for this event it should always be dri-preingest-sip-error"
+                }
+            }
+        },
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "dri-preingest-sip-error": {
+                    "type": "object",
+                    "properties": {
+                        "reference": {
+                            "type": "string",
+                            "description": "reference for the attached object"
+                        },
+                        "errors": {
+                            "type": "array",
+                            "items": {},
+                            "description": "A list of errors from the validate-bagit process"
+                        }
+                    },
+                    "required": [
+                        "reference",
+                        "errors"
+                    ]
+                }
+            },
+            "additionalProperties": false,
+            "required": [
+                "dri-preingest-sip-error"
+            ]
+        }
+    }
+}
