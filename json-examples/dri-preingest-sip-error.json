@@ -26,7 +26,7 @@
     "dri-preingest-sip-error": {
       "reference": "ABC-1234-DEF",
       "errors": [
-        "Calculated checksum \"foo\" does not match expected checksum \"bar\" for object \"consignments/standard/ABC-1234-DEF/c73e5ca7-cf87-442a-8248-e05f81361ae0/ABC-1234-DEF/ABC-1234-DEF/file-metadata.csv\" in bucket \"baz\""
+        "Copy not allowed; \"consignments/standard/foo/bar/foo/sip/bar.tar.gz.sha256\" already exists in bucket \"dev-tre-dpsg-out\""
       ]
     }
   }
