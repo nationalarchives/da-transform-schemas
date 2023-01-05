@@ -1,6 +1,6 @@
 {
-    "$schema": "http://json-schema.org/draft-04/schema",
-    "$id":"https://nationalarchives.gov.uk/da-transform/tre/schemas/dri-preingest-sip-available",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id":"https://nationalarchives.gov.uk/da-transform/tre/schemas/dri-preingest-sip-error",
     "$ref":"https://nationalarchives.gov.uk/da-transform/tre/schemas/tre-event",
     "type": "object",
     "properties": {
