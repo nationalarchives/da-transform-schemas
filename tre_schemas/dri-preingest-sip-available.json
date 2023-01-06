@@ -1,10 +1,11 @@
 {
-    "$schema": "http://json-schema.org/draft-04/schema",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
     "$id":"https://nationalarchives.gov.uk/da-transform/tre/schemas/dri-preingest-sip-available",
     "$ref":"https://nationalarchives.gov.uk/da-transform/tre/schemas/tre-event",
     "type": "object",
     "properties": {
         "producer": {
+            "type":"object",
             "properties": {
                 "event-name": {
                     "type": "string",
