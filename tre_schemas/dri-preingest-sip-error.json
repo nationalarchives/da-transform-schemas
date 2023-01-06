@@ -5,6 +5,7 @@
     "type": "object",
     "properties": {
         "producer": {
+            "type":"object",
             "properties": {
                 "event-name": {
                     "type": "string",
