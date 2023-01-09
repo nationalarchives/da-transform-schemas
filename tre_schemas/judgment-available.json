@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nationalarchives.gov.uk/da-transform/tre/schemas/judgment-available",
+  "$ref": "https://nationalarchives.gov.uk/da-transform/tre/schemas/tre-event",
+  "type": "object",
+  "properties": {
+    "producer": {
+      "type": "object",
+      "properties": {
+        "event-name": {
+          "type": "string",
+          "enum": [
+            "judgment-available"
+          ],
+          "description": "The name of the event"
+        }
+      }
+    },
+    "parameters": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "document": {
+          "$ref": "https://nationalarchives.gov.uk/da-transform/tre/schemas/tre-s3-location",
+          "description": "S3 location of document for parser"
+        },
+        "attachments": {
+          "$ref": "https://nationalarchives.gov.uk/da-transform/tre/schemas/tre-attachments",
+          "description": "S3 location of parser attachments"
+        },
+        "reference": {
+          "description": "The consignment reference of the document to be parsed",
+          "type": "string",
+          "minLength": 0
+        },
+        "required": [
+          "document",
+          "attachments",
+          "reference"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "parameters"
+    ],
+    "additionalProperties": false
+  }
+}
