@@ -39,33 +39,8 @@
               "description": "The TRE S3 folder where the input BagIt file is extracted"
             },
             "validated-files": {
-              "type": "object",
-              "properties": {
-                "path": {
-                  "type": "string",
-                  "description":"A dictionary with lists of validated files"
-                },
-                "root": {
-                  "type": "array",
-                  "items": {
-                    "type": "string",
-                    "description": "The TRE S3 folder where the input BagIt file is extracted"
-                  }
-                },
-                "data": {
-                  "type": "array",
-                  "items": {
-                    "type": "string",
-                    "description": "a list of the files contained within the consignment, including the full filepath"
-                  }
-                }
-              },
-              "required": [
-                "path",
-                "root",
-                "data"
-              ],
-              "additionalProperties": false
+              "type": "string",
+              "description": "A count of the validated files contained within the data folder"
             }
           },
           "required": [
