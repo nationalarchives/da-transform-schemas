@@ -1,0 +1,15 @@
+{
+   "type":"record",
+   "name":"DRIPreingestSipAvailable",
+   "namespace": "tna.tre.messages",
+   "doc": "DRI-SIP Available Message",
+   "fields": [
+    {
+       "name": "properties",
+       "type": "tna.tre.messages.TREEvent"
+   }
+   {
+       "name": "parameters"
+   }
+  ]
+}
