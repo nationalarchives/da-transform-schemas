@@ -1,7 +1,7 @@
 {
+   "namespace": "tna.tre.messages",
    "type":"record",
    "name":"DRIPreingestSipAvailable",
-   "namespace": "tna.tre.messages",
    "doc": "DRI-SIP Available Message",
    "fields": [
      {
@@ -18,18 +18,20 @@
        "name": "function",
        "type": "string",
        "default": "tre-fn-dpsg-bag-to-dri-sip",
-       "doc":  "The name of the function/process that created this message such as tre-fn-dpsg-bag-to-dri-sip",
+       "doc":  "The name of the function/process that created this message such as tre-fn-dpsg-bag-to-dri-sip"
      },
      {
        "name": "producer",
-       "type": "enum",
-       "symbols": [
-         "TRE",
-         "TDR",
-         "DRI",
-         "CaseLaw"
-       ],
-       "default": "TRE",
+       "type": {
+         "type": "enum",
+         "name": "Producer",
+         "symbols": [
+           "TRE",
+           "TDR",
+           "DRI"
+         ],
+         "default": "TRE"
+       },
        "doc": "The message producer (e.g. TRE, TDR, etc). Could be used for filtering and redirecting messages"
      },
      {
@@ -42,7 +44,6 @@
        "type": ["string", "null"],
        "doc":  "the execution-id of from the input message"
      },
-     // Process specific values
      {
        "name":"s3FolderUrl" ,
        "type": "string",
@@ -55,14 +56,17 @@
      },
      {
       "name" :"fileType",
-       "type": "enum",
-       "symbols": [
-         "TAR",
-         "PDF",
-         "ZIP",
-         "JPEG"
-       ],
-       "default": "TAR",
+       "type": {
+         "type": "enum",
+         "name": "FileType",
+         "symbols": [
+           "TAR",
+           "PDF",
+           "ZIP",
+           "JPEG"
+         ],
+         "default": "TAR"
+       },
        "description": "the format of the file or archive i.e. PDF, JPEG, ZIP, TAR"
      }
 
