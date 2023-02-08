@@ -68,7 +68,14 @@
          "default": "TAR"
        },
        "description": "the format of the file or archive i.e. PDF, JPEG, ZIP, TAR"
-     }
-
+     },
+     {
+       "name" : "series",
+       "type" : "string"
+     },
+     {
+        "name" : "batch",
+        "type" : "string"
+     } 
   ]
 }
