@@ -1,18 +1,19 @@
 {
   "type": "record",
   "name": "TREEvent",
-  "namespace": "tna.tre.messages",
+  "namespace": "tna.tre.messages.event",
   "doc": "properties required for all messages routed through TRE",
   "fields": [
-    {
-      "name": "properties",
-      "type": {
-        "type": "record",
-        "name": "Properties",
-        "fields": [
+     {
+       "name": "properties",
+       "type": {
+         "type": "record",
+         "name": "Properties",
+         "fields": [
           {
             "name": "messageType",
             "type": "string",
+            "default" : "tna.tre.messages.event.TREEvent" ,
             "doc": "The type of message that will be namespace.name such as tna.tre.message.TREEvent"
           },
           {
@@ -26,17 +27,9 @@
           },
           {
             "name": "producer",
-            "type": {
-              "type": "enum",
-              "name": "Producer",
-              "symbols": [
-                "TRE",
-                "TDR",
-                "DRI"
-              ],
-              "default": "TRE"
-            },
-            "doc": "The message producer (e.g. TRE, TDR, etc). Could be used for filtering and redirecting messages"
+             "type": "string",
+             "default": "TRE",
+             "doc": "The message producer (e.g. TRE, TDR, etc). Could be used for filtering and redirecting messages"
           },
           {
             "name": "executionId",
