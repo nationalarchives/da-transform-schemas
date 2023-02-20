@@ -9,12 +9,13 @@
        "type": {
          "type": "record",
          "name": "Properties",
+         "doc" : "These properties will be used by TRE to route and track events and their messages through the system"
          "fields": [
           {
             "name": "messageType",
             "type": "string",
             "default" : "tna.tre.messages.event.TREEvent" ,
-            "doc": "The type of message that will be namespace.name such as tna.tre.message.TREEvent"
+            "doc": "The type of message that will be namespace.name such as tna.tre.message.event.TREEvent. During code generation the TREEvent class will be place in a folder with the namespace"
           },
           {
             "name": "timestampMillis",
@@ -42,7 +43,7 @@
               "string",
               "null"
             ],
-            "doc": "the execution-id of from the input message"
+            "doc": "the execution-id of from the input message used for the process. Used to track flow of events for a particular package"
           }
         ]
       }
