@@ -1,0 +1,17 @@
+{
+  "properties" : {
+    "messageType" : "tna.tre.messages.judgment.available.TREJudgementAvailable",
+    "timestampMillis" : 23345678,
+    "function" : "tre-tf-module-parse-judgment-available",
+    "producer" : "TRE",
+    "executionId" : "executionId344",
+    "parentExecutionId" : null
+  },
+  "parameters" : {
+    "s3FolderUrl" : "https://aws/folder",
+    "judgmentDocx" : "out/docx",
+    "judgmentXml" : "out/xml",
+    "parserLog" : "out/log",
+    "reference" : "consignment-ref"
+  }
+}

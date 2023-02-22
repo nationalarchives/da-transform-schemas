@@ -9,7 +9,7 @@
        "type": {
          "type": "record",
          "name": "Properties",
-         "doc" : "These properties will be used by TRE to route and track events and their messages through the system"
+         "doc" : "These properties will be used by TRE to route and track events and their messages through the system",
          "fields": [
           {
             "name": "messageType",
