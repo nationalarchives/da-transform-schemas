@@ -1,7 +1,7 @@
 {
   "type": "record",
   "name": "CLJudgmentParse",
-  "namespace": "tna.tre.messages.judgment.parse",
+  "namespace": "tna.tre.messages.judgment.parse.request",
   "doc": "properties required for all messages routed through TRE",
   "fields": [
     {
@@ -13,7 +13,7 @@
           {
             "name": "messageType",
             "type": "string",
-            "default": "tna.tre.messages.judgment.parse.CLJudgmentParse",
+            "default": "tna.tre.messages.judgment.parse.request.CLJudgmentParseRequest",
             "doc": "Message for a parsed judgement event"
           },
           {
@@ -23,7 +23,7 @@
           {
             "name": "function",
             "type": "string",
-            "default": "cl-request-docx-parse",
+            "default": "cl-request-docx-parse-request",
             "doc": "Judgement docx parsing"
           },
           {
