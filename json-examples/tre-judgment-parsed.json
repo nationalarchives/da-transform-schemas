@@ -10,6 +10,6 @@
   "parameters" : {
     "s3FolderName" : "folder",
     "s3Bucket" : "bucket",
-    "reference" : "myRef"
+    "reference" : "maybe the reference you provided"
   }
 }
