@@ -1,0 +1,102 @@
+{
+  "namespace": "tna.tre.messages.drisip.available",
+  "type": "record",
+  "name": "DRIPreingestSipAvailable",
+  "doc": "DRI-SIP Available Message",
+  "fields": [
+    {
+      "name": "properties",
+      "type": {
+        "type": "record",
+        "name": "Properties",
+        "fields": [
+          {
+            "name": "messageType",
+            "type": "string",
+            "default": "tna.tre.messages.drisip.available.DRIPreingestSipAvailable",
+            "doc": "The type of message that will be namespace.name such as tna.tre.message.TREEvent. Package structure created in code gen"
+          },
+          {
+            "name": "timestampMillis",
+            "type": "long"
+          },
+          {
+            "name": "function",
+            "type": "string",
+            "default": "tre-fn-dpsg-bag-to-dri-sip",
+            "doc": "The name of the function/process that created this message such as tre-fn-dpsg-bag-to-dri-sip"
+          },
+          {
+            "name": "producer",
+            "type": {
+              "type": "enum",
+              "name": "Producer",
+              "symbols": [
+                "TRE",
+                "TDR",
+                "DRI"
+              ],
+              "default": "TRE"
+            },
+            "doc": "The message producer (e.g. TRE, TDR, etc). Could be used for filtering and redirecting messages"
+          },
+          {
+            "name": "executionId",
+            "type": "string",
+            "doc": "This is an id that can be used to uniquely identify the execution of the function. Information, such as the inputs, may be obtainable using this id. For TRE the ID of the step function, not lambda functions called from the step function, as that is the one responsible for sending out the message"
+          },
+          {
+            "name": "parentExecutionId",
+            "type": [
+              "string",
+              "null"
+            ],
+            "doc": "the execution-id of from the input message"
+          }
+        ]
+      }
+    },
+    {
+      "name": "parameters",
+      "type": {
+        "type": "record",
+        "name": "Parameters",
+        "fields": [
+          {
+            "name": "s3FolderUrl",
+            "type": "string",
+            "description": "url to directory containing bagit object in AWS s3"
+          },
+          {
+            "name": "s3Sha256Url",
+            "type": "string",
+            "description": "url to the bagit object itself in AWS s3"
+          },
+          {
+            "name": "fileType",
+            "type": {
+              "type": "enum",
+              "name": "FileType",
+              "symbols": [
+                "TAR",
+                "PDF",
+                "ZIP",
+                "JPEG"
+              ],
+              "default": "TAR"
+            },
+            "description": "the format of the file or archive i.e. PDF, JPEG, ZIP, TAR"
+          },
+          {
+            "name": "series",
+            "type": "string"
+          },
+          {
+            "name": "batch",
+            "type": "string"
+          }
+        ]
+      }
+    }
+  ]
+}

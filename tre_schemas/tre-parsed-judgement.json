@@ -1,0 +1,62 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "properties": {
+      "type": "object",
+      "properties": {
+        "messageType": {
+          "type": "string",
+          "default": "tna.tre.messages.parsed.judgment.TREParsedJudgement",
+          "doc": "Message for a parsed judgement event"
+        },
+        "timestampMillis": {
+          "type": "integer"
+        },
+        "function": {
+          "type": "string"
+        },
+        "producer": {
+          "type": "string"
+        },
+        "executionId": {
+          "type": "string"
+        },
+        "parentExecutionId": {
+          "type": ["string", "null"]
+        }
+      },
+      "required": [
+        "messageType",
+        "timestampMillis",
+        "function",
+        "producer",
+        "executionId",
+        "parentExecutionId"
+      ]
+    },
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "s3FolderName": {
+          "type": "string"
+        },
+        "s3Bucket": {
+          "type": "string"
+        },
+        "requestRef": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "s3FolderName",
+        "s3Bucket",
+        "requestRef"
+      ]
+    }
+  },
+  "required": [
+    "properties",
+    "parameters"
+  ]
+}

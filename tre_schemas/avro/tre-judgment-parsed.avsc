@@ -1,0 +1,76 @@
+{
+  "type": "record",
+  "name": "TREJudgementParsed",
+  "namespace": "tna.tre.messages.judgment.parsed",
+  "doc": "properties required for all messages routed through TRE",
+  "fields": [
+    {
+      "name": "properties",
+      "type": {
+        "type": "record",
+        "name": "Properties",
+        "fields": [
+          {
+            "name": "messageType",
+            "type": "string",
+            "default": "tna.tre.messages.judgment.parsed.TREJudgementParsed",
+            "doc": "Message for a parsed judgement event"
+          },
+          {
+            "name": "timestampMillis",
+            "type": "long"
+          },
+          {
+            "name": "function",
+            "type": "string",
+            "default": "tre-tf-module-parse-judgment",
+            "doc": "Judgement docx parsing"
+          },
+          {
+            "name": "producer",
+            "type": "string",
+            "default": "TRE",
+             "doc": "The message producer (e.g. TRE, TDR, etc). Could be used for filtering and redirecting messages"
+          },
+          {
+            "name": "executionId",
+            "type": "string",
+            "doc": "This is an id that can be used to uniquely identify the execution of the function. Information, such as the inputs, may be obtainable using this id. For TRE the ID of the step function, not lambda functions called from the step function, as that is the one responsible for sending out the message"
+          },
+          {
+            "name": "parentExecutionId",
+            "type": [
+              "string",
+              "null"
+            ],
+            "doc": "the execution-id of from the input message"
+          }
+        ]
+      }
+    },
+    {
+      "name": "parameters",
+      "type": {
+        "type": "record",
+        "name": "Parameters",
+        "fields": [
+          {
+            "name": "s3FolderName",
+            "type": "string",
+            "description": "folder inside s3 Bucket"
+          },
+          {
+            "name": "s3Bucket",
+            "type": "string",
+            "description": "s3 Bucket"
+          },
+          {
+            "name": "reference",
+            "type": "string",
+            "description": "request ref to allow user to be passed back to user"
+          }
+        ]
+      }
+    }
+  ]
+}
