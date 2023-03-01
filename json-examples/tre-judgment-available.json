@@ -8,10 +8,39 @@
     "parentExecutionId" : null
   },
   "parameters" : {
-    "s3FolderUrl" : "https://aws/folder",
-    "judgmentDocx" : "out/docx",
-    "judgmentXml" : "out/xml",
-    "parserLog" : "out/log",
-    "reference" : "consignment-ref"
+    "images": {"image1.png": "https://s3.amazonaws.com/tre-output/nanp-1.docx?X-Amz-Security-Token=7eab38…",
+               "image36.jpg": "https://s3.amazonaws.com/tre-output/nanp-36.jpg?X-Amz-Security-Token=882b00"},
+    "judgmentDocx" : "https://s3.amazonaws.com/tre-output/ajhi.docx?X-Amz-Security-Token=24db05…",
+    "judgmentXml" : "https://s3.amazonaws.com/tre-output/ahbs.xml?X-Amz-Security-Token=822aa9…",
+    "parserLog" : "https://s3.amazonaws.com/tre-output/waja.docx?X-Amz-Security-Token=0e2989…",
+    "reference" : "TDR-3023-AAA"},
+    "metadata" : {
+        "TRE": {
+          "may-not": "be required"
+        },
+        "PARSER": {
+          "uri": "https://caselaw.nationalarchives.gov.uk/id/ewhc/pat/3022/1",
+          "court": "EWHC-Chancery-Patents",
+          "cite": "[3022] EWHC 1 (Pat)",
+          "date": "3022-01-01",
+          "name": "WAYLAND-YUTANI v SEEGSON",
+          "attachments": [],
+          "error-messages": []
+        },
+        "TDR": {
+          "Consignment-Type": "judgment",
+          "Bag-Creator": "TDRExportv0.0.169",
+          "Consignment-Start-Datetime": "3022-01-01T00:00:00Z",
+          "Consignment-Series": "",
+          "Source-Organization": "HM Courts and Tribunals Service",
+          "Contact-Name": "Ellen Ripley",
+          "Internal-Sender-Identifier": "TDR-3022-AAA",
+          "Consignment-Completed-Datetime": "3022-01-01T00:00:00Z",
+          "Consignment-Export-Datetime": "3022-01-01T00:00:00Z",
+          "Contact-Email": "ellen.ripley@justice.gov.invalid",
+          "Payload-Oxum": "823982.1",
+          "Bagging-Date": "3022-01-01"
+        }
+      }
+    }
   }
-}

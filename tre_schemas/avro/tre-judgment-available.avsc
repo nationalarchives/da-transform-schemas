@@ -55,29 +55,41 @@
         "name": "Parameters",
         "fields": [
           {
-            "name": "s3FolderUrl",
-            "type": "string",
-            "description": "s3-folder-url"
+            "name": "images",
+            "type": "map",
+            "values": "string",
+            "default": {},
+            "description": "map of filename: URI for all images embedded in the word document"
           },
           {
             "name": "judgmentDocx",
-            "type": "string",
-            "description": "docx file path and name"
+            "type": ["null", "string"],
+            "description": "docx URI; may be absent if request was from FCL"
           },
           {
              "name": "judgmentXml",
              "type": "string",
-             "description": "xml file path and name"
+             "description": "AkomaNtoso XML judgment URI"
            },
            {
               "name": "parserLog",
                "type": "string",
-               "description": "parser log file path and name"
+               "description": "Parser log URI"
            },
           {
             "name": "reference",
             "type": "string",
-            "description": "consignment-ref"
+            "description": "TDR consignment reference or FCL reference"
+          },
+          {
+            "name": "metadata",
+            "type": "record",
+            "fields": [
+              {"name": "TDR", "type": "map", "values": "string"},
+              {"name": "TRE", "type": "map", "values": "string"},
+              {"name": "PARSER", "type": "map", "values": "string"}
+            ],
+            "description": "metadata as output by parser and TDR"
           }
         ]
       }
