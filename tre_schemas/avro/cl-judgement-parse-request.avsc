@@ -55,14 +55,9 @@
         "name": "Parameters",
         "fields": [
           {
-            "name": "s3FolderUrl",
+            "name": "judgementURI",
             "type": "string",
-            "description": "s3url"
-          },
-          {
-             "name": "s3Sha256Url",
-             "type": "string",
-            "description": "checksum of package"
+            "description": "the location of the judgement docx - these parameters still need to be decided"
           },
           {
             "name": "reference",

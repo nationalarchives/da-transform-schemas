@@ -8,8 +8,7 @@
     "parentExecutionId" : null
   },
   "parameters" : {
-    "s3FolderUrl" : "folder",
-    "s3Sha256Url" : "bucket",
-    "reference" : "a reference"
+    "judgementURI" : "need to decide how the file location is to be provided - c",
+    "reference" : "this might be passed back so you can match your requests to the response"
   }
 }
