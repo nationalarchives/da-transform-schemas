@@ -65,7 +65,7 @@
             "description": "s3 Bucket"
           },
           {
-            "name": "requestRef",
+            "name": "reference",
             "type": "string",
             "description": "request ref to allow user to be passed back to user"
           }
