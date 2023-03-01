@@ -7,8 +7,8 @@
       "properties": {
         "messageType": {
           "type": "string",
-          "default": "tna.tre.messages.parsed.judgment.TREParsedJudgement",
-          "doc": "Message for a parsed judgement event"
+          "default": "tna.tre.messages.parsed.judgment.TREParsedJudgment",
+          "doc": "Message for a parsed judgment event"
         },
         "timestampMillis": {
           "type": "integer"

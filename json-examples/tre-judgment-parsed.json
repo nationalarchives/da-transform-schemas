@@ -1,6 +1,6 @@
 {
   "properties" : {
-    "messageType" : "tna.tre.messages.parsed.judgment.TREParsedJudgement",
+    "messageType" : "tna.tre.messages.parsed.judgment.TREParsedJudgment",
     "timestampMillis" : 23345678,
     "function" : "tre-tf-module-parse-judgment",
     "producer" : "TRE",
