@@ -14,7 +14,7 @@
             "name": "messageType",
             "type": "string",
             "default": "tna.tre.messages.judgment.parse.request.CLJudgmentParseRequest",
-            "doc": "Message for a parsed judgement event"
+            "doc": "Message for a parsed judgment event"
           },
           {
             "name": "timestampMillis",
@@ -24,7 +24,7 @@
             "name": "function",
             "type": "string",
             "default": "cl-request-docx-parse-request",
-            "doc": "Judgement docx parsing"
+            "doc": "Judgment docx parsing"
           },
           {
             "name": "producer",
@@ -55,9 +55,9 @@
         "name": "Parameters",
         "fields": [
           {
-            "name": "judgementURI",
+            "name": "judgmentURI",
             "type": "string",
-            "description": "the location of the judgement docx - these parameters still need to be decided"
+            "description": "the location of the judgment docx - these parameters still need to be decided"
           },
           {
             "name": "reference",

@@ -1,6 +1,6 @@
 {
   "type": "record",
-  "name": "TREJudgementAvailable",
+  "name": "TREJudgmentAvailable",
   "namespace": "tna.tre.messages.judgment.available",
   "doc": "properties required for all messages routed through TRE",
   "fields": [
@@ -13,8 +13,8 @@
           {
             "name": "messageType",
             "type": "string",
-            "default": "tna.tre.messages.judgment.available.TREJudgementAvailable",
-            "doc": "Message for a parsed judgement available event"
+            "default": "tna.tre.messages.judgment.available.TREJudgmentAvailable",
+            "doc": "Message for a parsed judgment available event"
           },
           {
             "name": "timestampMillis",
@@ -24,7 +24,7 @@
             "name": "function",
             "type": "string",
             "default": "tre-tf-module-parse-judgment-available",
-            "doc": "Judgement docx parsing"
+            "doc": "Judgment docx parsing"
           },
           {
             "name": "producer",
