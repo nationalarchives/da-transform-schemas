@@ -37,8 +37,10 @@ sent [schema](../../tre_schemas/avro/tre-judgment-available.avsc), [example json
 The response will continue to point to a tar.gz file with metadata in the previous format; however, FCL MUST support
 the TDR section of the metadata.json being absent for documents that don't come from FCL.
 
-TRE will maintain original format messages more or less indefinately.
+TRE will maintain original format messages for the forseeable future.
 
 ## Consequences
 
-???
+In the current absence of a permanent accessible store of received judgments, FCL will need to apply
+metadata associated with a reparsed judgment after receiving the output from TRE. This might need to be
+created (for documents that predate TDR) or inferred from previous messages (for documents originally sent via TDR)
