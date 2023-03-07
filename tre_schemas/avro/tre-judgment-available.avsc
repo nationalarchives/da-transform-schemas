@@ -54,42 +54,30 @@
         "type": "record",
         "name": "Parameters",
         "fields": [
-          {
-            "name": "images",
-            "type": "map",
-            "values": "string",
-            "default": {},
-            "description": "map of filename: URI for all images embedded in the word document"
+         {
+            "name": "reference",
+            "type": "string",
+            "description": "(TDR-2023-AAA|FCL-???????) # opaque string: use originator to know where it came from, should be an acceptable filename"
           },
           {
-            "name": "judgmentDocx",
+               "name": "originator",
+               "type": "string",
+               "description":" who provided the docx FCLTDR)"
+          },
+          {
+            "name": "bundleFileURI",
             "type": ["null", "string"],
             "description": "docx URI; may be absent if request was from FCL"
           },
           {
-             "name": "judgmentXml",
-             "type": "string",
-             "description": "AkomaNtoso XML judgment URI"
-           },
-           {
-              "name": "parserLog",
+              "name": "metadataFilePath",
                "type": "string",
-               "description": "Parser log URI"
+               "description": "metadata.json # location in bundle tar.gz # Metadata validation for metadata"
            },
           {
-            "name": "reference",
+            "name": "metadataFileType",
             "type": "string",
-            "description": "TDR consignment reference or FCL reference"
-          },
-          {
-            "name": "metadata",
-            "type": "record",
-            "fields": [
-              {"name": "TDR", "type": "map", "values": "string"},
-              {"name": "TRE", "type": "map", "values": "string"},
-              {"name": "PARSER", "type": "map", "values": "string"}
-            ],
-            "description": "metadata as output by parser and TDR"
+            "description": "type definition of the metadata file defined by the scheam"
           }
         ]
       }
