@@ -11,7 +11,7 @@
     "reference": "(TDR-2023-AAA|FCL-???????) # opaque string: use originator to know where it came from, should be an acceptable filename",
     "originator": "(FCL|TDR)",
     "bundleFileURI": "https://s3.amazonaws.com/tre-output/TDR-2023-AAA.tar.gz?X-Amz-Security-Token=24db05… # download tar.gz",
-    "metadataFilePath": "metadata.json # location in bundle tar.gz # Metadata validation for metadata",
-    "metadataFileType": "type definition of the metadata file defined by the scheam"
+    "metadataFilePath": "metadata file  location in bundle tar.gz",
+    "metadataFileType": "type definition of the metadata file defined by the schema"
   }
 }
