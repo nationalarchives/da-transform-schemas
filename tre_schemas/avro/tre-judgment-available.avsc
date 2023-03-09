@@ -1,7 +1,7 @@
 {
   "type": "record",
-  "name": "TREJudgmentAvailable",
-  "namespace": "tna.tre.messages.judgment.available",
+  "name": "JudgmentPackageAvailable",
+  "namespace": "tna.tre.messages.judgment.release",
   "doc": "properties required for all messages routed through TRE",
   "fields": [
     {
@@ -13,8 +13,8 @@
           {
             "name": "messageType",
             "type": "string",
-            "default": "tna.tre.messages.judgment.available.TREJudgmentAvailable",
-            "doc": "Message for a parsed judgment available event"
+            "default": "tna.tre.messages.judgment.available.JudgmentPackageAvailable",
+            "doc": "Message for a judgment package available event"
           },
           {
             "name": "timestampMillis",
@@ -30,7 +30,7 @@
             "name": "producer",
             "type": "string",
             "default": "TRE",
-             "doc": "The message producer (e.g. TRE, TDR, etc). Could be used for filtering and redirecting messages"
+            "doc": "The message producer (e.g. TRE, TDR, etc). Could be used for filtering and redirecting messages"
           },
           {
             "name": "executionId",
@@ -55,29 +55,37 @@
         "name": "Parameters",
         "fields": [
           {
-            "name": "s3FolderUrl",
-            "type": "string",
-            "description": "s3-folder-url"
-          },
-          {
-            "name": "judgmentDocx",
-            "type": "string",
-            "description": "docx file path and name"
-          },
-          {
-             "name": "judgmentXml",
-             "type": "string",
-             "description": "xml file path and name"
-           },
-           {
-              "name": "parserLog",
-               "type": "string",
-               "description": "parser log file path and name"
-           },
-          {
             "name": "reference",
             "type": "string",
-            "description": "consignment-ref"
+            "description": "(TDR-2023-AAA|FCL-???????) # opaque string: use originator to know where it came from, should be an acceptable filename"
+          },
+          {
+            "name": "originator",
+            "type": {
+              "type": "enum",
+              "name": "Originator",
+              "symbols": [
+                "FCL",
+                "TDR"
+              ],
+              "description": "who provided the docx FCL|TDR)"
+            }
+          },
+          {
+            "name": "bundleFileURI",
+            "type": "string",
+            "description": "download tar.gz"
+          },
+          {
+            "name": "metadataFilePath",
+            "type": "string",
+            "description": "metadata file location in bundle tar.gz ",
+            "default": "metadata.json"
+          },
+          {
+            "name": "metadataFileType",
+            "type": "string",
+            "description": "type definition of the metadata file defined by a schema"
           }
         ]
       }
