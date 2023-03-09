@@ -13,7 +13,7 @@
           {
             "name": "messageType",
             "type": "string",
-            "default": "tna.tre.messages.judgment.parsed.JudgmentParse",
+            "default": "tna.tre.messages.judgment.parse.JudgmentParse",
             "doc": "Message for a parse judgment event"
           },
           {
@@ -29,15 +29,15 @@
           {
             "name": "producer",
             "type": {
-                     "type": "enum",
-                     "name": "Producer",
-                     "symbols": [
-                            "TRE",
-                            "TDR",
-                            "FCL"
-                          ],
-                          "default": "TRE"
-                        },
+              "type": "enum",
+              "name": "Producer",
+              "symbols": [
+                "TRE",
+                "TDR",
+                "FCL"
+              ],
+              "default": "TRE"
+            },
             "default": "TRE",
             "doc": "The message producer (e.g. TRE, TRE, etc). Could be used for filtering and redirecting messages"
           },
@@ -63,6 +63,19 @@
         "type": "record",
         "name": "Parameters",
         "fields": [
+          {
+            "name": "originator",
+            "type": {
+              "type": "enum",
+              "name": "Originator",
+              "symbols": [
+                "FCL",
+                "TDR"
+              ],
+              "default": "FCL",
+              "description": "who provided the docx FCL|TDR)"
+            }
+          },
           {
             "name": "s3FolderName",
             "type": "string",
