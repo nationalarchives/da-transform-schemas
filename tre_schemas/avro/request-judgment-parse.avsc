@@ -1,0 +1,31 @@
+{
+  "type": "record",
+  "name": "RequestJudgementParse",
+  "namespace": "uk.gov.tna.tre.messages.request.judgement.parse",
+  "doc": "properties required for all messages routed through TRE",
+  "fields": [
+    {
+      "name": "properties",
+      "type": "uk.gov.tna.tre.messages.event.Properties"
+    },
+    {
+      "name": "parameters",
+      "type": {
+        "type": "record",
+        "name": "Parameters",
+        "fields": [
+          {
+            "name": "judgmentURI",
+            "type": "string",
+            "description": "URI of the judgment docx: may be a presigned S3 link or other web URI (e.g. assets.caselaw.nationalarchives.gov.uk)"
+          },
+          {
+            "name": "reference",
+            "type": "string",
+            "description": "Opaque FCL-generated reference to allow matching of response to request"
+          }
+        ]
+      }
+    }
+  ]
+}
