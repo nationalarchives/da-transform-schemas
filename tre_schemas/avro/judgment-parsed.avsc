@@ -1,7 +1,7 @@
 {
   "type": "record",
-  "name": "TREJudgmentParsed",
-  "namespace": "uk.gov.tna.tre.messages.judgment.parsed",
+  "name": "JudgmentParse",
+  "namespace": "uk.gov.tna.tre.messages.judgment.parse",
   "doc": "properties required for all messages routed through TRE",
   "fields": [
     {
@@ -14,6 +14,18 @@
         "type": "record",
         "name": "Parameters",
         "fields": [
+          {
+            "name": "originator",
+            "type": {
+              "type": "enum",
+              "name": "Originator",
+              "symbols": [
+                "FCL",
+                "TDR"
+              ],
+              "description": "who provided the docx FCL|TDR) - requested by FCL"
+            }
+          },
           {
             "name": "s3FolderName",
             "type": "string",
