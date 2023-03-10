@@ -28,9 +28,18 @@
           },
           {
             "name": "producer",
-             "type": "string",
-             "default": "TRE",
-             "doc": "The message producer (e.g. TRE, TDR, etc). Could be used for filtering and redirecting messages"
+             "type": {
+               "type": "enum",
+               "name": "Producer",
+               "symbols": [
+                 "TRE",
+                 "TDR",
+                 "FCL",
+                 "DRI"
+               ],
+               "default": "TRE",
+               "doc": "The message producer (e.g. TRE, TDR, etc). Could be used for filtering and redirecting messages"
+             }
           },
           {
             "name": "executionId",
