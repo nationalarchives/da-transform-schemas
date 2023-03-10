@@ -1,7 +1,7 @@
 {
   "type": "record",
-  "name": "TREJudgmentParsed",
-  "namespace": "uk.gov.tna.tre.messages.judgment.parse",
+  "name": "RequestJudgementParse",
+  "namespace": "uk.gov.tna.tre.messages.request.judgement.parse",
   "doc": "properties required for all messages routed through TRE",
   "fields": [
     {
@@ -15,19 +15,14 @@
         "name": "Parameters",
         "fields": [
           {
-            "name": "s3FolderName",
+            "name": "judgmentURI",
             "type": "string",
-            "description": "folder inside s3 Bucket"
-          },
-          {
-            "name": "s3Bucket",
-            "type": "string",
-            "description": "s3 Bucket"
+            "description": "URI of the judgment docx: may be a presigned S3 link or other web URI (e.g. assets.caselaw.nationalarchives.gov.uk)"
           },
           {
             "name": "reference",
             "type": "string",
-            "description": "request ref to allow user to be passed back to user"
+            "description": "Opaque FCL-generated reference to allow matching of response to request"
           }
         ]
       }

@@ -1,0 +1,53 @@
+{
+  "type": "record",
+  "name": "JudgmentPackageAvailable",
+  "namespace": "uk.gov.tna.tre.messages.judgmentpackage.available",
+  "fields": [
+    {
+      "name": "properties",
+      "type": "uk.gov.tna.tre.messages.event.Properties"
+    },
+    {
+      "name": "parameters",
+      "type": {
+        "type": "record",
+        "name": "Parameters",
+        "fields": [
+          {
+            "name": "reference",
+            "type": "string",
+            "description": "(TDR-2023-AAA|FCL-???????) # opaque string: use originator to know where it came from, should be an acceptable filename"
+          },
+          {
+            "name": "originator",
+            "type": {
+              "type": "enum",
+              "name": "Originator",
+              "symbols": [
+                "FCL",
+                "TDR"
+              ],
+              "description": "who provided the docx FCL|TDR)"
+            }
+          },
+          {
+            "name": "bundleFileURI",
+            "type": "string",
+            "description": "download tar.gz"
+          },
+          {
+            "name": "metadataFilePath",
+            "type": "string",
+            "description": "metadata file location in bundle tar.gz ",
+            "default": "metadata.json"
+          },
+          {
+            "name": "metadataFileType",
+            "type": "string",
+            "description": "type definition of the metadata file defined by a schema"
+          }
+        ]
+      }
+    }
+  ]
+}
