@@ -1,11 +1,11 @@
 {
   "type": "record",
   "name": "JudgmentPackageAvailable",
-  "namespace": "tna.tre.messages.judgmentpackage.available",
+  "namespace": "uk.gov.tna.tre.messages.judgmentpackage.available",
   "fields": [
     {
       "name": "properties",
-      "type": "tna.tre.messages.event.Properties"
+      "type": "uk.gov.tna.tre.messages.event.Properties"
     },
     {
       "name": "parameters",
