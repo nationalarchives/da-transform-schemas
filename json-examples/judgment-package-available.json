@@ -1,6 +1,6 @@
 {
   "properties" : {
-    "messageType" : "uk.gov.tna.tre.messages.judgmentpackage.available.JudgmentPackageAvailable",
+    "messageType" : "uk.gov.nationalarchives.tre.messages.judgmentpackage.available.JudgmentPackageAvailable",
     "timestampMillis" : 12345678976,
     "function" : "tre-tf-module-judgment-packer - not sure correct",
     "producer" : "TRE",
