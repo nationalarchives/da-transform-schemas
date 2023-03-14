@@ -1,7 +1,7 @@
 {
   "type": "record",
   "name": "TREEvent",
-  "namespace": "uk.gov.tna.tre.messages.event",
+  "namespace": "uk.gov.nationalarchives.tre.messages.event",
   "doc": "properties required for all messages routed through TRE",
   "fields": [
      {
@@ -14,7 +14,7 @@
           {
             "name": "messageType",
             "type": "string",
-            "doc": "The type of message that will be namespace.name such as tna.tre.message.event.TREEvent. During code generation the TREEvent class will be place in a folder with the namespace"
+            "doc": "The type of message that will be namespace.name such as uk.gov.nationalarchives.tre.message.event.TREEvent. During code generation the TREEvent class will be place in a folder with the namespace"
           },
           {
             "name": "timestampMillis",

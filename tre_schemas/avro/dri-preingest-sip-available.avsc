@@ -1,12 +1,12 @@
 {
-  "namespace": "uk.gov.tna.tre.messages.drisip.available",
+  "namespace": "uk.gov.nationalarchives.tre.messages.drisip.available",
   "type": "record",
   "name": "DRIPreingestSipAvailable",
   "doc": "DRI-SIP Available Message",
   "fields": [
     {
       "name": "properties",
-      "type": "uk.gov.tna.tre.messages.event.Properties"
+      "type": "uk.gov.nationalarchives.tre.messages.event.Properties"
     },
     {
       "name": "parameters",
