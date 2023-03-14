@@ -1,0 +1,17 @@
+{
+  "properties" : {
+    "messageType" : "uk.gov.tna.tre.messages.judgmentpackage.available.JudgmentPackageAvailable",
+    "timestampMillis" : 12345678976,
+    "function" : "tre-tf-module-judgment-packer - not sure correct",
+    "producer" : "TRE",
+    "executionId" : "executionId344",
+    "parentExecutionId" : "inputMessageExecutionId"
+  },
+  "parameters" : {
+    "reference" : "(TDR-2023-AAA|FCL-???????) # opaque string: use originator to know where it came from, should be an acceptable filename",
+    "originator" : "FCL",
+    "bundleFileURI" : "https://s3.amazonaws.com/tre-output/TDR-2023-AAA.tar.gz?X-Amz-Security-Token=24db05… # download tar.gz",
+    "metadataFilePath" : "metadata file  location in bundle tar.gz",
+    "metadataFileType" : "type definition of the metadata file defined by the schema"
+  }
+}
