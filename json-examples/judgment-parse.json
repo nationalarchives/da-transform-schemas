@@ -1,6 +1,6 @@
 {
   "properties" : {
-    "messageType" : "tna.tre.messages.judgment.parse.JudgmentParse",
+    "messageType" : "uk.gov.nationalarchives.tre.messages.judgment.parse.JudgmentParse",
     "timestampMillis" : 23345678,
     "function" : "tre-tf-module-parse-judgment",
     "producer" : "TRE",

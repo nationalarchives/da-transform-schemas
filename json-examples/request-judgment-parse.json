@@ -1,6 +1,6 @@
 {
   "properties" : {
-    "messageType" : "tna.tre.messages.judgment.parse.RequestJudgmentParse",
+    "messageType" : "uk.gov.nationalarchives.tre.messages.judgment.parse.RequestJudgmentParse",
     "timestampMillis" : 23345678,
     "function" : "fcl-judgment-parse-request",
     "producer" : "FCL",
