@@ -15,14 +15,14 @@
         "name": "Parameters",
         "fields": [
           {
-            "name": "s3FolderUrl",
+            "name": "sipBundleFileURI",
             "type": "string",
-            "description": "url to directory containing bagit object in AWS s3"
+            "doc": "url to the tar.qz of the pre-ingest sip package"
           },
           {
-            "name": "s3Sha256Url",
+            "name": "sipBundleFileSha256URI",
             "type": "string",
-            "description": "url to the bagit object itself in AWS s3"
+            "doc": "url to the sha256 value of the tar.qz pre-ingest sip package"
           },
           {
             "name": "fileType",
@@ -33,19 +33,32 @@
                 "TAR",
                 "PDF",
                 "ZIP",
-                "JPEG"
+                "JPEG",
+                "GZ"
               ],
               "default": "TAR"
             },
-            "description": "the format of the file or archive i.e. PDF, JPEG, ZIP, TAR"
+            "doc": "the format of the file or archive i.e. PDF, JPEG, ZIP, TAR"
           },
           {
             "name": "series",
-            "type": "string"
+            "type": "string",
+            "doc": "the series to which the transfer is related"
           },
           {
             "name": "batch",
-            "type": "string"
+            "type": "string",
+            "doc": "the batch reference for the transfer - DRI specific"
+          },
+          {
+            "name" : "tdrRef",
+            "type" : "string",
+            "doc" : "the TDR reference of the transfer"
+          },
+          {
+            "name" : "transferringBody",
+            "type" : "string",
+            "doc" : "the transferring body for the transfer"
           }
         ]
       }

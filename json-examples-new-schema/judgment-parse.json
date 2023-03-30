@@ -1,7 +1,7 @@
 {
   "properties" : {
     "messageType" : "uk.gov.nationalarchives.tre.messages.judgment.parse.JudgmentParse",
-    "timestampMillis" : 23345678,
+    "timestamp" : "2023-03-29T11:00:12.280Z",
     "function" : "tre-tf-module-parse-judgment",
     "producer" : "TRE",
     "executionId" : "executionId344",

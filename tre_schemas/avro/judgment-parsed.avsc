@@ -16,15 +16,11 @@
         "fields": [
           {
             "name": "originator",
-            "type": {
-              "type": "enum",
-              "name": "Originator",
-              "symbols": [
-                "FCL",
-                "TDR"
-              ],
-              "description": "who provided the docx (FCL|TDR)"
-            }
+            "type": [
+              "string",
+              "null"
+            ],
+            "doc": "who provided the docx such as FCL|TDR. This will be passed through to the judgmentpacakage-available message"
           },
           {
             "name": "s3FolderName",
