@@ -1,0 +1,19 @@
+{
+  "properties" : {
+    "messageType" : "uk.gov.nationalarchives.tre.messages.drisip.available.DRIPreingestSipAvailable",
+    "timestamp" : "2023-03-29T11:00:12.280Z",
+    "function" : "tre-tf-module-drisip-create",
+    "producer" : "TRE",
+    "executionId" : "executionId344",
+    "parentExecutionId" : "id from the input Message ExecutionId"
+  },
+  "parameters" : {
+    "sipBundleFileURI" : "https://dev-tre-dpsg-out.s3.amazonaws.com/consignments/standard/TDR-2022-NQ3/9c6d25c1-c8c9-495a-be0b-91e7af7b2083/TDR-2022-NQ3/sip/MOCKA101Y22TBNQ3.tar.gz?X-Amz-Algorithm=AWS4-HMAC-...",
+    "sipBundleFileSha256URI" : "https://dev-tre-dpsg-out.s3.amazonaws.com/consignments/standard/TDR-2022-NQ3/9c6d25c1...",
+    "fileType" : "GZ",
+    "series" : "series name",
+    "batch" : "batch identifier",
+    "tdrRef" : "TDR reference",
+    "transferringBody" : "transferring body passed from TDR"
+  }
+}

@@ -1,7 +1,7 @@
 {
   "type": "record",
-  "name": "RequestJudgementParse",
-  "namespace": "uk.gov.nationalarchives.tre.messages.request.judgement.parse",
+  "name": "JudgmentParse",
+  "namespace": "uk.gov.nationalarchives.tre.messages.judgment.parse",
   "doc": "properties required for all messages routed through TRE",
   "fields": [
     {
@@ -15,22 +15,27 @@
         "name": "Parameters",
         "fields": [
           {
-            "name": "judgmentURI",
-            "type": "string",
-            "doc": "URI of the judgment docx: may be a presigned S3 link or other web URI (e.g. https://tna-caselaw-assets.s3.eu-west-2.amazonaws.com/eat/2022/1/eat_2022_1.docx)"
-          },
-          {
-            "name": "reference",
-            "type": "string",
-            "doc": "Opaque FCL-generated reference to allow matching of response to request"
-          },
-          {
             "name": "originator",
             "type": [
               "string",
               "null"
             ],
             "doc": "who provided the docx such as FCL|TDR. This will be passed through to the judgmentpacakage-available message"
+          },
+          {
+            "name": "s3FolderName",
+            "type": "string",
+            "description": "folder inside s3 Bucket"
+          },
+          {
+            "name": "s3Bucket",
+            "type": "string",
+            "description": "s3 Bucket"
+          },
+          {
+            "name": "reference",
+            "type": "string",
+            "description": "request ref to allow user to be passed back to user"
           }
         ]
       }

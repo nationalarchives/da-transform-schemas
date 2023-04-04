@@ -1,0 +1,67 @@
+{
+  "namespace": "uk.gov.nationalarchives.tre.messages.drisip.available",
+  "type": "record",
+  "name": "DRIPreingestSipAvailable",
+  "doc": "DRI-SIP Available Message",
+  "fields": [
+    {
+      "name": "properties",
+      "type": "uk.gov.nationalarchives.tre.messages.event.Properties"
+    },
+    {
+      "name": "parameters",
+      "type": {
+        "type": "record",
+        "name": "Parameters",
+        "fields": [
+          {
+            "name": "sipBundleFileURI",
+            "type": "string",
+            "doc": "url to the tar.qz of the pre-ingest sip package"
+          },
+          {
+            "name": "sipBundleFileSha256URI",
+            "type": "string",
+            "doc": "url to the sha256 value of the tar.qz pre-ingest sip package"
+          },
+          {
+            "name": "fileType",
+            "type": {
+              "type": "enum",
+              "name": "FileType",
+              "symbols": [
+                "TAR",
+                "PDF",
+                "ZIP",
+                "JPEG",
+                "GZ"
+              ],
+              "default": "TAR"
+            },
+            "doc": "the format of the file or archive i.e. PDF, JPEG, ZIP, TAR"
+          },
+          {
+            "name": "series",
+            "type": "string",
+            "doc": "the series to which the transfer is related"
+          },
+          {
+            "name": "batch",
+            "type": "string",
+            "doc": "the batch reference for the transfer - DRI specific"
+          },
+          {
+            "name" : "tdrRef",
+            "type" : "string",
+            "doc" : "the TDR reference of the transfer"
+          },
+          {
+            "name" : "transferringBody",
+            "type" : "string",
+            "doc" : "the transferring body for the transfer"
+          }
+        ]
+      }
+    }
+  ]
+}
