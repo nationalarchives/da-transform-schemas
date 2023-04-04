@@ -4,12 +4,9 @@ import sbtrelease.ReleasePlugin.autoImport.ReleaseTransformations._
 name := "da-transform-schema"
 organization := "uk.gov.nationalarchives"
 
-ThisBuild / organization := "uk.gov.nationalarchives"
-ThisBuild / organizationName := "National Archives"
-
 scmInfo := Some(
   ScmInfo(
-    url("https://github.com/nationalarchives/tdr-generated-graphql"),
+    url("https://github.com/nationalarchives/da-transform-schema"),
     "git@github.com:nationalarchives/da-transform-schema.git"
   )
 )
