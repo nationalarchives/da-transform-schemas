@@ -32,6 +32,7 @@ developers := List(
   )
 )
 
+releaseIgnoreUntrackedFiles := true
 useGpgPinentry := true
 publishTo := sonatypePublishToBundle.value
 publishMavenStyle := true
