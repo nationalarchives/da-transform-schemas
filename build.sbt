@@ -1,20 +1,11 @@
 import sbt.url
-import ReleaseTransformations._
-import java.io.FileWriter
+import sbtrelease.ReleasePlugin.autoImport.ReleaseTransformations._
 
 name := "da-transform-schema"
 organization := "uk.gov.nationalarchives"
 
 ThisBuild / organization := "uk.gov.nationalarchives"
 ThisBuild / organizationName := "National Archives"
-
-lazy val setLatestTagOutput = taskKey[Unit]("Sets a GitHub actions output for the latest tag")
-
-setLatestTagOutput := {
-  val fileWriter = new FileWriter(sys.env("GITHUB_OUTPUT"), true)
-  fileWriter.write(s"latest-tag=${(ThisBuild / version).value}\n")
-  fileWriter.close()
-}
 
 scmInfo := Some(
   ScmInfo(
@@ -38,19 +29,18 @@ publishTo := sonatypePublishToBundle.value
 publishMavenStyle := true
 
 releaseProcess := Seq[ReleaseStep](
-  checkSnapshotDependencies,
-  inquireVersions,
-  runClean,
-  runTest,
-  setReleaseVersion,
-  releaseStepTask(setLatestTagOutput),
-  commitReleaseVersion,
-  tagRelease,
-  releaseStepCommand("publishSigned"),
-  releaseStepCommand("sonatypeBundleRelease"),
-  setNextVersion,
-  commitNextVersion,
-  pushChanges
+  checkSnapshotDependencies, // check that there are no SNAPSHOT dependencies
+  inquireVersions, // ask user to enter the current and next verion
+  runClean, // clean
+  runTest, // run tests
+  setReleaseVersion, // set release version in version.sbt
+  commitReleaseVersion, // commit the release version
+  tagRelease, // create git tag
+  releaseStepCommandAndRemaining("+publishSigned"), // run +publishSigned command to sonatype stage release
+  setNextVersion, // set next version in version.sbt
+  commitNextVersion, // commint next version
+  releaseStepCommand("sonatypeRelease"), // run sonatypeRelease and publish to maven central
+  pushChanges // push changes to git
 )
 
 description := "Classes to be used by TRE Message producers/consunmers"
