@@ -11,6 +11,9 @@ scmInfo := Some(
   )
 )
 
+// disable publish with scala version, otherwise artifact name will include scala version
+crossPaths := false
+
 developers := List(
   Developer(
     id    = "tna-digital-archiving-jenkins",
