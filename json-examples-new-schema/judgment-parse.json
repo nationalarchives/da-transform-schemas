@@ -1,12 +1,7 @@
 {
   "properties" : {
-<<<<<<<< HEAD:json-examples/judgment-parse.json
-    "messageType" : "tna.tre.messages.judgment.parse.JudgmentParse",
-    "timestampMillis" : 23345678,
-========
     "messageType" : "uk.gov.nationalarchives.tre.messages.judgment.parse.JudgmentParse",
     "timestamp" : "2023-03-29T11:00:12.280Z",
->>>>>>>> feature/DTE-650-implement_caselaw_message:json-examples-new-schema/judgment-parse.json
     "function" : "tre-tf-module-parse-judgment",
     "producer" : "TRE",
     "executionId" : "executionId344",
