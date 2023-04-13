@@ -30,7 +30,7 @@ publishMavenStyle := true
 
 releaseProcess := Seq[ReleaseStep](
   checkSnapshotDependencies, // check that there are no SNAPSHOT dependencies
-  inquireVersions, // ask user to enter the current and next verion
+  inquireVersions, // ask user to enter the current and next version
   runClean, // clean
   runTest, // run tests
   setReleaseVersion, // set release version in version.sbt
@@ -43,12 +43,11 @@ releaseProcess := Seq[ReleaseStep](
   pushChanges // push changes to git
 )
 
-description := "Classes to be used by TRE Message producers/consunmers"
+description := "Classes to be used by TRE Message producers/consumers"
 licenses := List("MIT" -> new URL("https://choosealicense.com/licenses/mit/"))
-homepage := Some(url("https://github.com/nationalarchives/tdr-generated-grapqhl"))
+homepage := Some(url("https://github.com/nationalarchives/da-transform-schema"))
 
 
-version := "0.1"
 scalaVersion := "2.13.8"
 
 Compile / sourceGenerators += (Compile / avroScalaGenerate).taskValue
