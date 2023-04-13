@@ -17,12 +17,20 @@
           {
             "name": "judgmentURI",
             "type": "string",
-            "description": "URI of the judgment docx: may be a presigned S3 link or other web URI (e.g. assets.caselaw.nationalarchives.gov.uk)"
+            "doc": "URI of the judgment docx: may be a presigned S3 link or other web URI (e.g. https://xxx-xxx-xxx.s3.eu-west-2.amazonaws.com/folder/2022/1/judgment.docx)"
           },
           {
             "name": "reference",
             "type": "string",
-            "description": "Opaque FCL-generated reference to allow matching of response to request"
+            "doc": "Opaque FCL-generated reference to allow matching of response to request"
+          },
+          {
+            "name": "originator",
+            "type": [
+              "string",
+              "null"
+            ],
+            "doc": "who provided the docx such as FCL|TDR. This will be passed through to the judgmentpacakage-available message"
           }
         ]
       }

@@ -16,35 +16,31 @@
           {
             "name": "reference",
             "type": "string",
-            "description": "(TDR-2023-AAA|FCL-???????) # opaque string: use originator to know where it came from, should be an acceptable filename"
+            "doc": "(TDR-2023-AAA|FCL-???????) # opaque string: use originator to know where it came from, should be an acceptable filename"
           },
           {
             "name": "originator",
-            "type": {
-              "type": "enum",
-              "name": "Originator",
-              "symbols": [
-                "FCL",
-                "TDR"
-              ],
-              "description": "who provided the docx (FCL|TDR)"
-            }
+            "type": [
+              "string",
+              "null"
+            ],
+            "doc": "who provided the docx such as FCL|TDR. This may have been passed from the judgmentparse"
           },
           {
             "name": "bundleFileURI",
             "type": "string",
-            "description": "download tar.gz"
+            "doc": "download tar.gz"
           },
           {
             "name": "metadataFilePath",
             "type": "string",
-            "description": "metadata file location in bundle tar.gz ",
+            "doc": "metadata file location in bundle tar.gz ",
             "default": "metadata.json"
           },
           {
             "name": "metadataFileType",
             "type": "string",
-            "description": "type definition of the metadata file defined by a schema"
+            "doc": "type definition of the metadata file defined by a schema"
           }
         ]
       }

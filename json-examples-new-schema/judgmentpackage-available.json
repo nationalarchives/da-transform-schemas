@@ -1,7 +1,7 @@
 {
   "properties" : {
     "messageType" : "uk.gov.nationalarchives.tre.messages.judgmentpackage.available.JudgmentPackageAvailable",
-    "timestampMillis" : 12345678976,
+    "timestamp" : "2023-03-29T11:00:12.280Z",
     "function" : "tre-tf-module-judgment-packer - not sure correct",
     "producer" : "TRE",
     "executionId" : "executionId344",
