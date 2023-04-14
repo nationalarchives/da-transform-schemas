@@ -41,6 +41,18 @@
             "name": "metadataFileType",
             "type": "string",
             "doc": "type definition of the metadata file defined by a schema"
+          },
+          {
+            "name": "status",
+            "type": {
+              "type": "enum",
+              "name": "Status",
+              "symbols": [
+                "JUDGMENT-PARSE-NO-ERRORS",
+                "JUDGMENT-PARSE-WITH-ERRORS"
+              ]
+            },
+            "doc": "The status as emitted by the parser. Could be used for filtering and redirecting messages"
           }
         ]
       }
