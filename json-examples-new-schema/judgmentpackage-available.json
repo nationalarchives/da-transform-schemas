@@ -8,7 +8,7 @@
     "parentExecutionId" : "inputMessageExecutionId"
   },
   "parameters" : {
-    "status": "JUDGMENT-PARSE-NO-ERRORS",
+    "status": "JUDGMENT_PARSE_NO_ERRORS",
     "reference" : "(TDR-2023-AAA|FCL-???????) # opaque string: use originator to know where it came from, should be an acceptable filename",
     "originator" : "FCL",
     "bundleFileURI" : "https://s3.amazonaws.com/tre-output/TDR-2023-AAA.tar.gz?X-Amz-Security-Token=24db05… # download tar.gz",

@@ -8,7 +8,7 @@
     "parentExecutionId" : null
   },
   "parameters" : {
-    "status": "JUDGMENT-PARSE-NO-ERRORS",
+    "status": "JUDGMENT_PARSE_NO_ERRORS",
     "originator" : "FCL",
     "s3FolderName" : "folder",
     "s3Bucket" : "bucket",

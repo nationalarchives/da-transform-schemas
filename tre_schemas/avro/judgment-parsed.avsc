@@ -43,8 +43,8 @@
               "type": "enum",
               "name": "Status",
               "symbols": [
-                "JUDGMENT-PARSE-NO-ERRORS",
-                "JUDGMENT-PARSE-WITH-ERRORS"
+                "JUDGMENT_PARSE_NO_ERRORS",
+                "JUDGMENT_PARSE_WITH_ERRORS"
               ]
             },
             "doc": "The status as emitted by the parser. Could be used for filtering and redirecting messages"
