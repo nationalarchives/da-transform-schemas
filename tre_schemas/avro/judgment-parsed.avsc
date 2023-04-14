@@ -36,6 +36,18 @@
             "name": "reference",
             "type": "string",
             "description": "request ref to allow user to be passed back to user"
+          },
+          {
+            "name": "status",
+            "type": {
+              "type": "enum",
+              "name": "Status",
+              "symbols": [
+                "JUDGMENT_PARSE_NO_ERRORS",
+                "JUDGMENT_PARSE_WITH_ERRORS"
+              ]
+            },
+            "doc": "The status as emitted by the parser. Could be used for filtering and redirecting messages"
           }
         ]
       }
