@@ -6,6 +6,7 @@ organization := "io.github.ian-hoyle"
 
 // For all Sonatype accounts created on or after February 2021
 ThisBuild / sonatypeCredentialHost := "s01.oss.sonatype.org"
+ThisBuild / sonatypeRepository := "https://s01.oss.sonatype.org/service/local"
 
 scmInfo := Some(
   ScmInfo(
