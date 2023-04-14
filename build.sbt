@@ -2,7 +2,7 @@ import sbt.url
 import sbtrelease.ReleasePlugin.autoImport.ReleaseTransformations._
 
 name := "da-transform-schema"
-organization := "uk.gov.nationalarchives"
+organization := "io.github.ian-hoyle"
 
 scmInfo := Some(
   ScmInfo(
