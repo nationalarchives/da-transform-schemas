@@ -1,8 +1,13 @@
 import sbt.url
 import sbtrelease.ReleasePlugin.autoImport.ReleaseTransformations._
 
-name := "da-transform-schema"
-organization := "uk.gov.nationalarchives"
+ThisBuild / name := "da-transform-schema"
+ThisBuild / organization := "uk.gov.nationalarchives"
+
+// For all Sonatype accounts created on or after February 2021
+//ThisBuild / sonatypeCredentialHost := "s01.oss.sonatype.org"
+//sonatypeCredentialHost := "s01.oss.sonatype.org"
+//sonatypeRepository := "https://s01.oss.sonatype.org/service/local"
 
 scmInfo := Some(
   ScmInfo(
@@ -36,10 +41,10 @@ releaseProcess := Seq[ReleaseStep](
   setReleaseVersion, // set release version in version.sbt
   commitReleaseVersion, // commit the release version
   tagRelease, // create git tag
-  releaseStepCommandAndRemaining("+publishSigned"), // run +publishSigned command to sonatype stage release
+  releaseStepCommand("publishSigned"),
+  releaseStepCommand("sonatypeBundleRelease"),
   setNextVersion, // set next version in version.sbt
   commitNextVersion, // commit next version
-  releaseStepCommand("sonatypeRelease"), // run sonatypeRelease and publish to maven central
   pushChanges // push changes to git
 )
 
