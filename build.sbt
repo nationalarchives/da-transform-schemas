@@ -53,7 +53,7 @@ licenses := List("MIT" -> new URL("https://choosealicense.com/licenses/mit/"))
 homepage := Some(url("https://github.com/nationalarchives/da-transform-schema"))
 
 
-scalaVersion := "2.13.8"
+scalaVersion := "2.13.10"
 
 Compile / sourceGenerators += (Compile / avroScalaGenerate).taskValue
 (Compile / avroScalaSource) := new java.io.File(s"${baseDirectory.value}/src/main")
