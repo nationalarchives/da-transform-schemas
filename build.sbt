@@ -44,7 +44,7 @@ releaseProcess := Seq[ReleaseStep](
   tagRelease, // create git tag
   //releaseStepCommand("publishSigned"),
   //releaseStepCommand("sonatypeBundleRelease"),
- // setNextVersion, // set next version in version.sbt
+  setNextVersion, // set next version in version.sbt
   commitNextVersion, // commit next version
   pushChanges // push changes to git
 )
