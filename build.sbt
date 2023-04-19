@@ -32,6 +32,7 @@ releaseIgnoreUntrackedFiles := true
 useGpgPinentry := true
 publishTo := sonatypePublishToBundle.value
 publishMavenStyle := true
+releaseVcsSign := true
 
 releaseProcess := Seq[ReleaseStep](
   checkSnapshotDependencies, // check that there are no SNAPSHOT dependencies
