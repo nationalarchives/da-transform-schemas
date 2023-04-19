@@ -35,15 +35,15 @@ publishMavenStyle := true
 releaseVcsSign := true
 
 releaseProcess := Seq[ReleaseStep](
-  checkSnapshotDependencies, // check that there are no SNAPSHOT dependencies
-  inquireVersions, // ask user to enter the current and next version
+  //checkSnapshotDependencies, // check that there are no SNAPSHOT dependencies
+  //inquireVersions, // ask user to enter the current and next version
   runClean, // clean
   runTest, // run tests
   setReleaseVersion, // set release version in version.sbt
   commitReleaseVersion, // commit the release version
   tagRelease, // create git tag
-  releaseStepCommand("publishSigned"),
-  releaseStepCommand("sonatypeBundleRelease"),
+  //releaseStepCommand("publishSigned"),
+  //releaseStepCommand("sonatypeBundleRelease"),
   setNextVersion, // set next version in version.sbt
   commitNextVersion, // commit next version
   pushChanges // push changes to git
