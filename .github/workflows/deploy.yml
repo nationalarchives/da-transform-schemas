@@ -26,4 +26,4 @@ jobs:
       - name: Create Pull Request
         run: gh pr create --fill --label 'Version bump'
         env:
-          GITHUB_TOKEN: ${{ secrets.WORKFLOW_PAT }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
