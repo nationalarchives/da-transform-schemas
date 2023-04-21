@@ -2,12 +2,12 @@ import sbt.url
 import sbtrelease.ReleasePlugin.autoImport.ReleaseTransformations._
 
 ThisBuild / name := "da-transform-schema"
-ThisBuild / organization := "io.github.ian-hoyle"
+ThisBuild / organization := "uk.gov.nationalarchives"
 
 // For all Sonatype accounts created on or after February 2021
-ThisBuild / sonatypeCredentialHost := "s01.oss.sonatype.org"
-sonatypeCredentialHost := "s01.oss.sonatype.org"
-sonatypeRepository := "https://s01.oss.sonatype.org/service/local"
+//ThisBuild / sonatypeCredentialHost := "s01.oss.sonatype.org"
+//sonatypeCredentialHost := "s01.oss.sonatype.org"
+//sonatypeRepository := "https://s01.oss.sonatype.org/service/local"
 
 scmInfo := Some(
   ScmInfo(
@@ -32,18 +32,17 @@ releaseIgnoreUntrackedFiles := true
 useGpgPinentry := true
 publishTo := sonatypePublishToBundle.value
 publishMavenStyle := true
-releaseVcsSign := true
 
 releaseProcess := Seq[ReleaseStep](
-  //checkSnapshotDependencies, // check that there are no SNAPSHOT dependencies
+  checkSnapshotDependencies, // check that there are no SNAPSHOT dependencies
   inquireVersions, // ask user to enter the current and next version
   runClean, // clean
   runTest, // run tests
   setReleaseVersion, // set release version in version.sbt
   commitReleaseVersion, // commit the release version
-  //tagRelease, // create git tag
-  //releaseStepCommand("publishSigned"),
-  //releaseStepCommand("sonatypeBundleRelease"),
+  tagRelease, // create git tag
+  releaseStepCommand("publishSigned"),
+  releaseStepCommand("sonatypeBundleRelease"),
   setNextVersion, // set next version in version.sbt
   commitNextVersion, // commit next version
   pushChanges // push changes to git
