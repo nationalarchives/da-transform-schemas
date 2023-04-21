@@ -32,7 +32,7 @@ jobs:
           /repos/nationalarchives/da-transform-schemas/pulls \
           -f title='Version bump' \
           -f body='Version released please approve!' \
-          -f head='$BRANCH_NAME' \
+          -f head='test-executable' \
           -f base='main' 
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
