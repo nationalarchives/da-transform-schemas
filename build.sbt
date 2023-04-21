@@ -1,7 +1,7 @@
 import sbt.url
 import sbtrelease.ReleasePlugin.autoImport.ReleaseTransformations._
 
-ThisBuild / name := "da-transform-schema"
+ThisBuild / name := "da-transform-schemas"
 ThisBuild / organization := "io.github.ian-hoyle"
 
 // For all Sonatype accounts created on or after February 2021
