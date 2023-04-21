@@ -19,7 +19,7 @@ jobs:
           passphrase: ${{ secrets.GPG_PASSPHRASE }}
       - run: ./.github/scripts/setup.sh
       - run: |
-          sbt 'release with-defaults'
+          # sbt 'release with-defaults'
         env:
           SONATYPE_USERNAME: ${{ secrets.SONATYPE_USERNAME }}
           SONATYPE_PASSWORD: ${{ secrets.SONATYPE_PASSWORD }}
@@ -27,12 +27,12 @@ jobs:
         run: |
           gh api \
           --method POST \
-          -H "Accept: application/vnd.github+json" \
+           -H "Accept: application/vnd.github+json" \
           -H "X-GitHub-Api-Version: 2022-11-28" \
-           /repos/nationalarchives/da-transform-schemas/pulls \
-          -f title='Update version' \
-          -f body='Please approve the version update. Release has succeeded' \
-          -f head= '$BRANCH_NAME'
+          /repos/nationalarchives/da-transform-schemas/pulls \
+          -f title='Version bump' \
+          -f body='Version released please approve!' \
+          -f head='$BRANCH_NAME' \
           -f base='main' 
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
