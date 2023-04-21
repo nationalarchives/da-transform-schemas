@@ -32,5 +32,7 @@ jobs:
            /repos/nationalarchives/da-transform-schemas/pulls \
           -f title='Update version' \
           -f body='Please approve the version update. Release has succeeded' \
-          -f head= $BRANCH_NAME
+          -f head= '$BRANCH_NAME'
           -f base='main' 
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
