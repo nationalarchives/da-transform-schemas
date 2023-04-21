@@ -32,7 +32,7 @@ jobs:
           /repos/nationalarchives/da-transform-schemas/pulls \
           -f title='Amazing new feature' \
           -f body='Please pull these awesome changes in!' \
-          -f head='test-executable' \
+          -f head='test-exectuebale' \
           -f base='main'  
         env:
           GITHUB_TOKEN: ${{ github.token }}
