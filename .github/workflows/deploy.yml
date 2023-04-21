@@ -19,7 +19,7 @@ jobs:
           passphrase: ${{ secrets.GPG_PASSPHRASE }}
       - run: ./.github/scripts/setup.sh
       - run: |
-          # sbt 'release with-defaults'
+          sbt 'release with-defaults'
         env:
           SONATYPE_USERNAME: ${{ secrets.SONATYPE_USERNAME }}
           SONATYPE_PASSWORD: ${{ secrets.SONATYPE_PASSWORD }}
@@ -30,8 +30,8 @@ jobs:
           -H "Accept: application/vnd.github+json" \
           -H "X-GitHub-Api-Version: 2022-11-28" \
           /repos/nationalarchives/da-transform-schemas/pulls \
-          -f title='Amazing new feature' \
-          -f body='Please pull these awesome changes in!' \
+          -f title='Sonatype release' \
+          -f body='A release has been made and version bumped. Please approve and merge' \
           -f head=$BRANCH_NAME \
           -f base='main'  
         env:
