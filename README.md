@@ -45,7 +45,7 @@ Will produce a sample JSON message [request-judgment-parse.json](https://github.
 ## Code Generation
 Scala classes are generated from the schema and released to maven central. To use in projects add the dependency to build.sbt  
 ```
-libraryDependencies += "uk.gov.nationalarchives" % "da-transform-schemas" % "0.102"
+libraryDependencies += "uk.gov.nationalarchives" % "da-transform-schemas" % "2.01"
 ```
 
 The message can be encoded and decoded with circe generic, add to build.sbt
@@ -70,7 +70,7 @@ import uk.gov.nationalarchives.tre.messages.event.Producer
  implicit val produceeDecoder: Decoder[Producer.Value] = Decoder.decodeEnumeration(Producer)
 ```
 ### Example usage
-The following shows the generation of a dripreingestsip-available message (V 0.101) and decoding to JSON  
+The following shows the generation of a dripreingestsip-available message (V 2.01) and decoding to JSON  
 imports 
 ```
 import io.circe.generic.auto._
