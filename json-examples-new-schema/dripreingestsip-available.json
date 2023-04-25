@@ -4,16 +4,16 @@
     "timestamp" : "2023-03-29T11:00:12.280Z",
     "function" : "tre-tf-module-drisip-create",
     "producer" : "TRE",
-    "executionId" : "executionId344",
-    "parentExecutionId" : "id from the input Message ExecutionId"
+    "executionId" : "TDR-2023-HK6X-int-tre-dpsg-in-a9bee6a7-d90a-4743-8021-9adc9b3055e8",
+    "parentExecutionId" : "TDR-2023-HK6X-int-tre-vb-in-51a6038c-d914-4325-be8c-db5ce9d36010"
   },
   "parameters" : {
     "sipBundleFileURI" : "https://dev-tre-dpsg-out.s3.amazonaws.com/consignments/standard/TDR-2022-NQ3/9c6d25c1-c8c9-495a-be0b-91e7af7b2083/TDR-2022-NQ3/sip/MOCKA101Y22TBNQ3.tar.gz?X-Amz-Algorithm=AWS4-HMAC-...",
     "sipBundleFileSha256URI" : "https://dev-tre-dpsg-out.s3.amazonaws.com/consignments/standard/TDR-2022-NQ3/9c6d25c1...",
     "fileType" : "GZ",
-    "series" : "series name",
-    "batch" : "batch identifier",
-    "tdrRef" : "TDR reference",
-    "transferringBody" : "transferring body passed from TDR"
+    "series" : "LAR 1",
+    "batch" : "LAR1Y23TBMH3",
+    "tdrConsignmentRef" : "TDR-2022-DH6M",
+    "transferringBody" : "Land Registry"
   }
 }

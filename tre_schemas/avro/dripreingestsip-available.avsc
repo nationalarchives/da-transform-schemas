@@ -17,12 +17,12 @@
           {
             "name": "sipBundleFileURI",
             "type": "string",
-            "doc": "url to the tar.qz of the pre-ingest sip package"
+            "doc": "url to the tar.gz of the pre-ingest sip package"
           },
           {
             "name": "sipBundleFileSha256URI",
             "type": "string",
-            "doc": "url to the sha256 value of the tar.qz pre-ingest sip package"
+            "doc": "url to the sha256 value of the tar.gz pre-ingest sip package"
           },
           {
             "name": "fileType",
@@ -51,9 +51,9 @@
             "doc": "the batch reference for the transfer - DRI specific"
           },
           {
-            "name" : "tdrRef",
+            "name" : "tdrConsignmentRef",
             "type" : "string",
-            "doc" : "the TDR reference of the transfer"
+            "doc" : "the TDR reference of the transfer, their Internal-Sender-Identifier"
           },
           {
             "name" : "transferringBody",
