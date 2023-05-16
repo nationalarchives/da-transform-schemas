@@ -1,6 +1,6 @@
 {
   "properties" : {
-    "messageType" : "uk.gov.nationalarchives.tre.messages.judgment.parse.RequestJudgmentParse",
+    "messageType" : "uk.gov.nationalarchives.tre.messages.request.courtdocument.parse.RequestCourtDocumentParse",
     "timestamp" : "2023-03-29T11:00:12.280Z",
     "function" : "fcl-judgment-parse-request",
     "producer" : "FCL",
@@ -8,7 +8,8 @@
     "parentExecutionId" : null
   },
   "parameters" : {
-    "judgmentURI" : "https://xxx.xxx.nationalarchives.gov.uk/abc/def/2022/2034/judgment.docx # or signed s3 link",
+    "s3Bucket" : "",
+    "s3Key" : "https://xxx.xxx.nationalarchives.gov.uk/abc/def/2022/2034/judgment.docx # or signed s3 link",
     "reference" : "FCL-12345 # should be treated as opaque string, ideally filename-ready",
     "originator": "FCL"
   }
