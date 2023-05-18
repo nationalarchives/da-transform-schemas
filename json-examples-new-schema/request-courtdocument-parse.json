@@ -8,9 +8,13 @@
     "parentExecutionId" : null
   },
   "parameters" : {
-    "s3Bucket" : "",
-    "s3Key" : "https://xxx.xxx.nationalarchives.gov.uk/abc/def/2022/2034/judgment.docx # or signed s3 link",
-    "reference" : "FCL-12345 # should be treated as opaque string, ideally filename-ready",
-    "originator": "FCL"
+    "s3Bucket" : "xxxxx-xxx-tre-request-parse",
+    "s3Key" : "eater/2023/1/eater_2023_1.docx",
+    "reference" : "FCL-12345",
+    "originator" : "FCL",
+    "parserInstructions" : {
+      "documentType" : "press-summary"
+    }
   }
 }
+
