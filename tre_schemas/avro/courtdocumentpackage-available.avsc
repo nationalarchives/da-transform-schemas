@@ -1,7 +1,7 @@
 {
   "type": "record",
-  "name": "JudgmentPackageAvailable",
-  "namespace": "uk.gov.nationalarchives.tre.messages.judgmentpackage.available",
+  "name": "CourtDocumentPackageAvailable",
+  "namespace": "uk.gov.nationalarchives.tre.messages.courtdocumentpackage.available",
   "fields": [
     {
       "name": "properties",
@@ -27,9 +27,14 @@
             "doc": "who provided the docx such as FCL|TDR. This may have been passed from the judgmentparse"
           },
           {
-            "name": "bundleFileURI",
+            "name": "s3Bucket",
             "type": "string",
-            "doc": "download tar.gz"
+            "doc": "s3 bucket containing package file"
+          },
+          {
+            "name": "s3Key",
+            "type": "string",
+            "doc": "s3 key of the package file"
           },
           {
             "name": "metadataFilePath",
