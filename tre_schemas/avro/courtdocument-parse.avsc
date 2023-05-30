@@ -1,7 +1,7 @@
 {
   "type": "record",
-  "name": "JudgmentParse",
-  "namespace": "uk.gov.nationalarchives.tre.messages.judgment.parse",
+  "name": "CourtDocumentParse",
+  "namespace": "uk.gov.nationalarchives.tre.messages.courtdocument.parse",
   "doc": "properties required for all messages routed through TRE",
   "fields": [
     {
