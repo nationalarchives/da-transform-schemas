@@ -36,7 +36,7 @@
               "string",
               "null"
             ],
-            "doc": "who provided the docx such as FCL|TDR. This will be passed through to the judgmentpacakage-available message"
+            "doc": "who provided the docx such as FCL|TDR. This will be passed through to the courtdocumentpackage-available message"
           },
           {
             "name": "parserInstructions",

@@ -20,7 +20,7 @@
               "string",
               "null"
             ],
-            "doc": "who provided the docx such as FCL|TDR. This will be passed through to the judgmentpacakage-available message"
+            "doc": "who provided the docx such as FCL|TDR. This will be passed through to the courtdocumentpackage-available message"
           },
           {
             "name": "s3FolderName",
@@ -43,8 +43,8 @@
               "type": "enum",
               "name": "Status",
               "symbols": [
-                "JUDGMENT_PARSE_NO_ERRORS",
-                "JUDGMENT_PARSE_WITH_ERRORS"
+                "COURT_DOCUMENT_PARSE_NO_ERRORS",
+                "COURT_DOCUMENT_PARSE_WITH_ERRORS"
               ]
             },
             "doc": "The status as emitted by the parser. Could be used for filtering and redirecting messages"

@@ -24,7 +24,7 @@
           {
             "name": "function",
             "type": "string",
-            "doc": "The name of the function/process that created this message such as tre-tf-module-parse-judgment. Used for our internal logging"
+            "doc": "The name of the function/process that created this message such as da-tre-tf-module-parse-court-document. Used for our internal logging"
           },
           {
             "name": "producer",

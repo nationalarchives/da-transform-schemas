@@ -24,7 +24,7 @@
               "string",
               "null"
             ],
-            "doc": "who provided the docx such as FCL|TDR. This may have been passed from the judgmentparse"
+            "doc": "who provided the docx such as FCL|TDR. This may have been passed from the courtdocument-parse"
           },
           {
             "name": "s3Bucket",
@@ -53,8 +53,8 @@
               "type": "enum",
               "name": "Status",
               "symbols": [
-                "JUDGMENT_PARSE_NO_ERRORS",
-                "JUDGMENT_PARSE_WITH_ERRORS"
+                "COURT_DOCUMENT_PARSE_NO_ERRORS",
+                "COURT_DOCUMENT_PARSE_WITH_ERRORS"
               ]
             },
             "doc": "The status as emitted by the parser. Could be used for filtering and redirecting messages"
