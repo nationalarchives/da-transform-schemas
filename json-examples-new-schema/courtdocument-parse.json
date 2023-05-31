@@ -2,7 +2,7 @@
   "properties" : {
     "messageType" : "uk.gov.nationalarchives.tre.messages.courtdocument.parse.CourtDocumentParse",
     "timestamp" : "2023-03-29T11:00:12.280Z",
-    "function" : "da-tre-tf-module-parse-court-document",
+    "function" : "da-tre-tf-module-court-document-parse",
     "producer" : "TRE",
     "executionId" : "executionId344",
     "parentExecutionId" : null
