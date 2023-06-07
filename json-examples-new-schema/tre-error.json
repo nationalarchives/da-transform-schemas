@@ -1,0 +1,16 @@
+{
+  "properties": {
+    "messageType": "uk.gov.nationalarchives.tre.messages.treerror.TreError",
+    "timestamp.$": "2023-03-29T11:00:12.280Z",
+    "function": "da-tre-tf-module-court-document-parse",
+    "producer": "TRE",
+    "executionId.$": "51a6038c-d914-4325-be8c-db5ce9d36010",
+    "parentExecutionId.$": "51a6038c-d914-4325-be8c-db5ce9d36010"
+  },
+  "parameters": {
+    "status": "TRE_ERROR",
+    "originator": "the originator if provided by you",
+    "reference": "the reference you provided",
+    "errors": "any available error message detail"
+  }
+}
