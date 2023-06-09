@@ -1,0 +1,66 @@
+{
+  "type": "record",
+  "name": "CourtDocumentPackageAvailable",
+  "namespace": "uk.gov.nationalarchives.tre.messages.courtdocumentpackage.available",
+  "fields": [
+    {
+      "name": "properties",
+      "type": "uk.gov.nationalarchives.tre.messages.event.Properties"
+    },
+    {
+      "name": "parameters",
+      "type": {
+        "type": "record",
+        "name": "Parameters",
+        "fields": [
+          {
+            "name": "reference",
+            "type": "string",
+            "doc": "(TDR-2023-AAA|FCL-???????) # opaque string: use originator to know where it came from, should be an acceptable filename"
+          },
+          {
+            "name": "originator",
+            "type": [
+              "string",
+              "null"
+            ],
+            "doc": "who provided the docx such as FCL|TDR. This may have been passed from the courtdocument-parse"
+          },
+          {
+            "name": "s3Bucket",
+            "type": "string",
+            "doc": "s3 bucket containing package file"
+          },
+          {
+            "name": "s3Key",
+            "type": "string",
+            "doc": "s3 key of the package file"
+          },
+          {
+            "name": "metadataFilePath",
+            "type": "string",
+            "doc": "metadata file location in bundle tar.gz ",
+            "default": "metadata.json"
+          },
+          {
+            "name": "metadataFileType",
+            "type": "string",
+            "doc": "type definition of the metadata file defined by a schema"
+          },
+          {
+            "name": "status",
+            "type": {
+              "type": "enum",
+              "name": "Status",
+              "symbols": [
+                "COURT_DOCUMENT_PARSE_NO_ERRORS",
+                "COURT_DOCUMENT_PARSE_WITH_ERRORS"
+              ]
+            },
+            "doc": "The status as emitted by the parser. Could be used for filtering and redirecting messages"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,14 +1,14 @@
 {
   "properties" : {
-    "messageType" : "uk.gov.nationalarchives.tre.messages.judgment.parse.JudgmentParse",
+    "messageType" : "uk.gov.nationalarchives.tre.messages.courtdocument.parse.CourtDocumentParse",
     "timestamp" : "2023-03-29T11:00:12.280Z",
-    "function" : "tre-tf-module-parse-judgment",
+    "function" : "da-tre-tf-module-court-document-parse",
     "producer" : "TRE",
     "executionId" : "executionId344",
     "parentExecutionId" : null
   },
   "parameters" : {
-    "status": "JUDGMENT_PARSE_NO_ERRORS",
+    "status": "COURT_DOCUMENT_PARSE_NO_ERRORS",
     "originator" : "FCL",
     "s3FolderName" : "folder",
     "s3Bucket" : "bucket",

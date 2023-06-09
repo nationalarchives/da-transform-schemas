@@ -1,7 +1,8 @@
 {
   "type": "record",
-  "name": "JudgmentPackageAvailable",
-  "namespace": "uk.gov.nationalarchives.tre.messages.judgmentpackage.available",
+  "name": "CourtDocumentParse",
+  "namespace": "uk.gov.nationalarchives.tre.messages.courtdocument.parse",
+  "doc": "properties required for all messages routed through TRE",
   "fields": [
     {
       "name": "properties",
@@ -14,33 +15,27 @@
         "name": "Parameters",
         "fields": [
           {
-            "name": "reference",
-            "type": "string",
-            "doc": "(TDR-2023-AAA|FCL-???????) # opaque string: use originator to know where it came from, should be an acceptable filename"
-          },
-          {
             "name": "originator",
             "type": [
               "string",
               "null"
             ],
-            "doc": "who provided the docx such as FCL|TDR. This may have been passed from the judgmentparse"
+            "doc": "who provided the docx such as FCL|TDR. This will be passed through to the courtdocumentpackage-available message"
           },
           {
-            "name": "bundleFileURI",
+            "name": "s3FolderName",
             "type": "string",
-            "doc": "download tar.gz"
+            "description": "folder inside s3 Bucket"
           },
           {
-            "name": "metadataFilePath",
+            "name": "s3Bucket",
             "type": "string",
-            "doc": "metadata file location in bundle tar.gz ",
-            "default": "metadata.json"
+            "description": "s3 Bucket"
           },
           {
-            "name": "metadataFileType",
+            "name": "reference",
             "type": "string",
-            "doc": "type definition of the metadata file defined by a schema"
+            "description": "request ref to allow user to be passed back to user"
           },
           {
             "name": "status",
@@ -48,8 +43,8 @@
               "type": "enum",
               "name": "Status",
               "symbols": [
-                "JUDGMENT_PARSE_NO_ERRORS",
-                "JUDGMENT_PARSE_WITH_ERRORS"
+                "COURT_DOCUMENT_PARSE_NO_ERRORS",
+                "COURT_DOCUMENT_PARSE_WITH_ERRORS"
               ]
             },
             "doc": "The status as emitted by the parser. Could be used for filtering and redirecting messages"

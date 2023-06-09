@@ -1,17 +1,18 @@
 {
   "properties" : {
-    "messageType" : "uk.gov.nationalarchives.tre.messages.judgmentpackage.available.JudgmentPackageAvailable",
+    "messageType" : "uk.gov.nationalarchives.tre.messages.courtdocumentpackage.available.CourtDocumentPackageAvailable",
     "timestamp" : "2023-03-29T11:00:12.280Z",
-    "function" : "tre-tf-module-judgment-packer - not sure correct",
+    "function" : "da-tre-tf-module-court-document-pack",
     "producer" : "TRE",
     "executionId" : "executionId344",
     "parentExecutionId" : "inputMessageExecutionId"
   },
   "parameters" : {
-    "status": "JUDGMENT_PARSE_NO_ERRORS",
+    "status": "COURT_DOCUMENT_PARSE_NO_ERRORS",
     "reference" : "(TDR-2023-AAA|FCL-???????) # opaque string: use originator to know where it came from, should be an acceptable filename",
     "originator" : "FCL",
-    "bundleFileURI" : "https://s3.amazonaws.com/tre-output/TDR-2023-AAA.tar.gz?X-Amz-Security-Token=24db05… # download tar.gz",
+    "s3Bucket" : "tre-court-document-packed-out",
+    "s3Key" : "FCL-12345/0f0934f3-edb2-4345-9918-fcdb92bcb67d/FCL-12345.tar.gz",
     "metadataFilePath" : "metadata file  location in bundle tar.gz",
     "metadataFileType" : "type definition of the metadata file defined by the schema"
   }
