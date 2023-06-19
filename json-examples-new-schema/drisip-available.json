@@ -8,8 +8,8 @@
     "parentExecutionId" : "TDR-2023-HK6X-int-tre-vb-in-51a6038c-d914-4325-be8c-db5ce9d36010"
   },
   "parameters" : {
-    "sipBundleFileURI" : "https://dev-tre-dpsg-out.s3.amazonaws.com/consignments/standard/TDR-2022-NQ3/9c6d25c1-c8c9-495a-be0b-91e7af7b2083/TDR-2022-NQ3/sip/MOCKA101Y22TBNQ3.tar.gz?X-Amz-Algorithm=AWS4-HMAC-...",
-    "sipBundleFileSha256URI" : "https://dev-tre-dpsg-out.s3.amazonaws.com/consignments/standard/TDR-2022-NQ3/9c6d25c1...",
+    "s3Bucket" : "prod-tre-dpsg-out",
+    "s3Key" : "TDR-2022-NQ3/0f0934f3-edb2-4345-9918-fcdb92bcb67d/TDR-2022-NQ3.tar.gz",
     "fileType" : "GZ",
     "series" : "LAR 1",
     "batch" : "LAR1Y23TBMH3",
