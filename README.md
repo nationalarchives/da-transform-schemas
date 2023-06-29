@@ -1,4 +1,4 @@
-# da-transform-schemas
+# da-tre-schemas
 TRE follows an event-driven architecture software design pattern that is based on the concept of events,
 where components or modules communicate with each other by sending and receiving messages when specific
 events occur. Components are loosely coupled and communicate through messages, rather than direct method
@@ -6,7 +6,7 @@ calls or API invocations. When an event occurs, a message is sent to the messagi
 delivers it to the appropriate component or components. Components can subscribe to specific types of
 messages, and the messaging system ensures that each message is delivered to all interested subscribers.  
 
-All messages used in TRE infrastructure must conform to a message schema defined in [tre_schemas/avro](https://github.com/nationalarchives/da-transform-schemas/tree/main/tre_schemas/avro) . The message schema defines the data elements, their types, and the order in which they appear in the message.
+All messages used in TRE infrastructure must conform to a message schema defined in [tre_schemas/avro](https://github.com/nationalarchives/da-tre-schemas/tree/main/tre_schemas/avro) . The message schema defines the data elements, their types, and the order in which they appear in the message.
 
 Using schema provide/allow:  
 - Interoperability: Message schemas enable different components to communicate with each other, even if they are implemented using different technologies or programming languages. By adhering to a common message schema, components can ensure that the data they send and receive is understood by all other components in the system.
@@ -17,11 +17,11 @@ Using schema provide/allow:
 ### Schemas for the messages used within Transformation Engine infrastructure
 The message schema are defined using [Avro format](https://avro.apache.org/) and messages written in JSON  
 All messages follow the same structure.  
-- properties: defined in [tre-event-properties.avsc](https://github.com/nationalarchives/da-transform-schemas/blob/main/tre_schemas/avro/tre-event-properties.avsc)
+- properties: defined in [tre-event-properties.avsc](https://github.com/nationalarchives/da-tre-schemas/blob/main/tre_schemas/avro/tre-event-properties.avsc)
 - parameters: message specific values that will allow processing of the event 
 
-An example message schema [request-judgment-parse.avsc](https://github.com/nationalarchives/da-transform-schemas/blob/main/tre_schemas/avro/request-judgment-parse.avsc)  
-Will produce a sample JSON message [request-judgment-parse.json](https://github.com/nationalarchives/da-transform-schemas/blob/main/json-examples-new-schema/request-judgment-parse.json)
+An example message schema [request-judgment-parse.avsc](https://github.com/nationalarchives/da-tre-schemas/blob/main/tre_schemas/avro/request-judgment-parse.avsc)  
+Will produce a sample JSON message [request-judgment-parse.json](https://github.com/nationalarchives/da-tre-schemas/blob/main/json-examples-new-schema/request-judgment-parse.json)
 
 
 ```
@@ -45,7 +45,7 @@ Will produce a sample JSON message [request-judgment-parse.json](https://github.
 ## Code Generation
 Scala classes are generated from the schema and released to maven central. To use in projects add the dependency to build.sbt  
 ```
-libraryDependencies += "uk.gov.nationalarchives" % "da-transform-schemas" % "2.01"
+libraryDependencies += "uk.gov.nationalarchives" % "da-tre-schemas" % "2.01"
 ```
 
 The message can be encoded and decoded with circe generic, add to build.sbt
