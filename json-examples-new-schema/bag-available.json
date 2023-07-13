@@ -1,0 +1,17 @@
+{
+  "properties" : {
+    "messageType" : "uk.gov.nationalarchives.da.messages.bag.available.BagAvailable",
+    "timestamp" : "2023-03-29T11:00:12.280Z",
+    "function" : "tdr-export-process",
+    "producer" : "TDR",
+    "executionId" : "45be6508-b693-441d-a0d6-defb3f41c1fb",
+    "parentExecutionId" : null
+  },
+  "parameters" : {
+    "reference" : "TDR-1234-ABCD",
+    "originator" : "TDR",
+    "consignmentType" : "COURT_DOCUMENT",
+    "s3Bucket" : "tdr-consignment-export-judgment-prod",
+    "s3Key" : "FCL-12345/0f0934f3-edb2-4345-9918-fcdb92bcb67d/FCL-12345.tar.gz"
+  }
+}

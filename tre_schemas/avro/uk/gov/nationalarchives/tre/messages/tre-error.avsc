@@ -6,7 +6,7 @@
   "fields": [
     {
       "name": "properties",
-      "type": "uk.gov.nationalarchives.tre.messages.event.Properties"
+      "type": "uk.gov.nationalarchives.common.messages.Properties"
     },
     {
       "name": "parameters",

@@ -1,12 +1,12 @@
 {
-  "namespace": "uk.gov.nationalarchives.tre.messages.drisip.available",
+  "namespace": "uk.gov.nationalarchives.da.messages.drisip.available",
   "type": "record",
   "name": "DRIPreingestSipAvailable",
   "doc": "DRI-SIP Available Message",
   "fields": [
     {
       "name": "properties",
-      "type": "uk.gov.nationalarchives.tre.messages.event.Properties"
+      "type": "uk.gov.nationalarchives.common.messages.Properties"
     },
     {
       "name": "parameters",
@@ -15,14 +15,14 @@
         "name": "Parameters",
         "fields": [
           {
-            "name": "sipBundleFileURI",
+            "name": "s3Bucket",
             "type": "string",
-            "doc": "url to the tar.gz of the pre-ingest sip package"
+            "doc": "s3 bucket containing package file"
           },
           {
-            "name": "sipBundleFileSha256URI",
+            "name": "s3Key",
             "type": "string",
-            "doc": "url to the sha256 value of the tar.gz pre-ingest sip package"
+            "doc": "s3 key of the package file"
           },
           {
             "name": "fileType",

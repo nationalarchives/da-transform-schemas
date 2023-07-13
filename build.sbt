@@ -53,16 +53,14 @@ licenses := List("MIT" -> new URL("https://choosealicense.com/licenses/mit/"))
 homepage := Some(url("https://github.com/nationalarchives/da-transform-schema"))
 
 
+libraryDependencies += "com.github.andyglow" %% "scala-jsonschema" % "0.7.11"
+libraryDependencies ++= Seq(
+  "com.github.andyglow" %% "scala-jsonschema-core" %  "0.7.11",
+  "com.github.andyglow" %% "scala-jsonschema-circe-json" %  "0.7.11"
+)
+libraryDependencies += "org.scalatest" %% "scalatest" % "3.2.11" % Test
+
 scalaVersion := "2.13.8"
 
 Compile / sourceGenerators += (Compile / avroScalaGenerate).taskValue
-(Compile / avroScalaSource) := new java.io.File(s"${baseDirectory.value}/src/main")
 (Compile / avroSourceDirectories) += new java.io.File(s"${baseDirectory.value}/tre_schemas/avro")
-
-
-
-
-
-
-
-
