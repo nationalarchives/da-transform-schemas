@@ -16,7 +16,7 @@ Using schema provide/allow:
 - Documentation: Message schemas provide a clear and concise way to document the data elements and their meaning. This can help developers understand the messages they are sending and receiving, and ensure that they are using the correct data types and formats.
 
 ### Message Schema
-The message schema are defined using [Avro format](https://avro.apache.org/)
+The message schema are defined using [Avro format](https://avro.apache.org/)  
 The schema project structure (matching the message schema namespace) is for readability
 * [tre_schemas](https://github.com/nationalarchives/da-transform-schemas/tree/DTE-812-v2-tdr-fcl/tre_schemas)
   * [avro](./tre_schemas/avro)
@@ -93,9 +93,10 @@ The messageType is created from the schema namespace and name. It is used for me
 
 ## Code Generation
 
-[avrohugger](https://github.com/julianpeeters/avrohugger) is used to generate Scala classes released to mvn central
-For avrohugger the source .avsc files are specified as [tre_schmemas/avro](./tre_schemas/avro)
+[avrohugger](https://github.com/julianpeeters/avrohugger) is used to generate Scala classes released to mvn central  
+For avrohugger the source .avsc files are specified as [tre_schmemas/avro](./tre_schemas/avro)  
 Common types referenced in other schemas must be compiled first and are picked up as required if placed in [common](./tre_schemas/avro/uk/gov/nationalarchives/common)
+
 If Json Schema versions are required [scala-jsonschema](https://github.com/andyglow/scala-jsonschema) can be [used](./src/test/scala/CaseClassToJsonSchema.scala)
 
 To use the Scala case classes in projects add the dependency to build.sbt
