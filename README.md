@@ -7,7 +7,7 @@ delivers it to the appropriate component or components. Components can subscribe
 messages, and the messaging system ensures that each message is delivered to all interested subscribers.
 
 All messages published to the da-event-bus SNS topic must conform to a message schema defined in this project.
-The message schema defines the data elements, their types, and the order in which they appear in the message.
+The message schema defines the data elements and their types.
 
 Using schema provide/allow:
 - Interoperability: Message schemas enable different components to communicate with each other, even if they are implemented using different technologies or programming languages. By adhering to a common message schema, components can ensure that the data they send and receive is understood by all other components in the system.
@@ -42,7 +42,7 @@ The schema project structure (matching the message schema namespace) is for read
 
 
 All messages follow the same structure.
-```aidl
+```
 {
   "properties" : {
                   "xxx":"123",
@@ -53,14 +53,12 @@ All messages follow the same structure.
                    "...":"..."
                  }
 }
-
 ```
 - properties: defined in [tre-event-properties.avsc](./tre_schemas/avro/uk/gov/nationalarchives/common/messages/tre-event-properties.avsc)
 - parameters: message specific values that will allow processing of the event
 
-An example message schema [request-courtdocument-parse.avsc](https://github.com/nationalarchives/da-transform-schemas/blob/DTE-812-v2-tdr-fcl/tre_schemas/avro/uk/gov/nationalarchives/da/messages/request/request-courtdocument-parse.avsc)
-Can be used to produce a sample JSON message [request-courtdocument-parse.json)](https://github.com/nationalarchives/da-transform-schemas/blob/DTE-812-v2-tdr-fcl/json-examples-new-schema/request-courtdocument-parse.json)
-
+An example message schema [request-courtdocument-parse.avsc](https://github.com/nationalarchives/da-transform-schemas/blob/DTE-812-v2-tdr-fcl/tre_schemas/avro/uk/gov/nationalarchives/da/messages/request/request-courtdocument-parse.avsc)  
+can be used to produce a sample JSON message [request-courtdocument-parse.json)](https://github.com/nationalarchives/da-transform-schemas/blob/DTE-812-v2-tdr-fcl/json-examples-new-schema/request-courtdocument-parse.json)
 
 ```
 {
@@ -84,7 +82,7 @@ Can be used to produce a sample JSON message [request-courtdocument-parse.json)]
 }
 ```
 The messageType is created from the schema namespace and name. It is used for message filtering and in code generation
-```aidl
+```
 {
   "type": "record",
   "name": "RequestCourtDocumentParse",
@@ -96,8 +94,6 @@ The messageType is created from the schema namespace and name. It is used for me
 [avrohugger](https://github.com/julianpeeters/avrohugger) is used to generate Scala classes released to mvn central  
 For avrohugger the source .avsc files are specified as [tre_schmemas/avro](./tre_schemas/avro)  
 Common types referenced in other schemas must be compiled first and are picked up as required if placed in [common](./tre_schemas/avro/uk/gov/nationalarchives/common)
-
-If Json Schema versions are required [scala-jsonschema](https://github.com/andyglow/scala-jsonschema) can be [used](./src/test/scala/CaseClassToJsonSchema.scala)
 
 To use the Scala case classes in projects add the dependency to build.sbt
 
@@ -121,7 +117,7 @@ Implicit decoders and encoders must be provided for the Enumerations
 import io.circe.generic.auto._
 import io.circe.syntax._
 import io.circe.{Decoder, Encoder}
-import uk.gov.nationalarchives.da.messages.event.Producer
+import uk.gov.nationalarchives.common.messages.event.Producer
 
  implicit val producerEncoder: Encoder[Producer.Value] = Encoder.encodeEnumeration(Producer)
  implicit val produceeDecoder: Decoder[Producer.Value] = Decoder.decodeEnumeration(Producer)
@@ -133,7 +129,7 @@ imports
 import io.circe.generic.auto._
 import io.circe.syntax._
 import io.circe.{Decoder, Encoder}
-import uk.gov.nationalarchives.da.messages.event.{Producer, Properties}
+import uk.gov.nationalarchives.common.messages.event.{Producer, Properties}
 import uk.gov.nationalarchives.da.messages.drisip.available.{DRIPreingestSipAvailable, FileType, Parameters}
 ```
 Enumeration explicits
@@ -170,3 +166,6 @@ Message generation
     val driPreingestSipAvailable = DRIPreingestSipAvailable(props, parameters)
     val messageJson = driPreingestSipAvailable.asJson.toString()
 ```
+## Json Schema
+Some applications require Json Schema for validation. There are no tools to directly convert Avro .avsc -> Json Schema  
+The scala case class produced by AvroHugger can be used in the creation of Json Schema with [scala-jsonschema](https://github.com/andyglow/scala-jsonschema) [example](./src/test/scala/CaseClassToJsonSchema.scala)
