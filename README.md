@@ -6,7 +6,8 @@ calls or API invocations. When an event occurs, a message is sent to the messagi
 delivers it to the appropriate component or components. Components can subscribe to specific types of
 messages, and the messaging system ensures that each message is delivered to all interested subscribers.
 
-All messages used in TRE infrastructure must conform to a message schema defined in [tre_schemas/avro](https://github.com/nationalarchives/da-transform-schemas/tree/main/tre_schemas/avro) . The message schema defines the data elements, their types, and the order in which they appear in the message.
+All messages published to the da-event-bus SNS topic must conform to a message schema defined in this project.
+The message schema defines the data elements, their types, and the order in which they appear in the message.
 
 Using schema provide/allow:
 - Interoperability: Message schemas enable different components to communicate with each other, even if they are implemented using different technologies or programming languages. By adhering to a common message schema, components can ensure that the data they send and receive is understood by all other components in the system.
@@ -16,7 +17,7 @@ Using schema provide/allow:
 
 ### Message Schema
 The message schema are defined using [Avro format](https://avro.apache.org/)
-The schema project structure (matching the message schema namespace) is
+The schema project structure (matching the message schema namespace) is for readability
 * [tre_schemas](https://github.com/nationalarchives/da-transform-schemas/tree/DTE-812-v2-tdr-fcl/tre_schemas)
   * [avro](./tre_schemas/avro)
     * [uk](./tre_schemas/avro/uk)
@@ -91,8 +92,13 @@ The messageType is created from the schema namespace and name. It is used for me
 ```
 
 ## Code Generation
-Scala classes are generated from the schema and released to maven central. To use in projects add the dependency to build.sbt
-Scala case classes can be converted to JsonSchema if required using [scala-jsonschema](https://github.com/andyglow/scala-jsonschema)
+
+[avrohugger](https://github.com/julianpeeters/avrohugger) is used to generate Scala classes released to mvn central
+For avrohugger the source .avsc files are specified as [tre_schmemas/avro](./tre_schemas/avro)
+Common types referenced in other schemas must be compiled first and are picked up as required if placed in [common](./tre_schemas/avro/uk/gov/nationalarchives/common)
+If Json Schema versions are required [scala-jsonschema](https://github.com/andyglow/scala-jsonschema) can be [used](./src/test/scala/CaseClassToJsonSchema.scala)
+
+To use the Scala case classes in projects add the dependency to build.sbt
 
 ```
 libraryDependencies += "uk.gov.nationalarchives" % "da-transform-schemas" % "2.01"
