@@ -14,14 +14,14 @@ Using schema provide/allow:
 - Versioning: Message schemas can be versioned to support changes in the system. When a new version of the schema is introduced, older versions can still be used to process messages that conform to the older schema. This can help ensure backward compatibility and smooth upgrades.
 - Documentation: Message schemas provide a clear and concise way to document the data elements and their meaning. This can help developers understand the messages they are sending and receiving, and ensure that they are using the correct data types and formats.
 
-### Schemas for the messages used within Transformation Engine infrastructure
-The message schema are defined using [Avro format](https://avro.apache.org/) and messages written in JSON
+### Message Schema
+The message schema are defined using [Avro format](https://avro.apache.org/)
 The schema project structure (matching the message schema namespace) is
 * [tre_schemas](https://github.com/nationalarchives/da-transform-schemas/tree/DTE-812-v2-tdr-fcl/tre_schemas)
   * [avro](./tre_schemas/avro)
     * [uk](./tre_schemas/avro/uk)
       * [gov](./tre_schemas/avro/uk/gov)
-        * [nationalarchives](./tre_schemas/avro/uk/gov)
+        * [nationalarchives](./tre_schemas/avro/uk/gov/nationalarchives)
           * [common](./tre_schemas/avro/uk/gov/nationalarchives/common)
             * [messages](./tre_schemas/avro/uk/gov/nationalarchives/common/messages)
               * tre-event-properties.json
@@ -40,12 +40,25 @@ The schema project structure (matching the message schema namespace) is
                 * courtdocumentpackage-prepare.avsc
 
 
-  All messages follow the same structure.
-- properties: defined in [tre-event-properties.avsc](https://github.com/nationalarchives/da-transform-schemas/blob/DTE-812-v2-tdr-fcl/tre_schemas/avro/uk/gov/nationalarchives/common/messages/tre-event-properties.avsc)
+All messages follow the same structure.
+```aidl
+{
+  "properties" : {
+                  "xxx":"123",
+                  "...":"..."
+                 },
+   "parameters" : {
+                   "yyy":"456",
+                   "...":"..."
+                 }
+}
+
+```
+- properties: defined in [tre-event-properties.avsc](./tre_schemas/avro/uk/gov/nationalarchives/common/messages/tre-event-properties.avsc)
 - parameters: message specific values that will allow processing of the event
 
 An example message schema [request-courtdocument-parse.avsc](https://github.com/nationalarchives/da-transform-schemas/blob/DTE-812-v2-tdr-fcl/tre_schemas/avro/uk/gov/nationalarchives/da/messages/request/request-courtdocument-parse.avsc)
-Will produce a sample JSON message [request-courtdocument-parse.json)](https://github.com/nationalarchives/da-transform-schemas/blob/DTE-812-v2-tdr-fcl/json-examples-new-schema/request-courtdocument-parse.json)
+Can be used to produce a sample JSON message [request-courtdocument-parse.json)](https://github.com/nationalarchives/da-transform-schemas/blob/DTE-812-v2-tdr-fcl/json-examples-new-schema/request-courtdocument-parse.json)
 
 
 ```
@@ -68,6 +81,13 @@ Will produce a sample JSON message [request-courtdocument-parse.json)](https://g
     }
   }
 }
+```
+The messageType is created from the schema namespace and name. It is used for message filtering and in code generation
+```aidl
+{
+  "type": "record",
+  "name": "RequestCourtDocumentParse",
+  "namespace": "uk.gov.nationalarchives.tre.messages.request.courtdocument.parse",
 ```
 
 ## Code Generation
