@@ -4,13 +4,13 @@
   "namespace": "uk.gov.nationalarchives.common.messages",
   "doc": "properties required for all messages routed through TRE",
   "fields": [
-     {
-       "name": "properties",
-       "type": {
-         "type": "record",
-         "name": "Properties",
-         "doc" : "These properties will be used by TRE to route and track events and their messages through the system",
-         "fields": [
+    {
+      "name": "properties",
+      "type": {
+        "type": "record",
+        "name": "Properties",
+        "doc": "These properties will be used by TRE to route and track events and their messages through the system",
+        "fields": [
           {
             "name": "messageType",
             "type": "string",
@@ -19,7 +19,7 @@
           {
             "name": "timestamp",
             "type": "string",
-            "doc" : "Date time format string such as 2023-03-29T11:00:12.280Z"
+            "doc": "Date time format string such as 2023-03-29T11:00:12.280Z"
           },
           {
             "name": "function",
@@ -28,16 +28,16 @@
           },
           {
             "name": "producer",
-             "type": {
-               "type": "enum",
-               "name": "Producer",
-               "symbols": [
-                 "TRE",
-                 "TDR",
-                 "FCL",
-                 "DRI"
-               ],
-               "default": "TRE"
+            "type": {
+              "type": "enum",
+              "name": "Producer",
+              "symbols": [
+                "TRE",
+                "TDR",
+                "FCL",
+                "DRI"
+              ],
+              "default": "TRE"
             },
             "doc": "The message producer (e.g. TRE, TDR, etc). Could be used for filtering and redirecting messages"
           },
@@ -58,52 +58,6 @@
       }
     },
     {
-      "name": "BagParameters",
-      "type": {
-        "type": "record",
-        "name": "BagParameters",
-        "fields": [
-          {
-            "name": "reference",
-            "type": "string",
-            "doc": "(TDR-2023-AAA|FCL-???????) # opaque string: use originator to know where it came from, should be an acceptable filename"
-          },
-          {
-            "name": "consignmentType",
-            "type": {
-              "type": "enum",
-              "name": "ConsignmentType",
-              "symbols": [
-                "COURT_DOCUMENT",
-                "STANDARD",
-                "JUDGEMENT",
-                "PRESS_SUMMARY"
-              ],
-              "default": "COURT_DOCUMENT"
-            },
-            "doc": "The type of transfer"
-          },
-          {
-            "name": "originator",
-            "type": [
-              "string",
-              "null"
-            ],
-            "doc": "who provided the docx such as FCL|TDR. This may have been passed from the courtdocument-parse"
-          },
-          {
-            "name": "s3Bucket",
-            "type": "string",
-            "doc": "s3 bucket containing package file"
-          },
-          {
-            "name": "s3Key",
-            "type": "string",
-            "doc": "s3 key of the package file"
-          }
-        ]
-      }
-    },    {
       "name": "courtdocumentpackageparameters",
       "type": {
         "type": "record",

@@ -1,7 +1,7 @@
 {
   "type": "record",
   "name": "BagAvailable",
-  "doc" : "Message indicating a bagit bag available event. The messageType in the Properties is 'uk.gov.nationalarchives.da.messages.bag.available.BagAvailable'",
+  "doc": "Message indicating a bagit bag available event. The messageType in the Properties is 'uk.gov.nationalarchives.da.messages.bag.available.BagAvailable'",
   "namespace": "uk.gov.nationalarchives.da.messages.bag.available",
   "fields": [
     {
@@ -10,7 +10,50 @@
     },
     {
       "name": "parameters",
-      "type": "uk.gov.nationalarchives.common.messages.BagParameters"
+      "type": {
+        "type": "record",
+        "name": "Parameters",
+        "fields": [
+          {
+            "name": "reference",
+            "type": "string",
+            "doc": "(TDR-2023-AAA|FCL-???????) # opaque string: use originator to know where it came from, should be an acceptable filename"
+          },
+          {
+            "name": "consignmentType",
+            "type": {
+              "type": "enum",
+              "name": "ConsignmentType",
+              "symbols": [
+                "COURT_DOCUMENT",
+                "STANDARD",
+                "JUDGEMENT",
+                "PRESS_SUMMARY"
+              ],
+              "default": "COURT_DOCUMENT"
+            },
+            "doc": "The type of transfer"
+          },
+          {
+            "name": "originator",
+            "type": [
+              "string",
+              "null"
+            ],
+            "doc": "who provided the docx such as FCL|TDR. This may have been passed from the courtdocument-parse"
+          },
+          {
+            "name": "s3Bucket",
+            "type": "string",
+            "doc": "s3 bucket containing package file"
+          },
+          {
+            "name": "s3Key",
+            "type": "string",
+            "doc": "s3 key of the package file"
+          }
+        ]
+      }
     }
   ]
 }

@@ -12,6 +12,6 @@
     "consignmentType" : "COURT_DOCUMENT",
     "originator" : "TDR",
     "s3Bucket" : "prod-tre-common-data",
-    "s3Key" : "FCL-12345/0f0934f3-edb2-4345-9918-fcdb92bcb67d/FCL-12345.tar.gz"
+    "s3ObjectRoot" : "consignments/judgment/TDR-2021-CF6L/0/TDR-2021-CF6L"
   }
 }
