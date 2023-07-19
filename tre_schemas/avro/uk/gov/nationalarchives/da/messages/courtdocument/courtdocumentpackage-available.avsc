@@ -1,11 +1,12 @@
 {
   "type": "record",
   "name": "CourtDocumentPackageAvailable",
-  "namespace": "uk.gov.nationalarchives.tre.messages.courtdocumentpackage.available",
+  "namespace": "uk.gov.nationalarchives.da.messages.courtdocumentpackage.available",
+  "doc" : "Message indicating a court document package available event. The messageType in the Properties is 'uk.gov.nationalarchives.da.messages.courtdocumentpackage.available.CourtDocumentPackageAvailable'",
   "fields": [
     {
       "name": "properties",
-      "type": "uk.gov.nationalarchives.tre.messages.event.Properties"
+      "type": "uk.gov.nationalarchives.common.messages.Properties"
     },
     {
       "name": "parameters",

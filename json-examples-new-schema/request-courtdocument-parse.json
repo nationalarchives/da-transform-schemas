@@ -1,6 +1,6 @@
 {
   "properties" : {
-    "messageType" : "uk.gov.nationalarchives.tre.messages.request.courtdocument.parse.RequestCourtDocumentParse",
+    "messageType" : "uk.gov.nationalarchives.da.messages.request.courtdocument.parse.RequestCourtDocumentParse",
     "timestamp" : "2023-03-29T11:00:12.280Z",
     "function" : "fcl-court-document-parse-request",
     "producer" : "FCL",
@@ -17,4 +17,3 @@
     }
   }
 }
-
