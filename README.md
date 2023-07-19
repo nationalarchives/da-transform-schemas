@@ -86,7 +86,7 @@ The messageType is created from the schema namespace and name. It is used for me
 {
   "type": "record",
   "name": "RequestCourtDocumentParse",
-  "namespace": "uk.gov.nationalarchives.tre.messages.request.courtdocument.parse",
+  "namespace": "uk.gov.nationalarchives.da.messages.request.courtdocument.parse",
 ```
 
 ## Code Generation
