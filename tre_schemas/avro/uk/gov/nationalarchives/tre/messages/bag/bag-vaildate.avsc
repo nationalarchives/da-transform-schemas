@@ -26,7 +26,7 @@
               "symbols": [
                 "COURT_DOCUMENT",
                 "STANDARD",
-                "JUDGEMENT",
+                "JUDGMENT",
                 "PRESS_SUMMARY"
               ],
               "default": "COURT_DOCUMENT"
