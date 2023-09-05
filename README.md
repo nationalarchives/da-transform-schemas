@@ -72,8 +72,7 @@ can be used to produce a sample JSON message [request-courtdocument-parse.json)]
   },
   "parameters" : {
     "s3Bucket" : "xxxxx-xxx-tre-request-parse",
-    "s3BagKey" : "eater/2023/1/eater_2023_1.docx",
-    "s3BagSha256Key" : "eater/2023/1/eater_2023_1.docx.sha256",
+    "s3Key" : "eater/2023/1/eater_2023_1.docx",
     "reference" : "FCL-12345",
     "originator" : "FCL",
     "parserInstructions" : {
