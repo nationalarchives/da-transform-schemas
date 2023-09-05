@@ -27,7 +27,7 @@
               "symbols": [
                 "COURT_DOCUMENT",
                 "STANDARD",
-                "JUDGEMENT",
+                "JUDGMENT",
                 "PRESS_SUMMARY"
               ],
               "default": "COURT_DOCUMENT"
@@ -48,9 +48,14 @@
             "doc": "s3 bucket containing package file"
           },
           {
-            "name": "s3Key",
+            "name": "s3BagKey",
             "type": "string",
             "doc": "s3 key of the package file"
+          },
+          {
+            "name": "s3BagSha256Key",
+            "type": "string",
+            "doc": "s3 SHA-256 key of the package file"
           }
         ]
       }

@@ -12,6 +12,7 @@
     "originator" : "TDR",
     "consignmentType" : "COURT_DOCUMENT",
     "s3Bucket" : "tdr-consignment-export-judgment-prod",
-    "s3Key" : "TDR-1234-ABCD/0f0934f3-edb2-4345-9918-fcdb92bcb67d/TDR-1234-ABCD.tar.gz"
+    "s3BagKey" : "TDR-1234-ABCD/0f0934f3-edb2-4345-9918-fcdb92bcb67d/TDR-1234-ABCD.tar.gz",
+    "s3BagSha256Key" : "TDR-1234-ABCD/0f0934f3-edb2-4345-9918-fcdb92bcb67d/TDR-1234-ABCD.tar.gz.sha256"
   }
 }
