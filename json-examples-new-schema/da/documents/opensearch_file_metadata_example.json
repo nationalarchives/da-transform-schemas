@@ -1,0 +1,31 @@
+{
+	"id": "ABC_2020_PAAA_data/content/folder-a/file-a1.txt",
+	"file_name": "file-a1.txt",
+	"file_type": "File",
+	"file_size": "46",
+	"clientside_original_filepath": "data/content/folder-a/file-a1.txt",
+	"rights_copyright": "Crown Copyright",
+	"legal_status": "Public Record(s)",
+	"held_by": "The National Archives, Kew",
+	"date_last_modified": "2023-02-27T12:28:08",
+	"closure_type": "Closed",
+	"closure_start_date": "2022-02-27T00:00:00",
+	"closure_period": "50",
+	"foi_exemption_code": "27(1)|27(2)",
+	"foi_exemption_asserted": "2023-03-27T00:00:00",
+	"title_closed": "true",
+	"title_alternate": "redacted-a1.txt",
+	"description": "Test description",
+	"description_closed": "true",
+	"description_alternate": "Redacted description",
+	"language": "English|Welsh",
+	"end_date": "2022-02-27T00:00:00",
+	"file_name_translation": "Translated title",
+	"original_filepath": null,
+	"former_reference_department": "former/1",
+	"checksum": "XXXXXXXXXXX",
+	"join_field": {
+		"name": "file",
+		"parent": "TDR-2023-H2QS"
+	}
+}

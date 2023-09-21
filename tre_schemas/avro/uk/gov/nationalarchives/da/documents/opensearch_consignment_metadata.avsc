@@ -1,0 +1,85 @@
+{
+	"type": "record",
+	"name": "Consignment",
+	"doc": "JSON document type to hold properties for a consignment, from TDR consignment, in the AYR OpenSearch document store",
+	"namespace": "uk.gov.nationalarchives.da.documents.consignment",
+	"fields": [
+		{
+			"name": "Consignment_Completed_Datetime",
+			"type": "string",
+			"doc": "The Consignment_Completed_Datetime property from TDR"
+		},
+		{
+			"name": "Consignment_Export_Datetime",
+			"type": "string",
+			"doc": "The Consignment_Export_Datetime property from TDR"
+		},
+		{
+			"name": "Consignment_Include_Top_Level_Folder",
+			"type": [
+				"null",
+				"string"
+			],
+			"default": null,
+			"doc": "Optional, The Consignment_Include_Top_Level_Folder property from TDR"
+		},
+		{
+			"name": "Consignment_Series",
+			"type": "string",
+			"doc": "The Consignment_Series property from TDR"
+		},
+		{
+			"name": "Consignment_Start_Datetime",
+			"type": "string",
+			"doc": "The Consignment_Start_Datetime property from TDR"
+		},
+		{
+			"name": "Consignment_Type",
+			"type": [
+				"null",
+				"string"
+			],
+			"default": "standard",
+			"doc": "Optional, The Consignment_Type property from TDR"
+		},
+		{
+			"name": "Contact_Email",
+			"type": "string",
+			"doc": "The Consignment_Start_Datetime property from TDR"
+		},
+		{
+			"name": "Contact_Name",
+			"type": "string",
+			"doc": "The Contact_Name property from TDR"
+		},
+		{
+			"name": "Internal_Sender_Identifier",
+			"type": "string",
+			"doc": "The Internal_Sender_Identifier property from TDR"
+		},
+		{
+			"name": "Source_Organization",
+			"type": "string",
+			"doc": "The Source_Organization property from TDR"
+		},
+		{
+			"name": "id",
+			"type": "string",
+			"doc": "The id to represent this document in OpenSearch. This is same as the Internal_Sender_Identifier from TDR"
+		},
+		{
+			"name": "join_field",
+			"type": {
+				"type": "record",
+				"name": "Join_field",
+				"fields": {
+					"name": "name",
+					"type": "string",
+					"default": "consignment",
+					"doc": "This property is always set to 'consignment' that is the parent for the file join relationships"
+				}
+			},
+			"doc": "This defines the document type"
+		}
+	]
+}

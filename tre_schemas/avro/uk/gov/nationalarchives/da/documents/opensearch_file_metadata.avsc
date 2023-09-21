@@ -1,0 +1,267 @@
+{
+	"type": "record",
+	"name": "File",
+	"doc": "JSON document type to holds properties for a  file, from a TDR consignment, in the AYR OpenSearch document store",
+	"namespace": "uk.gov.nationalarchives.da.documents.file",
+	"fields": [
+		{
+			"name": "checksum",
+			"type": "string",
+			"doc": "The Checksum of the file"
+		},
+		{
+			"name": "clientside_original_filepath",
+			"type": "string",
+			"doc": "The filepath as defined by TDR"
+		},
+		{
+			"name": "closure_period",
+			"type": "string",
+			"doc": "The closure_period from TDR"
+		},
+		{
+			"name": "closure_start_date",
+			"type": [
+				"null",
+				"string"
+			],
+			"default": null,
+			"doc": "Optional, The closure start date from TDR"
+		},
+		{
+			"name": "closure_type",
+			"type": {
+				"type": "enum",
+				"name": "Closure_type",
+				"symbols": [
+					"Open",
+					"Closed",
+					"Unknown"
+				],
+				"default": "Unknown"
+			},
+			"doc": "The closure type from TDR",
+			"default": "Unknown"
+		},
+		{
+			"name": "date_last_modified",
+			"type": [
+				"null",
+				"string"
+			],
+			"default": null,
+			"doc": "Optional, The date_last_modified from TDR. Folders do not have this"
+		},
+		{
+			"name": "description",
+			"type": [
+				"null",
+				"string"
+			],
+			"default": null,
+			"doc": "Optional, The description from TDR"
+		},
+		{
+			"name": "description_alternate",
+			"type": [
+				"null",
+				"string"
+			],
+			"default": null,
+			"doc": "Optional, The description_alternate from TDR"
+		},
+		{
+			"name": "description_closed",
+			"type": {
+				"type": "enum",
+				"name": "Description_closed",
+				"symbols": [
+					"true",
+					"false",
+					"Unknown"
+				],
+				"default": "Unknown"
+			},
+			"default": "Unknown",
+			"doc": "The description_closed from TDR"
+		},
+		{
+			"name": "end_date",
+			"type": [
+				"null",
+				"string"
+			],
+			"default": null,
+			"doc": "Optional, The end_date from TDR"
+		},
+		{
+			"name": "file_name",
+			"type": "string",
+			"doc": " The file_name from TDR"
+		},
+		{
+			"name": "file_name_translation",
+			"type": [
+				"null",
+				"string"
+			],
+			"default": null,
+			"doc": "Optional, The file_name_translation from TDR"
+		},
+		{
+			"name": "file_size",
+			"type": [
+				"null",
+				"string"
+			],
+			"default": null,
+			"doc": "Optional, The file_size from TDR"
+		},
+		{
+			"name": "file_type",
+			"type": {
+				"type": "enum",
+				"name": "File_type",
+				"symbols": [
+					"File",
+					"Folder",
+					"Unknown"
+				],
+				"default": "Unknown"
+			},
+			"default": "Unknown",
+			"doc": "The file_type from TDR"
+		},
+		{
+			"name": "foi_exemption_asserted",
+			"type": [
+				"null",
+				"string"
+			],
+			"default": null,
+			"doc": "Optional, The foi_exemption_asserted from TDR"
+		},
+		{
+			"name": "foi_exemption_code",
+			"type": [
+				"null",
+				"string"
+			],
+			"default": null,
+			"doc": "Optional, The foi_exemption_code from TDR"
+		},
+		{
+			"name": "former_reference_department",
+			"type": [
+				"null",
+				"string"
+			],
+			"default": null,
+			"doc": "Optional, The former_reference_department from TDR"
+		},
+		{
+			"name": "held_by",
+			"type": {
+				"type": "enum",
+				"name": "Held_by",
+				"symbols": [
+					"The National Archives, Kew",
+					"Unknown"
+				],
+				"default": "Unknown"
+			},
+			"default": "Unknown",
+			"doc": "The former_reference_department from TDR. Should be TNA but set to unknown if missing to raise an error"
+		},
+		{
+			"name": "id",
+			"type": "string",
+			"doc": "The Id of the file from TDR. This is currently the consigmentId and the path concatenated. But should be the unique file reference in future"
+		},
+		{
+			"name": "join_field",
+			"type": {
+				"type": "record",
+				"name": "Join_field",
+				"fields": [
+					{
+						"name": "name",
+						"type": "string",
+						"default": "file",
+						"doc": "This must always be 'file'"
+					},
+					{
+						"name": "parent",
+						"type": "string",
+						"doc": "This is set to the parent consignmentId for the relationship to work in opensearch",
+						"default": "Unknown"
+					}
+				]
+			}
+		},
+		{
+			"name": "language",
+			"type": [
+				"null",
+				"string"
+			],
+			"default": null,
+			"doc": "Optional, The language from TDR"
+		},
+		{
+			"name": "legal_status",
+			"type": [
+				"null",
+				"string"
+			],
+			"default": null
+		},
+		{
+			"name": "original_filepath",
+			"type": [
+				"null",
+				"string"
+			],
+			"default": null,
+			"doc": "Optional, The original_filepath from TDR"
+		},
+		{
+			"name": "rights_copyright",
+			"type": {
+				"type": "enum",
+				"name": "Rights_copyright",
+				"symbols": [
+					"Crown Copyright",
+					"Unknown"
+				],
+				"default": "Unknown"
+			},
+			"default": "Unknown",
+			"doc": "The rights_copyright from TDR"
+		},
+		{
+			"name": "title_alternate",
+			"type": [
+				"null",
+				"string"
+			],
+			"default": null,
+			"doc": "Optional, The original_filepath from TDR"
+		},
+		{
+			"name": "title_closed",
+			"type": {
+				"type": "enum",
+				"name": "Title_closed",
+				"symbols": [
+					"true",
+					"false",
+					"Unknown"
+				],
+				"default": "Unknown"
+			},
+			"default": "Unknown",
+			"doc": "The title_closed from TDR"
+		}
+	]
+}

@@ -1,0 +1,16 @@
+{
+	"id": "ABC_2020_PAAA",
+	"Internal_Sender_Identifier": "ABC_2020_PAAA",
+	"Source_Organization": "Testing A",
+	"Consignment_Series": "TSTA 1",
+	"Consignment_Type": "standard",
+	"Consignment_Include_Top_Level_Folder": "false",
+	"Contact_Name": "John Doe",
+	"Contact_Email": "john.doe@something2.com",
+	"Consignment_Start_Datetime": "2023_03_27T07:36:01Z",
+	"Consignment_Completed_Datetime": "2023_03_27T07:53:54Z",
+	"Consignment_Export_Datetime": "2023_03_27T07:54:42Z",
+	"join_field": {
+		"name": "consignment"
+	}
+}
