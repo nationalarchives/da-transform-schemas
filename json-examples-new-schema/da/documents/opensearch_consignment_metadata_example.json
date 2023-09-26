@@ -3,7 +3,7 @@
 	"Internal_Sender_Identifier": "ABC_2020_PAAA",
 	"Source_Organization": "Testing A",
 	"Consignment_Series": "TSTA 1",
-	"Consignment_Type": "standard",
+	"Consignment_Type": "STANDARD",
 	"Consignment_Include_Top_Level_Folder": "false",
 	"Contact_Name": "John Doe",
 	"Contact_Email": "john.doe@something2.com",

@@ -34,17 +34,20 @@
 			"doc": "The Consignment_Start_Datetime property from TDR"
 		},
 		{
-			"name": "Consignment_Type",
-			"type": [
-				{
-					"type": "string",
-					"default": "standard"
-				},
-				"null"
-			],
-			"default": "standard",
-			"doc": "Optional, The Consignment_Type property from TDR"
-		},
+            "name": "consignment_Type",
+            "type": {
+              "type": "enum",
+              "name": "Consignment_Type",
+              "symbols": [
+                "COURT_DOCUMENT",
+                "STANDARD",
+                "JUDGMENT",
+                "PRESS_SUMMARY"
+              ],
+              "default": "STANDARD"
+            },
+            "doc": "The type of transfer"
+        },
 		{
 			"name": "Contact_Email",
 			"type": "string",

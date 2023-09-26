@@ -1,7 +1,7 @@
 {
 	"type": "record",
 	"name": "File",
-	"doc": "JSON document type to holds properties for a  file, from a TDR consignment, in the AYR OpenSearch document store",
+	"doc": "JSON document type to hold properties for a  file, from a TDR consignment, in the AYR OpenSearch document store",
 	"namespace": "uk.gov.nationalarchives.da.documents.file",
 	"fields": [
 		{
@@ -34,9 +34,9 @@
 				"type": "enum",
 				"name": "Closure_type",
 				"symbols": [
+					"Unknown",
 					"Open",
-					"Closed",
-					"Unknown"
+					"Closed"
 				],
 				"default": "Unknown"
 			},
@@ -76,9 +76,9 @@
 				"type": "enum",
 				"name": "Description_closed",
 				"symbols": [
+					"Unknown",
 					"true",
-					"false",
-					"Unknown"
+					"false"
 				],
 				"default": "Unknown"
 			},
@@ -123,9 +123,9 @@
 				"type": "enum",
 				"name": "File_type",
 				"symbols": [
+					"Unknown",
 					"File",
-					"Folder",
-					"Unknown"
+					"Folder"
 				],
 				"default": "Unknown"
 			},
@@ -161,17 +161,9 @@
 		},
 		{
 			"name": "held_by",
-			"type": {
-				"type": "enum",
-				"name": "Held_by",
-				"symbols": [
-					"The National Archives, Kew",
-					"Unknown"
-				],
-				"default": "Unknown"
-			},
-			"default": "Unknown",
-			"doc": "The former_reference_department from TDR. Should be TNA but set to unknown if missing to raise an error"
+			"type": "string",
+			"default": "The National Archives, Kew",
+			"doc": "The held_by property from TDR. Should be TNA but set to unknown if missing to raise an error"
 		},
 		{
 			"name": "id",
@@ -188,7 +180,7 @@
 						"name": "name",
 						"type": "string",
 						"default": "file",
-						"doc": "This must always be 'file'"
+						"doc": "This is the type of document and must always be 'file'"
 					},
 					{
 						"name": "parent",
@@ -227,16 +219,8 @@
 		},
 		{
 			"name": "rights_copyright",
-			"type": {
-				"type": "enum",
-				"name": "Rights_copyright",
-				"symbols": [
-					"Crown Copyright",
-					"Unknown"
-				],
-				"default": "Unknown"
-			},
-			"default": "Unknown",
+			"type": "String",
+			"default":"Crown Copyright",
 			"doc": "The rights_copyright from TDR"
 		},
 		{
@@ -254,9 +238,9 @@
 				"type": "enum",
 				"name": "Title_closed",
 				"symbols": [
+					"Unknown",
 					"true",
-					"false",
-					"Unknown"
+					"false"
 				],
 				"default": "Unknown"
 			},
