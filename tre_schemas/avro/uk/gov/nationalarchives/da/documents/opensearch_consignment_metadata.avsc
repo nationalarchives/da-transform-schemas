@@ -36,8 +36,11 @@
 		{
 			"name": "Consignment_Type",
 			"type": [
-				"null",
-				"string"
+				{
+					"type": "string",
+					"default": "standard"
+				},
+				"null"
 			],
 			"default": "standard",
 			"doc": "Optional, The Consignment_Type property from TDR"
@@ -72,12 +75,14 @@
 			"type": {
 				"type": "record",
 				"name": "Join_field",
-				"fields": {
-					"name": "name",
-					"type": "string",
-					"default": "consignment",
-					"doc": "This property is always set to 'consignment' that is the parent for the file join relationships"
-				}
+				"fields": [
+					{
+						"name": "name",
+						"type": "string",
+						"default": "consignment",
+						"doc": "This property is always set to 'consignment' that is the parent for the file join relationships"
+					}
+				]
 			},
 			"doc": "This defines the document type"
 		}
