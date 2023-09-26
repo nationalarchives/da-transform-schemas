@@ -39,8 +39,8 @@
               "type": "enum",
               "name": "Consignment_Type",
               "symbols": [
-                "COURT_DOCUMENT",
                 "STANDARD",
+				"COURT_DOCUMENT",
                 "JUDGMENT",
                 "PRESS_SUMMARY"
               ],
