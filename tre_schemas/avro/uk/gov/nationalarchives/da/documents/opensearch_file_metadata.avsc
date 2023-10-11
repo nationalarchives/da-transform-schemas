@@ -219,7 +219,7 @@
 		},
 		{
 			"name": "rights_copyright",
-			"type": "String",
+			"type": "string",
 			"default":"Crown Copyright",
 			"doc": "The rights_copyright from TDR"
 		},
