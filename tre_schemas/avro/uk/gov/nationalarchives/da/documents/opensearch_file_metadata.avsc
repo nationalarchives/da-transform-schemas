@@ -72,17 +72,7 @@
 		},
 		{
 			"name": "description_closed",
-			"type": {
-				"type": "enum",
-				"name": "Description_closed",
-				"symbols": [
-					"Unknown",
-					"true",
-					"false"
-				],
-				"default": "Unknown"
-			},
-			"default": "Unknown",
+			"type": "string",
 			"doc": "The description_closed from TDR"
 		},
 		{
@@ -234,17 +224,7 @@
 		},
 		{
 			"name": "title_closed",
-			"type": {
-				"type": "enum",
-				"name": "Title_closed",
-				"symbols": [
-					"Unknown",
-					"true",
-					"false"
-				],
-				"default": "Unknown"
-			},
-			"default": "Unknown",
+			"type": "string",
 			"doc": "The title_closed from TDR"
 		}
 	]
