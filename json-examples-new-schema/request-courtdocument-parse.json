@@ -13,7 +13,14 @@
     "reference" : "FCL-12345",
     "originator" : "FCL",
     "parserInstructions" : {
-      "documentType" : "press-summary"
+      "documentType" : "pressSummary",
+      "metadata": {
+        "court": "EWHC-Chancery-Business",
+        "uri": "ewhc/ch/2023/1/press-summary/1",
+        "cite": "[2023] EWHC 1 (Ch)",
+        "name": "Green v. Purple",
+        "date": "2023-12-31"
+      }
     }
   }
 }

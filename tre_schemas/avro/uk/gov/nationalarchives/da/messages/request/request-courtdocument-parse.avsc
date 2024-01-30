@@ -48,7 +48,66 @@
                 {
                   "name": "documentType",
                   "type": "string",
-                  "doc": "type of court document to be parsed. press-summary|judgment"
+                  "doc": "type of court document to be parsed. pressSummary|judgment"
+                },
+                {
+                  "name": "metadata",
+                  "default": null,
+                  "doc": "Potentially human-edited metadata that should be preserved on a reparse. Null values mean that the parser should determine the value freely.",
+                  "type": [
+                    "null",
+                    {
+                      "type": "record",
+                      "name": "metadata_record",
+                      "fields": [
+                        {
+                          "name": "court",
+                          "type": [
+                            "null",
+                            "string"
+                          ],
+                          "doc": "Court code like 'EWHC-Chancery-Business'",
+                          "default": null
+                        },
+                        {
+                          "name": "uri",
+                          "type": [
+                            "null",
+                            "string"
+                          ],
+                          "doc": "Stripped FCL URI, like 'ewhc/ch/2023/1/press-summary/1'",
+                          "default": null
+                        },
+                        {
+                          "name": "cite",
+                          "type": [
+                            "null",
+                            "string"
+                          ],
+                          "doc": "Neutral Citation in standard form, like '[2023] EWHC 1 (Ch)'",
+                          "default": null
+                        },
+                        {
+                          "name": "date",
+                          "type": [
+                            "null",
+                            "string"
+                          ],
+                          "doc": "ISO 8601 date of the handing down of the document, like '2023-12-31'",
+                          "default": null
+                        },
+                        {
+                          "name": "name",
+                          "type": [
+                            "null",
+                            "string"
+                          ],
+                          "doc": "The name of the document. Format unspecified.",
+                          "default": null
+                        }
+                      ]
+                    }
+                  ]
                 }
               ]
             }
