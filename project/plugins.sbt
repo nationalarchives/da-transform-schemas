@@ -1,4 +1,4 @@
-addSbtPlugin("com.julianpeeters" % "sbt-avrohugger" % "2.3.1")
+addSbtPlugin("com.julianpeeters" % "sbt-avrohugger" % "2.8.2")
 addSbtPlugin("com.github.sbt" % "sbt-release" % "1.1.0")
 resolvers += Resolver.jcenterRepo
 addSbtPlugin("org.xerial.sbt" % "sbt-sonatype" % "3.9.18")
