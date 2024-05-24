@@ -1,7 +1,7 @@
 {
   "type": "record",
-  "name": "BagAvailable",
-  "doc": "Message indicating a bagit bag available event. The messageType in the Properties is 'uk.gov.nationalarchives.da.messages.ayrmetadata.loaded'",
+  "name": "AYRMetadataLoaded",
+  "doc": "Message indicating an AYR loaded event. The messageType in the Properties is 'uk.gov.nationalarchives.da.messages.ayrmetadata.loaded'",
   "namespace": "uk.gov.nationalarchives.da.messages.ayrmetadata.loaded",
   "fields": [
     {
@@ -45,7 +45,7 @@
           {
             "name": "executionId",
             "type": "string",
-            "doc": "This should an id (UUID) that can be used to uniquely identify the execution of the function. Information, such as the inputs, may be obtainable using this id. For TRE the ID of the step function, not lambda functions called from the step function, as that is the one responsible for sending out the message"
+            "doc": "This should be an id, ideally a UUID, that can be used to uniquely identify the execution of the function. Information, such as the inputs, may be obtainable using this id. For TRE the ID of the step function, not lambda functions called from the step function, as that is the one responsible for sending out the message"
           },
           {
             "name": "parentExecutionId",
@@ -53,7 +53,7 @@
               "string",
               "null"
             ],
-            "doc": "Will be Deprecated but remains for compatibility. The execution-id of from the input message used for the process. Used to track flow of events for a particular package"
+            "doc": "Will be Deprecated at some point but remains for compatibility. The execution-id of from the input message used for the process. Used to track flow of events for a particular package"
           },
 		  {
             "name": "messageId",
@@ -61,7 +61,7 @@
               "string",
               "null"
             ],
-            "doc": "the unique id for this message. This should be a UUID and has been added to allow for 1:Many messages relationships for a particular execution"
+            "doc": "The unique id for this message. This should be a UUID and has been added to allow for 1:Many message relationships for a particular execution"
 		  },
 		  {
             "name": "parentMessageId",
@@ -103,7 +103,7 @@
 				  "string",
 				  "null"
 				],
-				"doc": "who provided the metadata such as TDR|DDT."
+				"doc": "Who provided the metadata such as TDR|DDT."
 			  }
 			]
 		  }
