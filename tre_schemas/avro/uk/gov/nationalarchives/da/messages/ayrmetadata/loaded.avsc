@@ -1,8 +1,8 @@
 {
   "type": "record",
   "name": "BagAvailable",
-  "doc": "Message indicating a bagit bag available event. The messageType in the Properties is 'uk.gov.nationalarchives.da.messages.bag.available.BagAvailable'",
-  "namespace": "uk.gov.nationalarchives.da.messages.bag.available",
+  "doc": "Message indicating a bagit bag available event. The messageType in the Properties is 'uk.gov.nationalarchives.da.messages.ayrmetadata.loaded'",
+  "namespace": "uk.gov.nationalarchives.da.messages.ayrmetadata.loaded",
   "fields": [
     {
       "name": "properties",
