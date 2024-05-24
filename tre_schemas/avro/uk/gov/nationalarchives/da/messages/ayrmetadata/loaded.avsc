@@ -1,0 +1,112 @@
+{
+  "type": "record",
+  "name": "BagAvailable",
+  "doc": "Message indicating a bagit bag available event. The messageType in the Properties is 'uk.gov.nationalarchives.da.messages.bag.available.BagAvailable'",
+  "namespace": "uk.gov.nationalarchives.da.messages.bag.available",
+  "fields": [
+    {
+      "name": "properties",
+      "type": {
+        "type": "record",
+        "name": "Properties",
+        "doc": "These properties will be used to route and track events and their messages through the system. Note: the properties have been extened",
+        "fields": [
+          {
+            "name": "messageType",
+            "type": "string",
+            "doc": "For this message the messageType is uk.gov.nationalarchives.da.messages.ayrmetadata.loaded"
+          },
+          {
+            "name": "timestamp",
+            "type": "string",
+            "doc": "Date time format string such as 2023-03-29T11:00:12.280Z"
+          },
+          {
+            "name": "function",
+            "type": "string",
+            "doc": "For this message the function is ddt-ayrmetadataload-process"
+          },
+          {
+            "name": "producer",
+            "type": {
+              "type": "enum",
+              "name": "Producer",
+              "symbols": [
+                "TRE",
+                "TDR",
+                "FCL",
+                "DRI",
+				"DDT"
+              ],
+              "default": "DDT"
+            },
+            "doc": "The message producer (e.g. TRE, TDR, etc). Could be used for filtering and redirecting messages"
+          },
+          {
+            "name": "executionId",
+            "type": "string",
+            "doc": "This should an id (UUID) that can be used to uniquely identify the execution of the function. Information, such as the inputs, may be obtainable using this id. For TRE the ID of the step function, not lambda functions called from the step function, as that is the one responsible for sending out the message"
+          },
+          {
+            "name": "parentExecutionId",
+            "type": [
+              "string",
+              "null"
+            ],
+            "doc": "Will be Deprecated but remains for compatibility. The execution-id of from the input message used for the process. Used to track flow of events for a particular package"
+          },
+		  {
+            "name": "messageId",
+            "type": [
+              "string",
+              "null"
+            ],
+            "doc": "the unique id for this message. This should be a UUID and has been added to allow for 1:Many messages relationships for a particular execution"
+		  },
+		  {
+            "name": "parentMessageId",
+            "type": [
+              "string",
+              "null"
+            ],
+            "doc": "The message-id from the input message that activated the execution. Used to track flow of events. A single parent message may give rise to multiple messages from a single execution"
+          }
+        ]
+		}
+    },
+    {
+      "name": "parameters",
+		  "type": {
+			"type": "record",
+			"name": "Parameters",
+			"fields": [
+			  {
+				"name": "reference",
+				"type": "string",
+				"doc": "(TDR-2024-ABC) # opaque string: The reference supplied in the orignal message"
+			  },
+			  {
+				"name": "consignmentType",
+				"type": {
+				  "type": "enum",
+				  "name": "ConsignmentType",
+				  "symbols": [
+					"STANDARD"
+				  ],
+				  "default": "STANDARD"
+				},
+				"doc": "The type of transfer. Currently this is only for STANDARD bags but could extend in future. Hence the use of the enum"
+			  },
+			  {
+				"name": "originator",
+				"type": [
+				  "string",
+				  "null"
+				],
+				"doc": "who provided the metadata such as TDR|DDT."
+			  }
+			]
+		  }
+    }
+  ]
+}
