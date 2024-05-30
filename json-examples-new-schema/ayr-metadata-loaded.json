@@ -1,0 +1,17 @@
+{
+	"properties": {
+		"executionId": "f7e020fe-5dae-4612-a76d-b0f11f285357",
+		"messageType": "uk.gov.nationalarchives.da.messages.ayrmetadata.loaded",
+		"function": "ddt-ayrmetadataload-process",
+		"parentMessageId": "ea95a388-aafd-4638-98d9-5d5a0667bfe7",
+		"producer": "DDT",
+		"messageId": "a538a47c-7109-4a6c-a62c-ae038e44a77e",
+		"parentExecutionId": "ea95a388-aafd-4638-98d9-5d5a0667bfe7",
+		"timestamp": "2024-05-15T20:42:29.134Z"
+	},
+	"parameters": {
+		"reference": "TDR-2023-GLL5",
+		"consignmentType": "STANDARD",
+		"originator": "DDT"
+	}
+}
