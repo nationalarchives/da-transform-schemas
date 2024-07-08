@@ -58,9 +58,9 @@ libraryDependencies ++= Seq(
   "com.github.andyglow" %% "scala-jsonschema-core" %  "0.7.11",
   "com.github.andyglow" %% "scala-jsonschema-circe-json" %  "0.7.11"
 )
-libraryDependencies += "org.scalatest" %% "scalatest" % "3.2.18" % Test
+libraryDependencies += "org.scalatest" %% "scalatest" % "3.2.19" % Test
 
-scalaVersion := "2.13.13"
+scalaVersion := "2.13.14"
 
 Compile / sourceGenerators += (Compile / avroScalaGenerate).taskValue
 (Compile / avroSourceDirectories) += new java.io.File(s"${baseDirectory.value}/tre_schemas/avro")
