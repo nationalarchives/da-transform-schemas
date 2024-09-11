@@ -35,6 +35,19 @@
             "doc": "The type of transfer"
           },
           {
+            "name": "transferringBody",
+            "type": "string",
+            "doc": "body making the transfer"
+          },
+          {
+            "name": "series",
+            "type": [
+               "string",
+               "null"
+            ],
+            "doc": "series, if any of the consignment"
+          },
+          {
             "name": "originator",
             "type": [
               "string",
