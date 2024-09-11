@@ -36,14 +36,17 @@
           },
           {
             "name": "transferringBody",
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "doc": "body making the transfer"
           },
           {
             "name": "series",
             "type": [
-               "string",
-               "null"
+              "string",
+              "null"
             ],
             "doc": "series, if any of the consignment"
           },
