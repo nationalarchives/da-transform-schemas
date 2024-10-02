@@ -28,7 +28,8 @@
                 "COURT_DOCUMENT",
                 "STANDARD",
                 "JUDGMENT",
-                "PRESS_SUMMARY"
+                "PRESS_SUMMARY",
+                "HISTORICAL_TRIBUNAL"
               ],
               "default": "COURT_DOCUMENT"
             },
