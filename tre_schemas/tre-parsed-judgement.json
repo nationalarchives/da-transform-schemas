@@ -7,7 +7,7 @@
       "properties": {
         "messageType": {
           "type": "string",
-          "default": "uk,gov.nationalarchives.tre.messages.parsed.judgment.TREParsedJudgment",
+          "default": "uk.gov.nationalarchives.tre.messages.parsed.judgment.TREParsedJudgment",
           "doc": "Message for a parsed judgment event"
         },
         "timestampMillis": {
