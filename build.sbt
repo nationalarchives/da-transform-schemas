@@ -4,11 +4,6 @@ import sbtrelease.ReleasePlugin.autoImport.ReleaseTransformations._
 ThisBuild / name := "da-transform-schema"
 ThisBuild / organization := "uk.gov.nationalarchives"
 
-// For all Sonatype accounts created on or after February 2021
-//ThisBuild / sonatypeCredentialHost := "s01.oss.sonatype.org"
-//sonatypeCredentialHost := "s01.oss.sonatype.org"
-//sonatypeRepository := "https://s01.oss.sonatype.org/service/local"
-
 scmInfo := Some(
   ScmInfo(
     url("https://github.com/nationalarchives/da-transform-schema"),
@@ -30,7 +25,11 @@ developers := List(
 
 releaseIgnoreUntrackedFiles := true
 useGpgPinentry := true
-publishTo := sonatypePublishToBundle.value
+publishTo := {
+  val centralSnapshots = "https://central.sonatype.com/repository/maven-snapshots/"
+  if (isSnapshot.value) Some("central-snapshots" at centralSnapshots)
+  else localStaging.value
+}
 publishMavenStyle := true
 
 releaseProcess := Seq[ReleaseStep](
@@ -42,7 +41,7 @@ releaseProcess := Seq[ReleaseStep](
   commitReleaseVersion, // commit the release version
   tagRelease, // create git tag
   releaseStepCommand("publishSigned"),
-  releaseStepCommand("sonatypeBundleRelease"),
+  releaseStepCommand("sonaRelease"),
   setNextVersion, // set next version in version.sbt
   commitNextVersion, // commit next version
   pushChanges // push changes to git
