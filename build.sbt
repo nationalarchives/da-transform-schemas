@@ -57,7 +57,7 @@ libraryDependencies ++= Seq(
   "com.github.andyglow" %% "scala-jsonschema-core" %  "0.7.11",
   "com.github.andyglow" %% "scala-jsonschema-circe-json" %  "0.7.11"
 )
-libraryDependencies += "org.scalatest" %% "scalatest" % "3.2.19" % Test
+libraryDependencies += "org.scalatest" %% "scalatest" % "3.2.20" % Test
 
 scalaVersion := "2.13.18"
 
