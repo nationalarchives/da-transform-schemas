@@ -1,6 +1,7 @@
 name: TRE Deploy Generated Schema
 on:
   workflow_dispatch:
+permissions: {}  
 env:
   RUN_NUMBER: ${{ github.run_id }}${{ github.run_attempt }}
   BRANCH_NAME: version-bump-${{ github.run_id }}${{ github.run_attempt }}
