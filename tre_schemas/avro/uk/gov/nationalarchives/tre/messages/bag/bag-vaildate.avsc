@@ -42,25 +42,6 @@
             "doc": "who provided the docx such as FCL|TDR. This may have been passed from the courtdocument-parse"
           },
           {
-            "name": "series",
-            "type": [
-              {
-                "type": "array",
-                "items": "string"
-              },
-              "null"
-            ],
-            "doc": "series of the consignment"
-          },
-          {
-            "name": "transferringBodies",
-            "type": {
-              "type": "array",
-              "items": "string"
-            },
-            "doc": "transferring bodies associated with the consignment"
-          },
-          {
             "name": "s3Bucket",
             "type": "string",
             "doc": "s3 bucket containing package file"
