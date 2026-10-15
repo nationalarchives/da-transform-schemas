@@ -1,4 +1,4 @@
-import sbt.url
+import sbt.uri
 import sbtrelease.ReleasePlugin.autoImport.ReleaseTransformations._
 
 ThisBuild / name := "da-transform-schema"
@@ -6,7 +6,7 @@ ThisBuild / organization := "uk.gov.nationalarchives"
 
 scmInfo := Some(
   ScmInfo(
-    url("https://github.com/nationalarchives/da-transform-schema"),
+    uri("https://github.com/nationalarchives/da-transform-schema"),
     "git@github.com:nationalarchives/da-transform-schema.git"
   )
 )
@@ -19,7 +19,7 @@ developers := List(
     id    = "tna-da-bot",
     name  = "TNA Digital Archiving",
     email = "s-GitHubDABot@nationalarchives.gov.uk",
-    url   = url("https://github.com/nationalarchives/da-transform-schema")
+    url   = uri("https://github.com/nationalarchives/da-transform-schema")
   )
 )
 
@@ -48,8 +48,8 @@ releaseProcess := Seq[ReleaseStep](
 )
 
 description := "Classes to be used by TRE Message producers/consumers"
-licenses := List("MIT" -> new URL("https://choosealicense.com/licenses/mit/"))
-homepage := Some(url("https://github.com/nationalarchives/da-transform-schema"))
+licenses := List(License.MIT)
+homepage := Some(uri("https://github.com/nationalarchives/da-transform-schema"))
 
 
 libraryDependencies += "com.github.andyglow" %% "scala-jsonschema" % "0.7.11"
