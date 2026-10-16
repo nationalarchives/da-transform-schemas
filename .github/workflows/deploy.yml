@@ -26,6 +26,8 @@ jobs:
           passphrase: ${{ secrets.GPG_PASSPHRASE }}
       - uses: sbt/setup-sbt@ecad189dd245444b9ae0a0cd5922fd938b88906f # v1.5.12
       - run: ./.github/scripts/setup.sh
+        env:
+          WORKFLOW_PAT: ${{ secrets.WORKFLOW_PAT }}
 #      - run: |
 #          sbt 'release with-defaults'
 #        env:
