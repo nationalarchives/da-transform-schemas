@@ -32,6 +32,7 @@ jobs:
           git remote set-url origin https://x-access-token:${WORKFLOW_PAT}@github.com/${{ github.repository }}.git
           git checkout -b "$BRANCH_NAME"
           git push -u origin "$BRANCH_NAME"
+          sbt 'release with-defaults'
         env:
           SONATYPE_USERNAME: ${{ secrets.SONATYPE_USERNAME }}
           SONATYPE_PASSWORD: ${{ secrets.SONATYPE_PASSWORD }}
