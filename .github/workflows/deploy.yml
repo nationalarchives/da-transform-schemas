@@ -1,9 +1,11 @@
 name: TRE Deploy Generated Schema
 on:
   workflow_dispatch:
+
 permissions: {
   contents: write
 }
+
 env:
   RUN_NUMBER: ${{ github.run_id }}${{ github.run_attempt }}
   BRANCH_NAME: version-bump-${{ github.run_id }}${{ github.run_attempt }}
@@ -24,21 +26,12 @@ jobs:
           passphrase: ${{ secrets.GPG_PASSPHRASE }}
       - uses: sbt/setup-sbt@ecad189dd245444b9ae0a0cd5922fd938b88906f # v1.5.12
       - run: ./.github/scripts/setup.sh
-      - run: |
-          sbt 'release with-defaults'
-        env:
-          SONATYPE_USERNAME: ${{ secrets.SONATYPE_USERNAME }}
-          SONATYPE_PASSWORD: ${{ secrets.SONATYPE_PASSWORD }}
+#      - run: |
+#          sbt 'release with-defaults'
+#        env:
+#          SONATYPE_USERNAME: ${{ secrets.SONATYPE_USERNAME }}
+#          SONATYPE_PASSWORD: ${{ secrets.SONATYPE_PASSWORD }}
       - name: Create Pull Request
-        run: |
-          gh api \
-          --method POST \
-          -H "Accept: application/vnd.github+json" \
-          -H "X-GitHub-Api-Version: 2022-11-28" \
-          /repos/nationalarchives/da-transform-schemas/pulls \
-          -f title='Sonatype release' \
-          -f body='A release has been made and version bumped. Please approve and merge' \
-          -f head=$BRANCH_NAME \
-          -f base='main'
+        run: gh pr create --fill --label 'Version bump'
         env:
           GITHUB_TOKEN: ${{ secrets.WORKFLOW_PAT }}
