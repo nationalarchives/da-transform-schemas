@@ -59,7 +59,7 @@ libraryDependencies ++= Seq(
 )
 libraryDependencies += "org.scalatest" %% "scalatest" % "3.2.20" % Test
 
-scalaVersion := "2.13.18"
+scalaVersion := "3.10.0"
 
 Compile / sourceGenerators += (Compile / avroScalaGenerate).taskValue
 (Compile / avroSourceDirectories) += new java.io.File(s"${baseDirectory.value}/tre_schemas/avro")
