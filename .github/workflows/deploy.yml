@@ -2,9 +2,9 @@ name: TRE Deploy Generated Schema
 on:
   workflow_dispatch:
 
-permissions: {
+permissions:
   contents: write
-}
+  pull-requests: write
 
 env:
   RUN_NUMBER: ${{ github.run_id }}${{ github.run_attempt }}
@@ -14,8 +14,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-        with:
-          persist-credentials: false
       - name: Import GPG key
         id: import_gpg
         uses: crazy-max/ghaction-import-gpg@2dc316deee8e90f13e1a351ab510b4d5bc0c82cd # v7.0.0
@@ -28,15 +26,13 @@ jobs:
       - run: |
           git config --global user.email 181243999+tna-da-bot@users.noreply.github.com
           git config --global user.name tna-da-bot
-          git remote set-url origin https://x-access-token:${WORKFLOW_PAT}@github.com/${{ github.repository }}.git
           git checkout -b "$BRANCH_NAME"
           git push -u origin "$BRANCH_NAME"
           sbt 'release with-defaults'
         env:
           SONATYPE_USERNAME: ${{ secrets.SONATYPE_USERNAME }}
           SONATYPE_PASSWORD: ${{ secrets.SONATYPE_PASSWORD }}
-          WORKFLOW_PAT: ${{ secrets.WORKFLOW_PAT }}
       - name: Create Pull Request
         run: gh pr create --fill --label 'Version bump'
         env:
-          GITHUB_TOKEN: ${{ secrets.WORKFLOW_PAT }}
+          GH_TOKEN: ${{ github.token }}
